@@ -254,6 +254,12 @@ html.aiwb-text-xl { font-size: 125%; }
   background: var(--ds-card-color, var(--ds-color-primary));
 }
 
+/* Fons diferenciat quan no es pot dir amb confiança on és l'esdeveniment
+   (vegeu renderEventCard a ui.js) — dos nivells de gravetat, reutilitzant
+   els tons ja definits a la skin (avís/perill) en lloc d'inventar-ne. */
+.aiwb-card--no-venue { background: var(--ds-color-danger-bg); }
+.aiwb-card--venue-unmapped { background: var(--ds-color-warning-bg); }
+
 .aiwb-card__top {
   display: flex;
   align-items: center;
@@ -323,6 +329,52 @@ html.aiwb-text-xl { font-size: 125%; }
   overflow: hidden;
 }
 
+/* Caixeta de rellevància personal (vegeu relevanceBox a ui.js) — puntuació
+   1-10 sobre els 3 eixos d'interès triats per l'usuari + 3 aspectes que
+   l'expliquen. Fons neutre sempre; només la vora esquerra i el número
+   canvien de color segons el nivell, perquè el color mai sigui l'únic
+   senyal (el número i el text sempre hi són). */
+.aiwb-card__relevance {
+  margin: 0 0 var(--ds-space-2);
+  padding: var(--ds-space-2) var(--ds-space-3);
+  background: var(--ds-color-surface-alt);
+  border-left: 3px solid var(--ds-color-muted);
+  border-radius: var(--ds-radius-sm);
+}
+.aiwb-card__relevance--high { border-left-color: var(--ds-color-success); }
+.aiwb-card__relevance--mid { border-left-color: var(--ds-color-primary); }
+.aiwb-card__relevance--low { border-left-color: var(--ds-color-muted); }
+
+.aiwb-card__relevance-score {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--ds-color-muted);
+}
+.aiwb-card__relevance--high .aiwb-card__relevance-score { color: var(--ds-color-success); }
+.aiwb-card__relevance--mid .aiwb-card__relevance-score { color: var(--ds-color-primary); }
+.aiwb-card__relevance-score i { margin-right: 4px; }
+
+.aiwb-card__relevance-reasons {
+  margin: var(--ds-space-1) 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ds-space-1) var(--ds-space-2);
+}
+.aiwb-card__relevance-reasons li {
+  font-size: 0.72rem;
+  color: var(--ds-color-muted);
+  position: relative;
+  padding-left: var(--ds-space-2);
+}
+.aiwb-card__relevance-reasons li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+}
+
 .aiwb-card__time {
   margin: 0 0 var(--ds-space-1);
   font-size: 0.78rem;
@@ -338,8 +390,10 @@ html.aiwb-text-xl { font-size: 125%; }
   color: var(--ds-color-muted);
   display: flex;
   align-items: flex-start;
-  gap: 4px;
+  flex-wrap: wrap;
+  gap: 4px var(--ds-space-2);
 }
+.aiwb-card__venue .ds-badge { flex-shrink: 0; }
 .aiwb-card__venue i { margin-top: 2px; flex-shrink: 0; color: var(--ds-color-primary); }
 
 .aiwb-card__venue-text {

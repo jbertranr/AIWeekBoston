@@ -6,6 +6,7 @@
   let mods = null;
   let catalog = null;
   let filters = { day: "", format: "", neighborhood: "", organizerId: "", preferits: false, pendents: false };
+  let sortMode = "chrono";
 
   function wallClockNow() {
     const mode = mods.state.getPlanMode();
@@ -56,12 +57,23 @@
       return true;
     });
 
-    results.sort((a, b) => {
-      const ad = `${a.date} ${a.startTime || "99:99"}`;
-      const bd = `${b.date} ${b.startTime || "99:99"}`;
-      if (ad !== bd) return ad.localeCompare(bd);
-      return a.title.localeCompare(b.title, "ca");
-    });
+    if (sortMode === "relevance") {
+      results.sort((a, b) => {
+        const as = a.relevanceScore ?? 0;
+        const bs = b.relevanceScore ?? 0;
+        if (as !== bs) return bs - as;
+        const ad = `${a.date} ${a.startTime || "99:99"}`;
+        const bd = `${b.date} ${b.startTime || "99:99"}`;
+        return ad.localeCompare(bd);
+      });
+    } else {
+      results.sort((a, b) => {
+        const ad = `${a.date} ${a.startTime || "99:99"}`;
+        const bd = `${b.date} ${b.startTime || "99:99"}`;
+        if (ad !== bd) return ad.localeCompare(bd);
+        return a.title.localeCompare(b.title, "ca");
+      });
+    }
 
     countEl.textContent = `${results.length} ${results.length === 1 ? "esdeveniment" : "esdeveniments"}`;
 
@@ -121,6 +133,9 @@
 
     const organizerSelect = document.getElementById("aiwb-filter-organizer");
     organizerSelect.addEventListener("change", () => { filters.organizerId = organizerSelect.value; render(); });
+
+    const sortSelect = document.getElementById("aiwb-sort");
+    sortSelect.addEventListener("change", () => { sortMode = sortSelect.value; render(); });
   }
 
   // Només valors que realment apareixen al catàleg, ordenats.

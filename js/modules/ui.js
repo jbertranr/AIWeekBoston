@@ -145,6 +145,22 @@ export function renderEventCard(item, { wallClock, startingSoonMinutes, onOpen, 
   // distingeixin d'un cop d'ull en una llista llarga.
   card.style.setProperty("--ds-card-color", `var(${formatMeta(item.format).colorVar})`);
 
+  // Fons diferenciat quan no es pot dir amb confiança on és l'esdeveniment
+  // (a petició de l'usuari, 13/09/2026) — dos nivells, no un de sol:
+  // "venueStatus: pending" vol dir que ni la font original en sap el nom
+  // (més greu, "Sense seu confirmada"); si el nom sí que es coneix però
+  // encara no s'ha pogut geocodificar, és només "sense ubicar al mapa"
+  // (més lleu — la seu existeix, no hi ha ruta a peu ni pin, però se sap
+  // on cal anar/preguntar).
+  const venueUnknown = item.venueStatus === "pending";
+  // Els esdeveniments virtuals (coordinateStatus "not-applicable") no
+  // porten coordenades a propòsit — no és una dada que falti, no es marquen.
+  const venueUnmapped = !venueUnknown && item.venue
+    && item.venue.coordinateStatus !== "not-applicable"
+    && !item.venue.coordinates;
+  if (venueUnknown) card.classList.add("aiwb-card--no-venue");
+  else if (venueUnmapped) card.classList.add("aiwb-card--venue-unmapped");
+
   const top = el("div", "aiwb-card__top");
   top.append(formatBadge(item.format));
   const recordLabel = recordStatusLabel(item.recordStatus);
@@ -187,6 +203,8 @@ export function renderEventCard(item, { wallClock, startingSoonMinutes, onOpen, 
   if (item.topic) {
     text.append(el("p", "aiwb-card__topic", item.topic));
   }
+  const relBox = relevanceBox(item);
+  if (relBox) text.append(relBox);
 
   const timeLine = el("p", "aiwb-card__time");
   const cal = document.createElement("i");
@@ -198,13 +216,20 @@ export function renderEventCard(item, { wallClock, startingSoonMinutes, onOpen, 
   if (item.venue) {
     const venueLine = el("p", "aiwb-card__venue");
     const pin = document.createElement("i");
-    pin.className = "fa-solid fa-location-dot";
+    pin.className = venueUnknown ? "fa-solid fa-triangle-exclamation" : "fa-solid fa-location-dot";
     pin.setAttribute("aria-hidden", "true");
     venueLine.append(pin);
     const venueText = el("span", "aiwb-card__venue-text");
     venueText.append(el("span", "aiwb-card__venue-name", item.venue.name));
     if (item.venue.neighborhood) venueText.append(el("span", "aiwb-card__venue-neighborhood", item.venue.neighborhood));
     venueLine.append(venueText);
+    // El color de fons de la targeta ja ho marca, però mai només amb
+    // color — una etiqueta de text explica el perquè.
+    if (venueUnknown) {
+      venueLine.append(el("span", "ds-badge ds-badge--sm ds-badge--danger", "Sense seu confirmada"));
+    } else if (venueUnmapped) {
+      venueLine.append(el("span", "ds-badge ds-badge--sm ds-badge--warn", "Sense ubicar al mapa"));
+    }
     text.append(venueLine);
   }
 
@@ -248,6 +273,32 @@ export function renderVenueGroup(group, { wallClock, startingSoonMinutes, onOpen
   }
   wrap.append(list);
   return wrap;
+}
+
+// Rellevància personal (13/09/2026, a petició de l'usuari): puntuació 1-10 +
+// 3 aspectes, calculats a mà (no en temps real) per Claude sobre els 3 eixos
+// d'interès que l'usuari va triar explícitament — no és cap mètrica
+// objectiva, és un judici editorial d'una sola persona. Documentat a
+// events.json (camps relevanceScore/relevanceReasons) i a index.md.
+function relevanceTier(score) {
+  if (score >= 8) return "high";
+  if (score >= 5) return "mid";
+  return "low";
+}
+function relevanceBox(item) {
+  if (typeof item.relevanceScore !== "number" || !Array.isArray(item.relevanceReasons)) return null;
+  const tier = relevanceTier(item.relevanceScore);
+  const box = el("div", `aiwb-card__relevance aiwb-card__relevance--${tier}`);
+  const scoreEl = el("span", "aiwb-card__relevance-score");
+  const icon = document.createElement("i");
+  icon.className = "fa-solid fa-bullseye";
+  icon.setAttribute("aria-hidden", "true");
+  scoreEl.append(icon, document.createTextNode(` ${item.relevanceScore}/10 per a tu`));
+  box.append(scoreEl);
+  const reasons = el("ul", "aiwb-card__relevance-reasons");
+  item.relevanceReasons.forEach((r) => reasons.append(el("li", null, r)));
+  box.append(reasons);
+  return box;
 }
 
 function fitxaOrganizerBlock(item) {

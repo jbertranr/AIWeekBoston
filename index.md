@@ -74,6 +74,12 @@ actualitzar la còpia local amb canvis posteriors del compartit, cal l'acció ex
 - **Icona pròpia:** monograma neutre inventat (`assets/icons/icon.svg`, motiu abstracte de
   nodes/connexions que evoca una xarxa/IA, en els colors dels tokens de `skin-neutra`) —
   **no** cap logotip real de Boston AI Week ni de cap organitzador.
+- **Eixos d'interès per a la puntuació de rellevància personal** (13/09/2026, triats
+  explícitament per l'usuari via `AskUserQuestion`, no assumits): (1) governança i IA
+  responsable al sector públic, (2) IA aplicada / eines i productes, (3) enginyeria i
+  infraestructura tècnica. **Explícitament exclòs:** startups/inversió/ecosistema/networking.
+  Si es torna a calcular la puntuació (nou esdeveniment, revisió), fer-ho servir aquests
+  mateixos 3 eixos sense repreguntar — vegeu «Puntuació de rellevància personal» més avall.
 
 ## Arquitectura
 
@@ -182,7 +188,11 @@ començar la recerca de dades):
   "venueStatus": "confirmed|tentative|pending",
   "recordStatus": "confirmed|tentative|pending",
   "retrievalMethod": "official-site|luma|eventbrite|meetup|partiful|press|social-media|pending",
-  "notesCa": "string"
+  "notesCa": "string",
+  "relevanceScore": 0, // afegit 13/09/2026: 1-10, judici EDITORIAL fet a mà (no una
+  // mètrica objectiva) sobre els 3 eixos d'interès de «Decisions per defecte» — vegeu
+  // § «Puntuació de rellevància personal» més avall.
+  "relevanceReasons": ["string", "string", "string"] // exactament 3, sempre
 }
 
 // data/coverage.json → objecte (no array)
@@ -381,6 +391,35 @@ clica el menú de veritat el reprodueix.
   Verificat amb Playwright: canviar a mode "Planificar" des d'"Ara", navegar per tot l'app pel
   menú (el subtítol de cada pantalla es manté correcte i no es corromp) i tornar a "Ara" (el
   mode i la data/hora triats persisteixen via `localStorage`, com ja passava abans).
+
+## Puntuació de rellevància personal (13/09/2026)
+
+A petició de l'usuari: cada esdeveniment porta una "caixeta" a la targeta amb una
+puntuació d'1 a 10 ("Rellevància per a tu") i exactament 3 aspectes curts que
+l'expliquen (`renderEventCard`/`relevanceBox` a `js/modules/ui.js`), i Explora té un
+selector d'ordenació nou ("Cronològic" / "Rellevància per a tu", `#aiwb-sort` a
+`index.html` + `sortMode` a `explora.js`).
+
+**Important, per no confondre-ho amb la resta de dades del catàleg (que sí que són
+objectives i verificables — descripcions raspades, coordenades geocodificades):**
+`relevanceScore`/`relevanceReasons` (`data/events.json`) són un **judici editorial fet
+a mà per Claude, una sola vegada, sobre els 3 eixos d'interès d'una sola persona**
+(«Decisions per defecte» més amunt) — **no** surt de cap font externa, no és una mètrica
+objectiva, i no s'ha de presentar mai com si ho fos. Metodologia seguida: lectura del
+títol + format + organitzador + `description` de cada un dels 173 esdeveniments,
+puntuant més amunt contingut de governança/ètica/regulació d'IA, tallers o xerrades
+tècniques d'enginyeria/agents, i casos d'ús aplicats reals; puntuant més avall el pur
+networking/festes/sopars executius i el contingut centrat en vendes/finançament/VC
+(eix explícitament exclòs). Esdeveniments recurrents de la mateixa sèrie (p. ex. "Boat
+Rides", "MIT Future Fest", "BDMT Global Innovator Summit") reben la mateixa puntuació a
+cada dia/instància, per coherència.
+
+**Si es refà aquesta puntuació en el futur** (nous esdeveniments importats, o l'usuari
+canvia d'interessos): reutilitza els 3 eixos ja fixats a «Decisions per defecte» sense
+repreguntar-los, tret que l'usuari indiqui explícitament que han canviat. L'script
+puntual fet servir (`apply-relevance.cjs`, no versionat — vivia al scratchpad de la
+sessió) validava que el mapa de puntuacions cobrís exactament els ids d'`events.json`
+(ni en faltés ni en sobrés cap) abans d'escriure.
 
 ## Comandes de verificació
 
