@@ -35,6 +35,47 @@ export function requestLocation() {
   });
 }
 
+/**
+ * Seguiment en viu de la ubicació — NOMÉS mentre l'usuari l'ha activat
+ * explícitament a la pantalla "Mapa" (mai a l'arrencada, mai en segon
+ * pla): cada canvi de posició del dispositiu crida onUpdate. Qui crida
+ * aquesta funció és responsable de parar-la amb stopWatchingLocation()
+ * en sortir de la pantalla — vegeu js/mapa.js.
+ * @returns {number|null} watchId (per aturar-lo), o null si no hi ha suport.
+ */
+export function watchLocation(onUpdate, onError) {
+  if (!("geolocation" in navigator)) {
+    onError({ code: "unsupported", messageCa: "Aquest dispositiu o navegador no ofereix geolocalització." });
+    return null;
+  }
+  return navigator.geolocation.watchPosition(
+    (pos) => {
+      onUpdate({
+        lat: pos.coords.latitude,
+        lng: pos.coords.longitude,
+        accuracyM: pos.coords.accuracy
+      });
+    },
+    (err) => {
+      const map = {
+        1: { code: "denied", messageCa: "Has denegat el permís d'ubicació." },
+        2: { code: "unavailable", messageCa: "La ubicació no està disponible ara mateix." },
+        3: { code: "timeout", messageCa: "S'ha exhaurit el temps d'espera per obtenir la ubicació." }
+      };
+      onError(map[err.code] || { code: "unknown", messageCa: "No s'ha pogut obtenir la ubicació." });
+    },
+    { enableHighAccuracy: true, timeout: 15000, maximumAge: 5000 }
+  );
+}
+
+/** Atura un seguiment en viu iniciat amb watchLocation(). Segur de cridar
+    amb null/undefined (no fa res). */
+export function stopWatchingLocation(watchId) {
+  if (watchId != null && "geolocation" in navigator) {
+    navigator.geolocation.clearWatch(watchId);
+  }
+}
+
 /** Distància en línia recta (Haversine), en km — MAI metres reals de carrer. */
 export function straightLineKm(a, b) {
   const R = 6371;

@@ -1,0 +1,87 @@
+{
+  "parkAndRide": [
+    {
+      "id": "alewife",
+      "name": "Alewife (Red Line)",
+      "line": "Red Line",
+      "address": "11 Cambridgepark Drive, Cambridge, MA 02140",
+      "lat": 42.396002,
+      "lng": -71.1412774,
+      "spaces": 2733,
+      "coordinateStatus": "approximate",
+      "retrievalMethod": "nominatim",
+      "sourceUrl": "https://www.bostonglobe.com/metro/2019/12/29/get-more-people-where-would-they-park/m8lQOEeD9LIF710CO0hB4I/story.html",
+      "notesCa": "Terminal nord de la Red Line. 2.733 places en garatge — una de les estacions amb més aparcament de tot el sistema MBTA."
+    },
+    {
+      "id": "quincy-adams",
+      "name": "Quincy Adams (Red Line)",
+      "line": "Red Line",
+      "address": "Quincy Adams Busway, Quincy, MA 02269",
+      "lat": 42.233274,
+      "lng": -71.0068894,
+      "spaces": 2538,
+      "coordinateStatus": "approximate",
+      "retrievalMethod": "nominatim",
+      "sourceUrl": "https://www.bostonglobe.com/metro/2019/12/29/get-more-people-where-would-they-park/m8lQOEeD9LIF710CO0hB4I/story.html",
+      "notesCa": "Garatge de 2.538 places construït sobre les vies i andanes."
+    },
+    {
+      "id": "braintree",
+      "name": "Braintree (Red Line)",
+      "line": "Red Line",
+      "address": "197 Ivory Street, Braintree, MA 02184",
+      "lat": 42.2075707,
+      "lng": -71.0016289,
+      "spaces": null,
+      "coordinateStatus": "approximate",
+      "retrievalMethod": "nominatim",
+      "sourceUrl": "https://www.bostonglobe.com/metro/2019/12/29/get-more-people-where-would-they-park/m8lQOEeD9LIF710CO0hB4I/story.html",
+      "notesCa": "Terminal sud de la Red Line (branca Braintree). Nombre exacte de places no confirmat en aquesta ronda."
+    },
+    {
+      "id": "wonderland",
+      "name": "Wonderland (Blue Line)",
+      "line": "Blue Line",
+      "address": "Wonderland Busway, Revere, MA 02151",
+      "lat": 42.4134836,
+      "lng": -70.991668,
+      "spaces": null,
+      "coordinateStatus": "approximate",
+      "retrievalMethod": "nominatim",
+      "sourceUrl": "https://www.bostonglobe.com/metro/2019/12/29/get-more-people-where-would-they-park/m8lQOEeD9LIF710CO0hB4I/story.html",
+      "notesCa": "Terminal nord de la Blue Line. Nombre exacte de places no confirmat en aquesta ronda."
+    },
+    {
+      "id": "oak-grove",
+      "name": "Oak Grove (Orange Line)",
+      "line": "Orange Line",
+      "address": "295 Washington Street, Malden, MA 02148",
+      "lat": 42.437269,
+      "lng": -71.0709136,
+      "spaces": null,
+      "coordinateStatus": "approximate",
+      "retrievalMethod": "nominatim",
+      "sourceUrl": "https://www.bostonglobe.com/metro/2019/12/29/get-more-people-where-would-they-park/m8lQOEeD9LIF710CO0hB4I/story.html",
+      "notesCa": "Terminal nord de l'Orange Line. Nombre exacte de places no confirmat en aquesta ronda."
+    },
+    {
+      "id": "riverside",
+      "name": "Riverside (Green Line D)",
+      "line": "Green Line D",
+      "address": "367 Grove Street, Newton, MA 02466",
+      "lat": 42.3373091,
+      "lng": -71.2525895,
+      "spaces": 925,
+      "coordinateStatus": "approximate",
+      "retrievalMethod": "nominatim",
+      "sourceUrl": "https://mass.streetsblog.org/2024/08/26/new-plans-for-riverside-green-line-stati-call-for-more-housing-less-parking",
+      "notesCa": "Terminal oest de la branca D de la Green Line. Aparcament de superfície (no garatge), 925 places amb tarifa de 6$."
+    }
+  ],
+  "meta": {
+    "lastUpdated": "2026-09-13",
+    "criteria": "Seleccionats els grans P+R de final de línia del metro de Boston (Red/Blue/Orange/Green D) documentats públicament amb capacitat significativa — no la llista completa dels ~100 aparcaments que gestiona l'MBTA (majoritàriament a estacions de tren de rodalia petites, no rellevants per arribar als esdeveniments de Boston AI Week).",
+    "notesCa": "Coordenades de l'estació via Nominatim (OpenStreetMap), no del garatge/aparcament exacte — aproximades. Capacitat (spaces) només quan s'ha trobat una font pública que la confirmi; null en cas contrari, mai inventada."
+  }
+}

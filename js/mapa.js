@@ -8,10 +8,13 @@
 (function () {
   let mods = null;
   let map = null;
+  let clusterGroup = null; // agrupa els marcadors de seu (evita el clúster dens de 37/40 solapats)
   let markers = []; // { marker, group }
   let formatFilter = "tots";
   let youAreHereMarker = null;
   let youAreHereCircle = null;
+  let watchId = null; // seguiment en viu actiu (null = aturat)
+  let liveFirstFix = true;
 
   function wallClockNow() {
     const mode = mods.state.getPlanMode();
@@ -94,8 +97,14 @@
     });
   }
 
+  // Bug real (13/09/2026): amb els ~40 marcadors de seu del catàleg real,
+  // 37/40 queden a <24px els uns dels altres en la vista inicial (fitBounds
+  // sobre tota l'àrea del festival) — el marcador de sobre intercepta el
+  // clic dels de sota i sembla que "el clic no funciona". Solució: agrupar-
+  // los amb Leaflet.markercluster (spiderfy en apropar-se prou) en lloc
+  // d'afegir-los directament al mapa.
   function renderMarkers(catalog) {
-    markers.forEach((m) => map.removeLayer(m.marker));
+    clusterGroup.clearLayers();
     markers = [];
 
     let events = catalog.events;
@@ -109,13 +118,84 @@
         icon: formatIcon(groupFormatKey(group))
       });
       marker.on("click", () => openVenueModal(group));
-      marker.addTo(map);
+      clusterGroup.addLayer(marker);
       markers.push({ marker, group });
     }
 
     if (groups.length && markers.length) {
       const bounds = L.latLngBounds(groups.map((g) => [g.venue.coordinates.lat, g.venue.coordinates.lng]));
       map.fitBounds(bounds, { padding: [30, 30], maxZoom: 16 });
+    }
+  }
+
+  // Marcadors fixos de Park + Ride (aparcaments grans de final de línia de
+  // metro) — no depenen del catàleg d'esdeveniments ni del filtre de
+  // format, sempre visibles, mai agrupats amb els de seu (són una capa de
+  // referència, no un resultat de cerca).
+  function parkAndRideIcon() {
+    return L.divIcon({
+      className: "aiwb-map-marker aiwb-map-marker--parkride",
+      html: '<i class="fa-solid fa-square-parking" aria-hidden="true"></i>',
+      iconSize: [28, 28],
+      iconAnchor: [14, 26],
+      popupAnchor: [0, -24]
+    });
+  }
+
+  function openParkRideModal(pr) {
+    document.getElementById("dlg-venue-title").textContent = pr.name;
+    const body = document.getElementById("dlg-venue-body");
+    body.replaceChildren();
+
+    const meta = document.createElement("p");
+    meta.className = "ds-text ds-text--sm ds-text--muted";
+    const bits = ["Park + Ride", pr.line];
+    if (pr.spaces) bits.push(`${pr.spaces.toLocaleString("ca")} places`);
+    meta.textContent = bits.join(" · ");
+    body.append(meta);
+
+    if (pr.address) {
+      const addr = document.createElement("p");
+      addr.className = "ds-text ds-text--sm";
+      addr.textContent = pr.address;
+      body.append(addr);
+    }
+
+    const link = document.createElement("a");
+    link.className = "ds-button ds-button--sm";
+    link.href = `https://www.google.com/maps/dir/?api=1&destination=${pr.lat},${pr.lng}`;
+    link.target = "_blank";
+    link.rel = "noopener";
+    link.textContent = "Com arribar en cotxe";
+    const linkIcon = document.createElement("i");
+    linkIcon.className = "fa-solid fa-car";
+    linkIcon.setAttribute("aria-hidden", "true");
+    link.prepend(linkIcon, " ");
+    body.append(link);
+
+    if (window.DSModal) window.DSModal.obre("dlg-venue");
+    else document.getElementById("dlg-venue").showModal();
+  }
+
+  async function renderParkAndRide() {
+    let data;
+    try {
+      const res = await fetch(window.APP.dataFiles.parkAndRide, { cache: "no-cache" });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      data = await res.json();
+    } catch (err) {
+      console.warn("[mapa] no s'ha pogut carregar park-and-ride.json", err);
+      return;
+    }
+    for (const pr of data.parkAndRide || []) {
+      if (typeof pr.lat !== "number" || typeof pr.lng !== "number") continue;
+      const marker = L.marker([pr.lat, pr.lng], {
+        title: `${pr.name} — Park + Ride`,
+        icon: parkAndRideIcon(),
+        zIndexOffset: 500
+      });
+      marker.on("click", () => openParkRideModal(pr));
+      marker.addTo(map);
     }
   }
 
@@ -128,48 +208,109 @@
     });
   }
 
-  // Ubicació sota demanda (mai a l'arrencada, mateix patró que ara.js):
-  // un punt blau al mapa + cercle de precisió, i centra/apropa el mapa
-  // a la ubicació. Es pot tornar a clicar per actualitzar-la.
+  function placeYouAreHere(loc) {
+    if (youAreHereMarker) map.removeLayer(youAreHereMarker);
+    if (youAreHereCircle) map.removeLayer(youAreHereCircle);
+    youAreHereMarker = L.marker([loc.lat, loc.lng], {
+      icon: L.divIcon({ className: "aiwb-map-you-are-here", iconSize: [16, 16], iconAnchor: [8, 8] }),
+      zIndexOffset: 1000,
+      title: "La teva ubicació"
+    }).addTo(map);
+    youAreHereCircle = L.circle([loc.lat, loc.lng], {
+      radius: loc.accuracyM, color: "#1857c4", weight: 1, fillOpacity: 0.08
+    }).addTo(map);
+  }
+
+  function clearYouAreHere() {
+    if (youAreHereMarker) { map.removeLayer(youAreHereMarker); youAreHereMarker = null; }
+    if (youAreHereCircle) { map.removeLayer(youAreHereCircle); youAreHereCircle = null; }
+  }
+
+  // Aturar el seguiment — cridat en parar manualment (clic al botó) i en
+  // sortir de la pantalla "Mapa" (vegeu init()): "sota demanda, mai en
+  // segon pla" (norma del projecte) vol dir que un watchPosition actiu no
+  // pot sobreviure a la navegació cap a una altra pantalla.
+  function stopLiveTracking() {
+    if (watchId != null && mods && mods.geo) {
+      mods.geo.stopWatchingLocation(watchId);
+    }
+    watchId = null;
+    const btn = document.getElementById("btn-map-locate");
+    if (btn) {
+      btn.classList.remove("is-tracking");
+      btn.setAttribute("aria-pressed", "false");
+      btn.setAttribute("aria-label", "Mostra la meva ubicació al mapa en viu");
+      const icon = btn.querySelector("i");
+      if (icon) icon.className = "fa-solid fa-location-crosshairs";
+    }
+  }
+
+  // Ubicació en viu (mai a l'arrencada — només quan l'usuari prem el
+  // botó): un punt blau que es va actualitzant amb watchPosition mentre
+  // estigui activat. El primer punt rebut centra/apropa el mapa; els
+  // següents només mouen el punt (no torna a centrar sol, per no
+  // "estirar" el mapa si l'usuari l'ha desplaçat manualment). Prement el
+  // botó una segona vegada s'atura i s'amaga el punt.
   function wireLocate() {
     const btn = document.getElementById("btn-map-locate");
     const statusEl = document.getElementById("aiwb-map-locate-status");
     if (!btn) return;
-    btn.addEventListener("click", async () => {
-      btn.disabled = true;
+    btn.addEventListener("click", () => {
+      if (watchId != null) {
+        stopLiveTracking();
+        clearYouAreHere();
+        statusEl.hidden = true;
+        return;
+      }
+
       statusEl.hidden = true;
       const icon = btn.querySelector("i");
       icon.className = "fa-solid fa-spinner fa-spin";
-      try {
-        const loc = await mods.geo.requestLocation();
-        if (youAreHereMarker) map.removeLayer(youAreHereMarker);
-        if (youAreHereCircle) map.removeLayer(youAreHereCircle);
-        youAreHereMarker = L.marker([loc.lat, loc.lng], {
-          icon: L.divIcon({ className: "aiwb-map-you-are-here", iconSize: [16, 16], iconAnchor: [8, 8] }),
-          zIndexOffset: 1000,
-          title: "La teva ubicació"
-        }).addTo(map);
-        youAreHereCircle = L.circle([loc.lat, loc.lng], {
-          radius: loc.accuracyM, color: "#1857c4", weight: 1, fillOpacity: 0.08
-        }).addTo(map);
-        map.setView([loc.lat, loc.lng], Math.max(map.getZoom(), 15));
-        if (loc.accuracyM > 100) {
-          statusEl.textContent = `Precisió baixa (±${Math.round(loc.accuracyM)} m).`;
+      liveFirstFix = true;
+
+      watchId = mods.geo.watchLocation(
+        (loc) => {
+          icon.className = "fa-solid fa-location-crosshairs";
+          btn.classList.add("is-tracking");
+          btn.setAttribute("aria-pressed", "true");
+          btn.setAttribute("aria-label", "Seguiment en viu activat — prem per aturar-lo");
+          placeYouAreHere(loc);
+          if (liveFirstFix) {
+            map.setView([loc.lat, loc.lng], Math.max(map.getZoom(), 15));
+            liveFirstFix = false;
+          }
+          statusEl.hidden = loc.accuracyM <= 100;
+          if (!statusEl.hidden) statusEl.textContent = `Precisió baixa (±${Math.round(loc.accuracyM)} m).`;
+        },
+        (err) => {
+          // Només un error PERMANENT (permís denegat) para el seguiment.
+          // "unavailable"/"timeout" són transitoris (GPS sense senyal un
+          // moment, xarxa lenta...): el watchPosition natiu del navegador
+          // segueix actiu tot sol i tornarà a cridar amb la següent
+          // posició vàlida — aturar-lo aquí el trencaria innecessàriament.
+          if (err.code === "denied") {
+            stopLiveTracking();
+          }
+          statusEl.textContent = err.code === "denied"
+            ? `No s'ha pogut activar el seguiment: ${err.messageCa}`
+            : `Ubicació momentàniament no disponible: ${err.messageCa}`;
           statusEl.hidden = false;
         }
-      } catch (err) {
-        statusEl.textContent = `No s'ha pogut obtenir la ubicació: ${err.messageCa}`;
-        statusEl.hidden = false;
-      } finally {
-        btn.disabled = false;
-        icon.className = "fa-solid fa-location-crosshairs";
-      }
+      );
     });
   }
 
   async function init() {
     const mapEl = document.getElementById("aiwb-map");
-    if (!mapEl || typeof L === "undefined") return;
+    if (!mapEl) {
+      // Hem navegat cap a una altra pantalla: #aiwb-map ja no existeix al
+      // DOM (router.js ha substituït #main-content). Un watchPosition
+      // actiu no s'atura sol — cal parar-lo aquí explícitament (norma
+      // "sota demanda, mai en segon pla").
+      stopLiveTracking();
+      return;
+    }
+    if (typeof L === "undefined") return;
     // Guarda SÍNCRONA (abans de qualsevol await) — vegeu el comentari
     // equivalent a visaOffPerpinya/js/mapa.js: evita "Map container is
     // already initialized" quan init() es crida dues vegades seguides.
@@ -198,6 +339,11 @@
       className: "aiwb-map-tiles-soft",
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">contribuïdors d\'OpenStreetMap</a>'
     }).addTo(map);
+
+    clusterGroup = L.markerClusterGroup({ maxClusterRadius: 50, spiderfyOnMaxZoom: true, showCoverageOnHover: false });
+    map.addLayer(clusterGroup);
+
+    renderParkAndRide();
 
     try {
       const { catalog } = await mods.data.loadCatalog();

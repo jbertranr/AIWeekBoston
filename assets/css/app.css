@@ -551,6 +551,7 @@ html.aiwb-text-xl { font-size: 125%; }
 .aiwb-map-marker--community i { color: var(--aiwb-color-community); }
 .aiwb-map-marker--other i { color: var(--ds-color-muted); }
 .aiwb-map-marker--mixed i { color: var(--ds-color-text); }
+.aiwb-map-marker--parkride i { color: #2e6b3e; font-size: 26px; }
 
 /* Suavitza el mapa base OSM — mateix ajust que visaOffPerpinya. */
 .aiwb-map-tiles-soft { filter: saturate(0.55) brightness(1.12) contrast(0.92); }
@@ -569,6 +570,19 @@ html.aiwb-text-xl { font-size: 125%; }
   bottom: calc(env(safe-area-inset-bottom, 0px) + var(--ds-space-3));
   background: var(--ds-color-surface); box-shadow: var(--ds-shadow);
 }
+/* Seguiment en viu actiu: botó destacat en blau perquè quedi clar que la
+   ubicació s'està actualitzant sola (no és un clic puntual). */
+.aiwb-map-locate-btn.is-tracking {
+  background: var(--ds-color-primary);
+  color: #fff;
+}
+.aiwb-map-locate-btn.is-tracking i { color: #fff; }
+
+@keyframes aiwb-live-pulse {
+  0% { box-shadow: 0 0 0 6px color-mix(in srgb, var(--ds-color-primary) 25%, transparent), 0 1px 4px rgba(0, 0, 0, 0.35); }
+  70% { box-shadow: 0 0 0 16px color-mix(in srgb, var(--ds-color-primary) 0%, transparent), 0 1px 4px rgba(0, 0, 0, 0.35); }
+  100% { box-shadow: 0 0 0 6px color-mix(in srgb, var(--ds-color-primary) 25%, transparent), 0 1px 4px rgba(0, 0, 0, 0.35); }
+}
 .aiwb-map-locate-status {
   position: absolute; z-index: 1100;
   right: var(--ds-space-3);
@@ -583,7 +597,7 @@ html.aiwb-text-xl { font-size: 125%; }
   background: var(--ds-color-primary);
   border: 3px solid #fff;
   border-radius: 50%;
-  box-shadow: 0 0 0 6px color-mix(in srgb, var(--ds-color-primary) 25%, transparent), 0 1px 4px rgba(0, 0, 0, 0.35);
+  animation: aiwb-live-pulse 2s ease-out infinite;
 }
 
 /* ── Utilitats ── */

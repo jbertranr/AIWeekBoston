@@ -38,6 +38,7 @@ window.APP = {
     organizers: "data/organizers.json",
     venues: "data/venues.json",
     events: "data/events.json",
-    coverage: "data/coverage.json"
+    coverage: "data/coverage.json",
+    parkAndRide: "data/park-and-ride.json"
   }
 };

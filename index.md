@@ -192,6 +192,14 @@ resta de mòduls (`geo.js`, `ui.js`, `mapa.js`, `ruta.js`) tinguin una única fo
 hi. No hi ha camp `image` a `events.json` (a diferència de `visaOffPerpinya`): cap
 targeta/fitxa mostra fotografia — no hi ha encara cap font de la qual n'hi hagi.
 
+**`data/park-and-ride.json`** (afegit 13/09/2026): NO forma part del catàleg
+d'esdeveniments — és una llista fixa i editorial de grans aparcaments Park + Ride de metro
+(`{ "id", "name", "line", "address", "lat", "lng", "spaces", "coordinateStatus",
+"retrievalMethod", "sourceUrl", "notesCa" }` + un bloc `meta` amb els criteris de selecció).
+Es carrega només des de `js/mapa.js` (`renderParkAndRide()`), no des de
+`modules/data.js`/`loadCatalog()`. `spaces` és `null` quan no s'ha trobat cap font pública
+que confirmi la capacitat — mai un valor inventat.
+
 **Actualitzar el catàleg:** edita els `data/*.json` (o substitueix-los sencers) mantenint
 el mateix esquema, i executa `node validate-catalog.cjs` (arrel del projecte) — comprova
 referències trencades, ids duplicats i coordenades fora de l'àrea de Boston abans de
@@ -219,9 +227,37 @@ publicar. No cal tocar cap fitxer HTML/JS.
   `aiwb-map-marker--<format>` a `app.css`): 9 formats necessiten més varietat de color que
   els 2 tokens `--ds-color-primary`/`--ds-color-accent` que ja hi ha — s'ha afegit una
   petita paleta pròpia (`--aiwb-color-talk`, `--aiwb-color-meetup`,
-  `--aiwb-color-conference`, `--aiwb-color-hackathon`, `--aiwb-color-demonight`) **local a
-  aquesta app**, no un canvi del design-system compartit (mateix patró que `.voff-badge--off`
-  a `visaOffPerpinya`).
+  `--aiwb-color-conference`, `--aiwb-color-hackathon`, `--aiwb-color-demonight`,
+  `--aiwb-color-community`) **local a aquesta app**, no un canvi del design-system compartit
+  (mateix patró que `.voff-badge--off` a `visaOffPerpinya`).
+- **Leaflet.markercluster 1.5.3 vendoritzat** (`assets/vendor/leaflet.markercluster-1.5.3/`,
+  descarregat d'unpkg): bug real (13/09/2026) — amb els ~40 marcadors de seu del catàleg
+  real, 37/40 queden a <24px els uns dels altres en la vista inicial (`fitBounds` sobre tota
+  l'àrea del festival), i el marcador de sobre intercepta el clic dels de sota (confirmat
+  amb Playwright: `locator.click()` fallava dient que un marcador veí "intercepts pointer
+  events"). `js/mapa.js` ara afegeix els marcadors a un `L.markerClusterGroup()` en lloc de
+  directament al mapa — a zoom baix es veu un clúster amb comptador, que en clicar-lo apropa
+  el zoom (i acaba fent "spiderfy" si cal) fins que els marcadors queden prou separats per
+  ser clicables individualment.
+- **Marcadors fixos de Park + Ride** (`data/park-and-ride.json`, 6 estacions de metro amb
+  aparcament gran: Alewife, Quincy Adams, Braintree, Wonderland, Oak Grove, Riverside —
+  seleccionats per ser els grans P+R de final de línia documentats públicament, no els ~100
+  aparcaments que gestiona l'MBTA en total). Capa a part, sempre visible, **no** agrupada
+  amb el `markerClusterGroup` dels esdeveniments (és una capa de referència fixa, no un
+  resultat de cerca ni depèn del filtre de format).
+- **Seguiment de ubicació en viu** (`geo.js` → `watchLocation()`/`stopWatchingLocation()`,
+  basat en `navigator.geolocation.watchPosition`, no `getCurrentPosition` d'un sol tret): el
+  botó de localitzar és ara un interruptor — un clic l'activa (el punt blau es va actualitzant
+  sol, amb un pols animat) i un altre clic l'atura. **Bug real trobat i corregit en aquesta
+  mateixa sessió**: el primer intent aturava tot el seguiment davant de QUALSEVOL error de
+  `watchPosition`, inclosos els transitoris (GPS momentàniament sense senyal) — es va
+  detectar simulant un canvi d'ubicació amb Playwright, que provoca un error `unavailable`
+  intermedi abans d'entregar la posició nova. Ara només un error **permanent** (permís
+  denegat) atura el seguiment; els transitoris només mostren un avís i el
+  `watchPosition` natiu segueix actiu sol. **"Sota demanda, mai en segon pla" es manté**: el
+  seguiment s'atura explícitament en sortir de la pantalla "Mapa" (a `init()`, quan
+  `#aiwb-map` ja no existeix al DOM perquè `router.js` ha canviat de pàgina) — un
+  `watchPosition` actiu no sobreviu mai a la navegació.
 
 ## Normes del projecte
 

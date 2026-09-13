@@ -21,6 +21,8 @@
   <link rel="stylesheet" href="assets/css/components/empty.css">
   <link rel="stylesheet" href="assets/css/components/modal.css">
   <link rel="stylesheet" href="assets/vendor/leaflet1.9.3/leaflet.css">
+  <link rel="stylesheet" href="assets/vendor/leaflet.markercluster-1.5.3/MarkerCluster.css">
+  <link rel="stylesheet" href="assets/vendor/leaflet.markercluster-1.5.3/MarkerCluster.Default.css">
   <link rel="stylesheet" href="assets/css/components/tabbar.css">
   <link rel="stylesheet" href="assets/css/components/typography.css">
   <link rel="stylesheet" href="assets/css/app.css">
@@ -80,7 +82,7 @@
     </div>
     <div id="aiwb-map"></div>
     <p class="ds-text ds-text--sm aiwb-map-locate-status" id="aiwb-map-locate-status" hidden></p>
-    <button class="ds-icon-button aiwb-map-locate-btn" id="btn-map-locate" type="button" aria-label="Mostra la meva ubicació al mapa">
+    <button class="ds-icon-button aiwb-map-locate-btn" id="btn-map-locate" type="button" aria-label="Mostra la meva ubicació al mapa en viu" aria-pressed="false">
       <i class="fa-solid fa-location-crosshairs" aria-hidden="true"></i>
     </button>
     <noscript><p class="ds-text" style="padding:var(--ds-space-4);">El mapa necessita JavaScript. Consulta la llista a «Explora».</p></noscript>
@@ -152,6 +154,7 @@
   </dialog>
 
   <script src="assets/vendor/leaflet1.9.3/leaflet.js"></script>
+  <script src="assets/vendor/leaflet.markercluster-1.5.3/leaflet.markercluster.js"></script>
   <script src="js/fontsize.js"></script>
   <script src="js/navmenu.js"></script>
   <script src="js/mapa.js"></script>
