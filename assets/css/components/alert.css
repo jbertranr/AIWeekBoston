@@ -1,0 +1,96 @@
+/* ============================================================
+   design-system / components / alert.css
+   Model .alert/.callout de ControlDePresencia, generalitzat amb
+   les variants d'estat estàndard del design-system.
+   ============================================================ */
+
+/* --ds-alert-color: color base de la variant (blau primari per
+   defecte) — alimenta la barra esquerra i el botó de tancar. */
+.ds-alert {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--ds-space-3);
+  padding: var(--ds-space-3) var(--ds-space-4);
+  border-radius: var(--ds-radius-sm);
+  background: var(--ds-color-primary-xlight);
+  color: var(--ds-color-text);
+  border-left: 4px solid var(--ds-alert-color, var(--ds-color-primary));
+}
+
+/* Icona d'obertura de l'alerta: ja NO és una <i> solta — es mostra
+   dins una capsa .ds-icon-box (icon.css) amb --solid i variant de
+   color a joc, i border-radius: 50% inline al marcatge perquè quedi
+   circular (icon.css defineix capsa quadrada arrodonida per defecte). */
+.ds-alert__icon {
+  font-size: 1rem;
+  flex-shrink: 0;
+  color: inherit;
+}
+
+.ds-alert--ok {
+  background: var(--ds-color-success-bg);
+  color: var(--ds-color-text);
+  --ds-alert-color: var(--ds-color-success);
+}
+
+.ds-alert--warn {
+  background: var(--ds-color-warning-bg);
+  color: var(--ds-color-text);
+  --ds-alert-color: var(--ds-color-warning);
+}
+
+.ds-alert--danger {
+  background: var(--ds-color-danger-bg);
+  color: var(--ds-color-text);
+  --ds-alert-color: var(--ds-color-danger);
+}
+
+/* Variant discreta, model .doc-card--pending de
+   justificacioGeneralitat/www (vora discontínua sencera, sense barra
+   esquerra sòlida ni botó de tancar). */
+.ds-alert--pending {
+  background: var(--ds-color-surface);
+  border: 1px dashed var(--ds-color-border);
+  color: var(--ds-color-muted);
+  --ds-alert-color: var(--ds-color-muted);
+}
+
+/* Títol en negreta sobre el missatge — recuperat de .alert-title de
+   Tabler UI (docs.tabler.io/ui/components/alerts). Nota: .ds-alert
+   manté align-items: center (regla base) perquè la icona i el text
+   d'una sola línia quedin centrats; si s'usa .ds-alert__body amb
+   títol + text en dues línies, el bloc sencer es centra igualment
+   (no cal flex-start). */
+.ds-alert__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-space-1);
+}
+
+.ds-alert__title {
+  font-weight: 700;
+  margin: 0;
+}
+
+/* Tancable — recuperat de .alert-dismissible de Tabler UI. El botó és
+   un .ds-icon-button (components/button.css) sense vora ni fons. */
+.ds-alert--dismissible {
+  padding-right: var(--ds-space-3);
+}
+
+/* Capsa quadrada tenyida del color de la variant (--ds-alert-color)
+   — mateixa mida/estructura que .ds-icon-button (button.css), amb
+   fons i vora sobreescrits perquè quedi acolorida en lloc de neutra. */
+.ds-alert__close {
+  margin-left: auto;
+  flex-shrink: 0;
+  background: color-mix(in srgb, var(--ds-alert-color, var(--ds-color-primary)) 15%, var(--ds-color-surface));
+  border-color: transparent;
+  color: var(--ds-alert-color, var(--ds-color-primary));
+  opacity: 1;
+}
+
+.ds-alert__close:hover {
+  background: color-mix(in srgb, var(--ds-alert-color, var(--ds-color-primary)) 28%, var(--ds-color-surface));
+}

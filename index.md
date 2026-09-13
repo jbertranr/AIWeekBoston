@@ -421,6 +421,27 @@ puntual fet servir (`apply-relevance.cjs`, no versionat — vivia al scratchpad 
 sessió) validava que el mapa de puntuacions cobrís exactament els ids d'`events.json`
 (ni en faltés ni en sobrés cap) abans d'escriure.
 
+## Còpia de seguretat de preferits/"hi vaig"/ruta (13/09/2026)
+
+L'usuari va perdre tots els preferits: Safari a iOS/Mac esborra l'emmagatzematge local
+(localStorage) dels llocs que no s'obren en uns dies (Intelligent Tracking Prevention) —
+**no és cap error de l'app**, és el preu de no tenir backend (decisió deliberada
+d'aquesta categoria de projecte). Sense backend no hi ha manera de fer-ho "automàtic" de
+veritat (no hi ha núvol on desar-ho); el màxim que es pot fer és:
+
+- **`js/backup.js`** (chrome comú, mateix patró que `planmode.js`): botons "Desa una
+  còpia"/"Restaura una còpia" al menú (`dlg-nav`, a totes 5 pantalles) que baixen/pugen
+  un JSON amb `favorites`/`attendance`/`route`. Restaurar **reemplaça** (no fusiona) el
+  que hi hagi al navegador — es demana confirmació abans.
+- **Recordatori suau**: si hi ha algun preferit/"hi vaig"/parada de ruta i fa ≥3 dies
+  que no s'ha fet cap còpia (`state.getLastBackupAt()`), es mostra un `.ds-alert--warn`
+  (component `alert.css`, copiat del design-system compartit — abans no es feia servir
+  en aquesta app) a `#aiwb-backup-reminder`, just sota la capçalera. Un sol cop per
+  pestanya/sessió (`sessionStorage`, no `localStorage` — es vol que torni a sortir la
+  propera vegada que s'obri l'app si segueix vençut).
+- Explicat també a l'usuari: afegir l'app a la pantalla d'inici (iOS: Compartir → Afegeix
+  a pantalla d'inici) sol quedar exempt del límit de 7 dies de Safari.
+
 ## Comandes de verificació
 
 - `node --check js/*.js js/modules/*.js sw.js` — ha de sortir net.

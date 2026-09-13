@@ -35,6 +35,9 @@ export function toggleFavorite(ev) {
 export function favoriteIds() {
   return readSet(K().favorites);
 }
+export function setFavoriteIds(ids) {
+  writeSet(K().favorites, new Set(ids));
+}
 
 // "Assistència": marca "hi vaig" / "ja hi he anat" — equivalent a
 // "visitades" a visaOffPerpinya, amb el nom adaptat al domini.
@@ -50,6 +53,9 @@ export function toggleAttending(ev) {
 }
 export function attendingIds() {
   return readSet(K().attendance);
+}
+export function setAttendingIds(ids) {
+  writeSet(K().attendance, new Set(ids));
 }
 
 // ── Ruta (llista ordenada d'ids, no de posicions) ──
@@ -107,4 +113,12 @@ export function getPrefs() {
 }
 export function setPrefs(patch) {
   writeJSON(K().prefs, { ...getPrefs(), ...patch });
+}
+
+// ── Recordatori de còpia de seguretat (13/09/2026 — vegeu backup.js) ──
+export function getLastBackupAt() {
+  return readJSON(K().lastBackupAt, null);
+}
+export function setLastBackupAt(isoString) {
+  writeJSON(K().lastBackupAt, isoString);
 }

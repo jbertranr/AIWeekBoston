@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="assets/css/layout.css">
   <link rel="stylesheet" href="assets/css/components/card.css">
   <link rel="stylesheet" href="assets/css/components/badge.css">
+  <link rel="stylesheet" href="assets/css/components/alert.css">
   <link rel="stylesheet" href="assets/css/components/status.css">
   <link rel="stylesheet" href="assets/css/components/button.css">
   <link rel="stylesheet" href="assets/css/components/empty.css">
@@ -51,6 +52,8 @@
       </div>
     </div>
   </header>
+
+  <div id="aiwb-backup-reminder"></div>
 
   <main id="main-content" class="ds-main" tabindex="-1">
 
@@ -115,6 +118,18 @@
           </span>
         </a>
       </nav>
+      <hr class="aiwb-nav-menu__divider">
+      <div class="aiwb-backup-actions">
+        <button class="ds-button ds-button--sm ds-button--ghost" id="btn-backup-save" type="button">
+          <i class="fa-solid fa-download" aria-hidden="true"></i> Desa una còpia
+        </button>
+        <button class="ds-button ds-button--sm ds-button--ghost" id="btn-backup-restore" type="button">
+          <i class="fa-solid fa-upload" aria-hidden="true"></i> Restaura una còpia
+        </button>
+        <input type="file" id="aiwb-backup-file" accept="application/json" hidden>
+      </div>
+      <p class="ds-text ds-text--sm ds-text--muted">Preferits, "hi vaig" i ruta es guarden només en aquest navegador — Safari els pot esborrar si no obres l'app en uns dies. Fes una còpia de tant en tant.</p>
+
     </div>
   </dialog>
 
@@ -153,6 +168,7 @@
   <script src="js/fontsize.js"></script>
   <script src="js/navmenu.js"></script>
   <script src="js/planmode.js"></script>
+  <script src="js/backup.js"></script>
   <script src="js/ara.js"></script>
 </body>
 </html>

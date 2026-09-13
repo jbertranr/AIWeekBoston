@@ -162,6 +162,17 @@ html.aiwb-text-xl { font-size: 125%; }
   color: var(--ds-color-muted);
 }
 
+.aiwb-nav-menu__divider {
+  border: none;
+  border-top: 1px solid var(--ds-color-border);
+  margin: var(--ds-space-3) 0;
+}
+.aiwb-backup-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ds-space-2);
+}
+
 /* Fila de filtres ràpids (Preferits/Pendents). */
 .aiwb-filters {
   display: flex;

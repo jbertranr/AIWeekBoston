@@ -31,7 +31,8 @@ window.APP = {
     planMode: "aiWeekBoston:mode",
     planDateTime: "aiWeekBoston:dataHoraPlanificada",
     prefs: "aiWeekBoston:preferencies",
-    catalogCache: "aiWeekBoston:catalogCache"
+    catalogCache: "aiWeekBoston:catalogCache",
+    lastBackupAt: "aiWeekBoston:ultimaCopia"
   },
 
   dataFiles: {
