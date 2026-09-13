@@ -1,0 +1,15 @@
+{
+  "name": "Boston AI Week 2026",
+  "short_name": "AI Week Boston",
+  "description": "Guia de butxaca independent (no oficial) de tots els esdeveniments de Boston AI Week 2026.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1857c4",
+  "lang": "ca",
+  "icons": [
+    { "src": "assets/icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "assets/icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "maskable" }
+  ]
+}

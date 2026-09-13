@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ca" data-ds-skin="neutra">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Fitxa · Boston AI Week 2026</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#1857c4">
+  <link rel="icon" href="assets/icons/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/skins/skin-neutra.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components/card.css">
+  <link rel="stylesheet" href="assets/css/components/badge.css">
+  <link rel="stylesheet" href="assets/css/components/status.css">
+  <link rel="stylesheet" href="assets/css/components/button.css">
+  <link rel="stylesheet" href="assets/css/components/empty.css">
+  <link rel="stylesheet" href="assets/css/components/modal.css">
+  <link rel="stylesheet" href="assets/css/components/tabbar.css">
+  <link rel="stylesheet" href="assets/css/components/typography.css">
+  <link rel="stylesheet" href="assets/css/app.css">
+  <script src="assets/css/router.js"></script>
+  <script src="assets/css/components/modal.js"></script>
+  <script src="assets/css/components/tabbar.js"></script>
+  <script src="js/config.js"></script>
+</head>
+<body>
+  <a class="ds-skip-link" href="#main-content">Salta al contingut principal</a>
+
+  <header class="aiwb-header-wrap">
+    <div class="ds-site-header">
+      <button class="ds-icon-button aiwb-header__menu-btn" id="btn-open-nav" type="button" aria-haspopup="dialog" aria-controls="dlg-nav" aria-label="Obre el menú de navegació">
+        <i class="fa-solid fa-bars" aria-hidden="true"></i>
+      </button>
+      <div class="ds-site-header__text">
+        <p class="ds-site-header__title">BOSTON AI WEEK 2026</p>
+        <p class="ds-site-header__subtitle">Fitxa d'esdeveniment</p>
+      </div>
+      <div class="aiwb-header__actions">
+        <button class="ds-icon-button aiwb-header__fontsize-btn" id="btn-fontsize" type="button" aria-label="Augmenta la mida de la lletra">
+          <i class="fa-solid fa-text-height" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" class="ds-main" tabindex="-1">
+    <a class="ds-button ds-button--sm ds-button--ghost aiwb-fitxa__back" href="explora.html">
+      <i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Torna
+    </a>
+    <div id="aiwb-fitxa-content" aria-live="polite">
+      <p class="ds-text ds-text--sm ds-text--muted">Carregant…</p>
+    </div>
+  </main>
+
+  <!-- Tabbar amagada temporalment (app.css .ds-tabbar) — substituïda pel
+       menú hamburguesa (#dlg-nav, més avall). Es deixa el codi tal com
+       és per poder-la reactivar sense refer-la. -->
+  <nav class="ds-tabbar" aria-label="Navegació principal">
+    <a class="ds-tabbar__item" data-tab="explora" href="explora.html"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i><span>Explora</span></a>
+    <a class="ds-tabbar__item" data-tab="index" href="index.html"><i class="fa-solid fa-bolt" aria-hidden="true"></i><span>Ara</span></a>
+    <a class="ds-tabbar__item" data-tab="ruta" href="ruta.html"><i class="fa-solid fa-route" aria-hidden="true"></i><span>Ruta<span class="ds-tabbar__badge" id="aiwb-route-badge" hidden>0</span></span></a>
+    <a class="ds-tabbar__item" data-tab="mapa" href="mapa.html"><i class="fa-solid fa-map" aria-hidden="true"></i><span>Mapa</span></a>
+  </nav>
+
+  <dialog class="ds-modal ds-modal--sm" id="dlg-nav" aria-labelledby="dlg-nav-title">
+    <div class="ds-modal__header">
+      <p class="ds-modal__title" id="dlg-nav-title">Menú</p>
+      <button class="ds-icon-button" data-ds-modal-close aria-label="Tanca"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+    </div>
+    <div class="ds-modal__body">
+      <nav class="aiwb-nav-menu" aria-label="Navegació principal">
+        <a class="aiwb-nav-menu__item" data-nav-page="explora" href="explora.html">
+          <span class="aiwb-nav-menu__icon"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></span>
+          <span class="aiwb-nav-menu__text">
+            <span class="aiwb-nav-menu__title">Explora</span>
+            <span class="aiwb-nav-menu__desc">Cerca i filtra tot el catàleg d'esdeveniments.</span>
+          </span>
+        </a>
+        <a class="aiwb-nav-menu__item" data-nav-page="index" href="index.html">
+          <span class="aiwb-nav-menu__icon"><i class="fa-solid fa-bolt" aria-hidden="true"></i></span>
+          <span class="aiwb-nav-menu__text">
+            <span class="aiwb-nav-menu__title">Ara</span>
+            <span class="aiwb-nav-menu__desc">Què comença aviat, què està en curs i què ha acabat avui.</span>
+          </span>
+        </a>
+        <a class="aiwb-nav-menu__item" data-nav-page="ruta" href="ruta.html">
+          <span class="aiwb-nav-menu__icon"><i class="fa-solid fa-route" aria-hidden="true"></i></span>
+          <span class="aiwb-nav-menu__text">
+            <span class="aiwb-nav-menu__title">Ruta</span>
+            <span class="aiwb-nav-menu__desc">La teva selecció d'esdeveniments, agrupada per seu i amb un ordre suggerit.</span>
+          </span>
+        </a>
+        <a class="aiwb-nav-menu__item" data-nav-page="mapa" href="mapa.html">
+          <span class="aiwb-nav-menu__icon"><i class="fa-solid fa-map" aria-hidden="true"></i></span>
+          <span class="aiwb-nav-menu__text">
+            <span class="aiwb-nav-menu__title">Mapa</span>
+            <span class="aiwb-nav-menu__desc">Totes les seus amb coordenades verificades.</span>
+          </span>
+        </a>
+      </nav>
+    </div>
+  </dialog>
+
+  <script src="js/fontsize.js"></script>
+  <script src="js/navmenu.js"></script>
+  <script src="js/fitxa.js"></script>
+</body>
+</html>

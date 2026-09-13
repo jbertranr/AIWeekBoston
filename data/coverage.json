@@ -1,0 +1,15 @@
+{
+  "lastUpdated": "2026-09-13",
+  "officialSiteTotalApproved": 173,
+  "imported": 0,
+  "byRecordStatus": {
+    "confirmed": 0,
+    "tentative": 0,
+    "pending": 0
+  },
+  "sourcesChecked": [],
+  "knownGaps": [
+    "Recerca de dades encara no iniciada — aquest fitxer és l'esquelet inicial (vegeu INFORME_COBERTURA.md)."
+  ],
+  "conflicts": []
+}

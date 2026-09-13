@@ -1,0 +1,599 @@
+/* ============================================================
+   Boston AI Week 2026 — afegits propis (per sobre del design-system
+   compartit). Mòbil-first: dissenyat a 390px, comprovat a 320/360/430
+   i escriptori. Tot fa servir els tokens --ds-color-x / --ds-space-x
+   de la skin activa, amb els overrides locals següents.
+   ============================================================ */
+
+/* [hidden] ha de guanyar sempre. Diversos components d'aquesta app
+   defineixen el seu propi `display` (p. ex. .aiwb-geo-bar/.aiwb-plan-fields
+   amb display:flex): com que l'origen "autor" batega el de l'agent
+   d'usuari encara que l'especificitat empati, la regla nativa
+   [hidden]{display:none} quedaria tapada i `el.hidden = true` no
+   amagaria res (bug real, ja corregit a visaOffPerpinya — es manté
+   aquí des del principi). */
+[hidden] {
+  display: none !important;
+}
+
+/* Paleta local (no és un token del design-system compartit) per als 9
+   formats d'esdeveniment — només s'usa per acolorir el distintiu de
+   format i els marcadors del mapa d'aquesta app. */
+:root {
+  --aiwb-color-talk: #8e44ad;
+  --aiwb-color-meetup: #d81b60;
+  --aiwb-color-conference: #00838f;
+  --aiwb-color-hackathon: #b8860b;
+  --aiwb-color-demonight: #5d4037;
+}
+
+/* Amagat a propòsit: substituïda pel menú hamburguesa (.aiwb-nav-menu,
+   obert des de #btn-open-nav a la capçalera) — mateix patró que
+   visaOffPerpinya. El codi de tabbar.js i #aiwb-route-badge es deixen
+   tal com són (l'element existeix, només no es pinta). */
+.ds-tabbar {
+  display: none;
+}
+
+/* Override local, només d'aquesta app: fons blanc en lloc del gris
+   blavós per defecte de skin-neutra (--ds-color-bg: #eef0f4) — no es
+   toca l'skin compartida perquè no afecti la resta d'apps que la fan
+   servir. */
+:root[data-ds-skin="neutra"] {
+  --ds-color-bg: #ffffff;
+}
+
+/* Evita el desplaçament lateral accidental en gestos tàctils. */
+html, body {
+  overflow-x: hidden;
+  touch-action: pan-y pinch-zoom;
+}
+.ds-modal__body {
+  overflow-x: hidden;
+  touch-action: pan-y pinch-zoom;
+}
+
+/* Mida de lletra (accessibilitat, botó a la capçalera — js/fontsize.js). */
+html.aiwb-text-lg { font-size: 112.5%; }
+html.aiwb-text-xl { font-size: 125%; }
+
+/* ── Capçalera (.ds-site-header del design-system, sticky, sense logo) ── */
+.aiwb-header-wrap {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: var(--ds-color-surface);
+}
+
+.aiwb-header-wrap .ds-site-header {
+  padding: var(--ds-space-2) var(--ds-space-4);
+  gap: var(--ds-space-2);
+  flex-direction: row;
+  align-items: center;
+}
+
+.aiwb-header-wrap .ds-site-header__text {
+  border: none;
+  padding: 0;
+  flex: 1;
+  min-width: 0;
+}
+
+.aiwb-header-wrap .ds-site-header__title {
+  font-size: 0.92rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.aiwb-header-wrap .ds-site-header__subtitle {
+  font-size: 0.68rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.aiwb-header__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--ds-space-1);
+  flex-shrink: 0;
+}
+
+.aiwb-header__date-btn,
+.aiwb-header__fontsize-btn,
+.aiwb-header__menu-btn {
+  flex-shrink: 0;
+}
+
+.aiwb-header-wrap .ds-icon-button {
+  width: 2rem;
+  height: 2rem;
+}
+
+/* ── Menú hamburguesa ── */
+.aiwb-nav-menu {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-space-1);
+}
+
+.aiwb-nav-menu__item {
+  display: flex;
+  align-items: center;
+  gap: var(--ds-space-3);
+  padding: var(--ds-space-3);
+  border-radius: var(--ds-radius);
+  color: inherit;
+  text-decoration: none;
+}
+.aiwb-nav-menu__item:hover,
+.aiwb-nav-menu__item:focus-visible {
+  background: var(--ds-color-surface-alt);
+}
+.aiwb-nav-menu__item.is-active {
+  background: var(--ds-color-primary-xlight);
+}
+
+.aiwb-nav-menu__icon {
+  flex-shrink: 0;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--ds-color-primary-xlight);
+  color: var(--ds-color-primary);
+  font-size: 1.05rem;
+}
+
+.aiwb-nav-menu__text { min-width: 0; }
+.aiwb-nav-menu__title {
+  display: block;
+  font-weight: 700;
+  color: var(--ds-color-text);
+}
+.aiwb-nav-menu__desc {
+  display: block;
+  margin-top: 2px;
+  font-size: 0.82rem;
+  color: var(--ds-color-muted);
+}
+
+/* Fila de filtres ràpids (Preferits/Pendents). */
+.aiwb-filters {
+  display: flex;
+  align-items: center;
+  gap: var(--ds-space-2);
+  padding: var(--ds-space-3) var(--ds-space-4);
+  overflow-x: auto;
+  border-bottom: 1px solid var(--ds-color-border);
+}
+
+/* ── Contingut ── */
+#main-content.ds-main {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: var(--ds-space-4);
+  padding-bottom: calc(var(--ds-space-4) + env(safe-area-inset-bottom, 0px));
+  min-height: calc(100vh - 64px);
+}
+
+.aiwb-section-title {
+  margin: var(--ds-space-5) 0 var(--ds-space-2);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ds-color-muted);
+}
+.aiwb-section-title:first-child { margin-top: 0; }
+
+/* ── Grup per seu ── */
+.aiwb-venue-group {
+  margin-bottom: var(--ds-space-5);
+  padding-bottom: var(--ds-space-4);
+  border-bottom: 1px solid var(--ds-color-border);
+}
+.aiwb-venue-group:last-child { border-bottom: none; }
+
+.aiwb-venue-group__header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  margin-bottom: var(--ds-space-1);
+}
+
+.aiwb-venue-group__title {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--ds-color-primary);
+}
+.aiwb-venue-group__title::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--ds-color-accent);
+  margin-right: var(--ds-space-2);
+  vertical-align: middle;
+}
+
+.aiwb-venue-group__meta {
+  margin: 0;
+  font-size: 0.74rem;
+  color: var(--ds-color-muted);
+}
+
+.aiwb-venue-group__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-space-2);
+}
+
+/* ── Targeta d'esdeveniment ── */
+.aiwb-card {
+  padding: var(--ds-space-3) var(--ds-space-3) var(--ds-space-3) calc(var(--ds-space-3) + 4px);
+  overflow: hidden;
+}
+
+.aiwb-card__top {
+  display: flex;
+  align-items: center;
+  gap: var(--ds-space-2);
+  margin-bottom: var(--ds-space-1);
+  min-height: 0;
+}
+
+.aiwb-card__attending { color: var(--ds-color-success); margin-left: auto; }
+
+.aiwb-card__fav-btn {
+  margin-left: auto;
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  color: var(--ds-color-muted);
+  font-size: 1.05rem;
+  cursor: pointer;
+}
+.aiwb-card__attending ~ .aiwb-card__fav-btn { margin-left: var(--ds-space-1); }
+.aiwb-card__fav-btn:hover { background: var(--ds-color-surface-alt); }
+.aiwb-card__fav-btn.is-active { color: var(--ds-color-warning); }
+
+.aiwb-card__body {
+  display: block;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+  background: transparent;
+  border: none;
+  padding: 0;
+  min-height: 44px;
+  text-decoration: none;
+  color: inherit;
+}
+.aiwb-card__text { min-width: 0; }
+.aiwb-card__body:hover,
+.aiwb-card__body:visited,
+.aiwb-card__body:active { text-decoration: none; color: inherit; }
+
+.aiwb-card__title {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--ds-color-text);
+}
+
+.aiwb-card__organizer {
+  margin: 0 0 var(--ds-space-1);
+  font-size: 0.8rem;
+  color: var(--ds-color-muted);
+}
+
+.aiwb-card__topic {
+  margin: 0 0 var(--ds-space-2);
+  font-size: 0.8rem;
+  color: var(--ds-color-text);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.aiwb-card__time {
+  margin: 0 0 var(--ds-space-1);
+  font-size: 0.78rem;
+  color: var(--ds-color-primary);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.aiwb-card__venue {
+  margin: 0 0 var(--ds-space-2);
+  font-size: 0.74rem;
+  color: var(--ds-color-muted);
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+}
+.aiwb-card__venue i { margin-top: 2px; flex-shrink: 0; color: var(--ds-color-primary); }
+
+.aiwb-card__venue-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.aiwb-card__venue-name { font-weight: 600; }
+.aiwb-card__venue-neighborhood { white-space: normal; overflow-wrap: anywhere; }
+
+.aiwb-card__status { font-size: 0.78rem; }
+
+/* ── Distintius de format (badge local, no és un component nou del
+   design-system compartit — paleta pròpia d'aquesta app). ── */
+.aiwb-badge--summit { background: var(--ds-color-primary-xlight); color: var(--ds-color-primary); }
+.aiwb-badge--panel { background: color-mix(in srgb, var(--ds-color-accent) 16%, var(--ds-color-surface)); color: var(--ds-color-accent); }
+.aiwb-badge--workshop { background: var(--ds-color-success-bg); color: var(--ds-color-success); }
+.aiwb-badge--talk { background: color-mix(in srgb, var(--aiwb-color-talk) 16%, var(--ds-color-surface)); color: var(--aiwb-color-talk); }
+.aiwb-badge--meetup { background: color-mix(in srgb, var(--aiwb-color-meetup) 16%, var(--ds-color-surface)); color: var(--aiwb-color-meetup); }
+.aiwb-badge--conference { background: color-mix(in srgb, var(--aiwb-color-conference) 16%, var(--ds-color-surface)); color: var(--aiwb-color-conference); }
+.aiwb-badge--hackathon { background: color-mix(in srgb, var(--aiwb-color-hackathon) 18%, var(--ds-color-surface)); color: var(--aiwb-color-hackathon); }
+.aiwb-badge--demonight { background: color-mix(in srgb, var(--aiwb-color-demonight) 16%, var(--ds-color-surface)); color: var(--aiwb-color-demonight); }
+.aiwb-badge--other { background: var(--ds-color-surface-alt); color: var(--ds-color-muted); }
+
+/* ── Control de geolocalització ── */
+.aiwb-geo-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--ds-space-2);
+  padding: var(--ds-space-3);
+  margin-bottom: var(--ds-space-3);
+  background: var(--ds-color-surface-alt);
+}
+.aiwb-geo-bar__close { flex-shrink: 0; border-radius: var(--ds-radius); }
+.aiwb-geo-bar__text { flex: 1; font-size: 0.82rem; color: var(--ds-color-muted); }
+
+/* ── Minimapa plegable ── */
+.aiwb-minimap { margin-bottom: var(--ds-space-3); }
+.aiwb-minimap__frame {
+  width: 100%;
+  height: 220px;
+  border-radius: var(--ds-radius);
+  overflow: hidden;
+  border: 1px solid var(--ds-color-border);
+  margin-top: var(--ds-space-2);
+}
+
+/* ── Mode Ara/Planificar ── */
+.aiwb-plan-toggle {
+  display: flex;
+  gap: var(--ds-space-2);
+  margin-bottom: var(--ds-space-3);
+}
+.aiwb-plan-toggle button { flex: 1; }
+
+.aiwb-plan-fields {
+  display: flex;
+  gap: var(--ds-space-2);
+  margin-bottom: var(--ds-space-3);
+}
+.aiwb-plan-fields > * { flex: 1; }
+
+/* ── Explora: barra de filtres (dia / format / barri / organitzador) ── */
+.aiwb-explora-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ds-space-2);
+  margin-bottom: var(--ds-space-2);
+}
+.aiwb-explora-toolbar select {
+  flex: 1 1 140px;
+  min-width: 0;
+}
+.aiwb-explora-results {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: var(--ds-space-3);
+}
+.aiwb-results-pill { flex-shrink: 0; white-space: nowrap; }
+
+/* ── Ruta: parades ── */
+.aiwb-stop {
+  display: flex;
+  align-items: center;
+  gap: var(--ds-space-3);
+  padding: var(--ds-space-3);
+  border: 1px solid var(--ds-color-border);
+  border-radius: var(--ds-radius);
+  margin-bottom: var(--ds-space-2);
+  background: var(--ds-color-surface);
+}
+.aiwb-stop__index {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--ds-color-primary);
+  color: var(--ds-color-ink-on-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+.aiwb-stop__body { flex: 1; min-width: 0; }
+.aiwb-stop__title { margin: 0; font-weight: 700; font-size: 0.9rem; }
+.aiwb-stop__venue { margin: 0; font-size: 0.78rem; color: var(--ds-color-muted); }
+.aiwb-stop__actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-space-1);
+}
+.aiwb-stop.is-provisional { border-style: dashed; }
+
+.aiwb-route-summary {
+  padding: var(--ds-space-3);
+  background: var(--ds-color-surface-alt);
+  border-radius: var(--ds-radius);
+  margin-bottom: var(--ds-space-3);
+  font-size: 0.85rem;
+}
+
+/* ── Fitxa d'esdeveniment ── */
+.aiwb-fitxa__back { margin-bottom: var(--ds-space-3); }
+
+.aiwb-fitxa-card {
+  border: 1px solid var(--ds-color-border);
+  border-radius: var(--ds-radius-lg);
+  background: var(--ds-color-surface);
+  box-shadow: var(--ds-shadow-sm);
+  padding: var(--ds-space-4);
+}
+
+.aiwb-fitxa__bullets {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  row-gap: var(--ds-space-1);
+  column-gap: var(--ds-space-2);
+}
+.aiwb-fitxa__bullets .ds-badge {
+  font-size: 0.66rem;
+  padding: 0.1rem 0.5rem;
+}
+.aiwb-fitxa__bullets .ds-status {
+  font-size: 0.72rem;
+  gap: var(--ds-space-1);
+}
+.aiwb-fitxa__bullets-spacer { flex: 1; min-width: var(--ds-space-2); }
+
+.aiwb-fitxa__bullet-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid var(--ds-color-border);
+  background: var(--ds-color-surface);
+  color: var(--ds-color-muted);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.aiwb-fitxa__bullet-btn.is-active { color: var(--ds-color-warning); border-color: var(--ds-color-warning); }
+.aiwb-fitxa__bullet-btn:nth-of-type(1).is-active { color: var(--ds-color-success); border-color: var(--ds-color-success); }
+.aiwb-fitxa__bullet-btn:nth-of-type(3).is-active { color: var(--ds-color-primary); border-color: var(--ds-color-primary); }
+
+.aiwb-fitxa__divider {
+  border: none;
+  border-top: 2px dotted var(--ds-color-border);
+  margin: var(--ds-space-4) 0;
+}
+
+.aiwb-fitxa__title {
+  margin: var(--ds-space-2) 0 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--ds-color-primary);
+}
+
+.aiwb-fitxa__organizer {
+  margin: var(--ds-space-1) 0 var(--ds-space-3);
+  color: var(--ds-color-muted);
+}
+
+.aiwb-fitxa__actions {
+  display: flex;
+  gap: var(--ds-space-2);
+  flex-wrap: wrap;
+}
+
+.aiwb-fitxa__block h2 {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ds-color-muted);
+  margin: 0 0 var(--ds-space-2);
+}
+
+.aiwb-fitxa__venue-name {
+  font-weight: 700;
+  color: var(--ds-color-primary);
+}
+
+/* ── Mapa: marcadors per format ── */
+.aiwb-map-marker { text-align: center; cursor: pointer; }
+.aiwb-map-marker i {
+  font-size: 30px;
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.35));
+}
+.aiwb-map-marker--summit i { color: var(--ds-color-primary); }
+.aiwb-map-marker--panel i { color: var(--ds-color-accent); }
+.aiwb-map-marker--workshop i { color: var(--ds-color-success); }
+.aiwb-map-marker--talk i { color: var(--aiwb-color-talk); }
+.aiwb-map-marker--meetup i { color: var(--aiwb-color-meetup); }
+.aiwb-map-marker--conference i { color: var(--aiwb-color-conference); }
+.aiwb-map-marker--hackathon i { color: var(--aiwb-color-hackathon); }
+.aiwb-map-marker--demonight i { color: var(--aiwb-color-demonight); }
+.aiwb-map-marker--other i { color: var(--ds-color-muted); }
+.aiwb-map-marker--mixed i { color: var(--ds-color-text); }
+
+/* Suavitza el mapa base OSM — mateix ajust que visaOffPerpinya. */
+.aiwb-map-tiles-soft { filter: saturate(0.55) brightness(1.12) contrast(0.92); }
+
+.aiwb-map-filters {
+  position: absolute; top: var(--ds-space-3); right: var(--ds-space-3); z-index: 1100;
+  display: flex; flex-direction: column; gap: var(--ds-space-1);
+  background: var(--ds-color-surface); padding: var(--ds-space-2);
+  border-radius: var(--ds-radius); box-shadow: var(--ds-shadow);
+  max-width: 200px;
+}
+
+.aiwb-map-locate-btn {
+  position: absolute; z-index: 1100;
+  right: var(--ds-space-3);
+  bottom: calc(env(safe-area-inset-bottom, 0px) + var(--ds-space-3));
+  background: var(--ds-color-surface); box-shadow: var(--ds-shadow);
+}
+.aiwb-map-locate-status {
+  position: absolute; z-index: 1100;
+  right: var(--ds-space-3);
+  bottom: calc(env(safe-area-inset-bottom, 0px) + var(--ds-space-3) + 44px);
+  max-width: 220px;
+  background: var(--ds-color-surface); box-shadow: var(--ds-shadow);
+  padding: var(--ds-space-2) var(--ds-space-3);
+  border-radius: var(--ds-radius);
+}
+.aiwb-map-you-are-here {
+  width: 16px; height: 16px;
+  background: var(--ds-color-primary);
+  border: 3px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 0 6px color-mix(in srgb, var(--ds-color-primary) 25%, transparent), 0 1px 4px rgba(0, 0, 0, 0.35);
+}
+
+/* ── Utilitats ── */
+.aiwb-sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
