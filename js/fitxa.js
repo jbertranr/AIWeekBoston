@@ -13,6 +13,9 @@
     const container = document.getElementById("aiwb-fitxa-content");
     if (!container) return;
 
+    const subtitle = document.getElementById("aiwb-header-subtitle");
+    if (subtitle) subtitle.textContent = "Fitxa d'esdeveniment";
+
     if (!mods) {
       const [storage, status, geo, data, stateMod, ui] = await Promise.all([
         import("./modules/storage.js"),

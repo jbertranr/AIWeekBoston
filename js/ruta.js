@@ -234,6 +234,9 @@
     const container = document.getElementById("aiwb-route-stops");
     if (!container) return;
 
+    const subtitle = document.getElementById("aiwb-header-subtitle");
+    if (subtitle) subtitle.textContent = "Ruta · la teva selecció, per seus";
+
     if (!mods) {
       const [storage, status, geo, data, stateMod, ui] = await Promise.all([
         import("./modules/storage.js"),

@@ -362,6 +362,8 @@
       stopLiveTracking();
       return;
     }
+    const subtitle = document.getElementById("aiwb-header-subtitle");
+    if (subtitle) subtitle.textContent = "Mapa · seus amb coordenades disponibles";
     if (typeof L === "undefined") return;
     // Guarda SÍNCRONA (abans de qualsevol await) — vegeu el comentari
     // equivalent a visaOffPerpinya/js/mapa.js: evita "Map container is

@@ -31,7 +31,7 @@
 
   function updateHeaderDate() {
     const mode = mods.state.getPlanMode();
-    const label = document.getElementById("aiwb-header-date");
+    const label = document.getElementById("aiwb-header-subtitle");
     if (!label) return;
     if (mode === "planificar") {
       const dt = mods.state.getPlanDateTime();
@@ -106,40 +106,6 @@
     }
   }
 
-  function wirePlanDialog() {
-    const dlg = document.getElementById("dlg-plan");
-    const openBtn = document.getElementById("btn-open-plan");
-    const btnAra = document.getElementById("btn-mode-ara");
-    const btnPlan = document.getElementById("btn-mode-planificar");
-    const fields = document.getElementById("aiwb-plan-fields");
-    const dateInput = document.getElementById("aiwb-plan-date");
-    const timeInput = document.getElementById("aiwb-plan-time");
-    if (!dlg || !openBtn) return;
-
-    const dt = mods.state.getPlanDateTime();
-    dateInput.value = dt.date;
-    timeInput.value = dt.time;
-
-    function reflectMode() {
-      const mode = mods.state.getPlanMode();
-      btnAra.classList.toggle("ds-button--ghost", mode !== "ara");
-      btnPlan.classList.toggle("ds-button--ghost", mode !== "planificar");
-      fields.hidden = mode !== "planificar";
-      updateHeaderDate();
-    }
-
-    openBtn.addEventListener("click", () => {
-      if (window.DSModal) window.DSModal.obre("dlg-plan");
-      else dlg.showModal();
-    });
-    btnAra.addEventListener("click", () => { mods.state.setPlanMode("ara"); reflectMode(); render(); });
-    btnPlan.addEventListener("click", () => { mods.state.setPlanMode("planificar"); reflectMode(); render(); });
-    dateInput.addEventListener("change", () => { mods.state.setPlanDateTime({ ...mods.state.getPlanDateTime(), date: dateInput.value }); reflectMode(); render(); });
-    timeInput.addEventListener("change", () => { mods.state.setPlanDateTime({ ...mods.state.getPlanDateTime(), time: timeInput.value }); reflectMode(); render(); });
-
-    reflectMode();
-  }
-
   function wireExtraFilters() {
     const toggle = (id, key) => {
       const btn = document.getElementById(id);
@@ -172,7 +138,6 @@
 
     updateHeaderDate();
     updateRouteBadge();
-    wirePlanDialog();
     wireExtraFilters();
 
     try {
@@ -194,4 +159,17 @@
   if (document.readyState !== "loading") init();
   else document.addEventListener("DOMContentLoaded", init);
   document.addEventListener("ds:navigated", init);
+
+  // El botó "Ara/Planificar" ara és comú a les 5 pantalles (js/planmode.js,
+  // viu al chrome). Quan algú canvia de mode des de QUALSEVOL pantalla,
+  // aquest event ens avisa perquè "Ara" (l'única que mostra rellotge i
+  // llista depenents del mode) torni a pintar — però només si la pantalla
+  // activa és realment "Ara", per no fer feina (ni tocar la capçalera
+  // d'una altra pàgina) quan el canvi arriba estant a una altra pantalla.
+  document.addEventListener("aiwb:planmode-changed", () => {
+    if (!document.getElementById("aiwb-ara-list")) return;
+    if (!mods) return;
+    updateHeaderDate();
+    render();
+  });
 })();

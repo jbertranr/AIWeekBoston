@@ -341,6 +341,44 @@ eren i no s'utilitzaven a fons:
 - **Capçalera:** el text "BOSTON AI WEEK 2026" en majúscules fixes al marcatge (no era CSS)
   canvia a "Boston AI Week 2026".
 
+## Bugs reals de navegació SPA (13/09/2026)
+
+Dos bugs relacionats, tots dos amb la mateixa arrel: `router.js` només substitueix
+`#main-content` en navegar sense recàrrega — **mai toca el chrome** (capçalera, menús,
+diàlegs fora de `#main-content`). Qualsevol element que calgui a una pantalla concreta però
+que visqui fora de `#main-content` desapareix (o queda desactualitzat) en arribar-hi per clic
+al menú, encara que funcioni perfectament en carregar la URL directa — per això **cap prova
+amb `page.goto()` directe el va detectar** durant tot el desenvolupament; només una prova que
+clica el menú de veritat el reprodueix.
+
+- **Crash real reportat per l'usuari en producció**: `Cannot set properties of null (setting
+  'textContent') at openVenueModal (mapa.js:54)`. Causa: `<dialog id="dlg-venue">` vivia FORA
+  de `#main-content` a `mapa.html` (n'hi havia una còpia duplicada allà i una altra a dins).
+  En navegar-hi amb el menú (en lloc de carregar `mapa.html` directament), la còpia de fora no
+  existia mai al DOM — clicar un marcador petava. **Fix:** eliminada la còpia de fora;
+  `dlg-venue` és específic del mapa, així que ha de viure DINS `#main-content` (a diferència de
+  `dlg-nav`/`dlg-fitxa`/`dlg-plan`, comuns a les 5 pantalles, que sí que van fora). Verificat
+  amb Playwright clicant el menú real (no `goto()`) abans i després del fix, i reproduït
+  també contra la URL de producció abans d'aplicar-lo.
+- **Bug trobat en investigar l'anterior, no reportat per l'usuari**: el botó "Ara/Planificar"
+  (`btn-open-plan` + `dlg-plan`) i el subtítol dinàmic de la capçalera només existien a
+  `ara.html`. En navegar a qualsevol altra pantalla pel menú (especialment rellevant ara que
+  "Explora" és la pàgina d'entrada, no "Ara"), el botó de mode simplement desapareixia i el
+  subtítol es quedava congelat amb el text d'"Ara" — sense cap error de consola (els guards
+  interns ho amagaven). **Fix:** `btn-open-plan`/`dlg-plan` promoguts a chrome comú (afegits a
+  `index.html`, `ruta.html`, `mapa.html`, `fitxa.html`, ja hi eren a `ara.html`); la lògica
+  d'interruptor viu ara en un únic `js/planmode.js` compartit (es connecta un sol cop per
+  sessió, guarda `dlg.__aiwbWired`, i emet l'event `aiwb:planmode-changed` quan canvia el
+  mode). Subtítol: `id="aiwb-header-subtitle"` unificat a les 5 pàgines; cada `init()` de
+  pàgina (`explora.js`, `ruta.js`, `mapa.js`, `fitxa.js`) ara el fixa explícitament amb el seu
+  propi text en cada navegació (abans cap d'ells el tocava). `ara.js` ja no porta la seva
+  pròpia còpia de la lògica d'interruptor (`wirePlanDialog()` eliminada); en lloc d'això
+  escolta `aiwb:planmode-changed` i només torna a renderitzar quan la pantalla activa és
+  realment "Ara" (comprovant que `#aiwb-ara-list` existeix al DOM en el moment de l'event).
+  Verificat amb Playwright: canviar a mode "Planificar" des d'"Ara", navegar per tot l'app pel
+  menú (el subtítol de cada pantalla es manté correcte i no es corromp) i tornar a "Ara" (el
+  mode i la data/hora triats persisteixen via `localStorage`, com ja passava abans).
+
 ## Comandes de verificació
 
 - `node --check js/*.js js/modules/*.js sw.js` — ha de sortir net.

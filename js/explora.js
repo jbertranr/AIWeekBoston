@@ -177,6 +177,9 @@
     const list = document.getElementById("aiwb-explora-list");
     if (!list) return;
 
+    const subtitle = document.getElementById("aiwb-header-subtitle");
+    if (subtitle) subtitle.textContent = "Explora · tot el catàleg";
+
     if (!mods) {
       const [storage, status, geo, data, stateMod, ui] = await Promise.all([
         import("./modules/storage.js"),

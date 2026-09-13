@@ -53,9 +53,13 @@
       </button>
       <div class="ds-site-header__text">
         <p class="ds-site-header__title">Boston AI Week 2026</p>
-        <p class="ds-site-header__subtitle">Mapa &middot; seus amb coordenades disponibles</p>
+        <p class="ds-site-header__subtitle" id="aiwb-header-subtitle">Mapa · seus amb coordenades disponibles</p>
       </div>
       <div class="aiwb-header__actions">
+        <button class="ds-button ds-button--sm ds-button--ghost aiwb-header__date-btn" id="btn-open-plan" type="button" aria-haspopup="dialog" aria-controls="dlg-plan">
+          <i class="fa-solid fa-calendar-day" aria-hidden="true"></i>
+          <span class="aiwb-sr-only">Mode Ara / Planificar</span>
+        </button>
         <button class="ds-icon-button aiwb-header__fontsize-btn" id="btn-fontsize" type="button" aria-label="Augmenta la mida de la lletra">
           <i class="fa-solid fa-text-height" aria-hidden="true"></i>
         </button>
@@ -89,6 +93,23 @@
       <i class="fa-solid fa-location-crosshairs" aria-hidden="true"></i>
     </button>
     <noscript><p class="ds-text" style="padding:var(--ds-space-4);">El mapa necessita JavaScript. Consulta la llista a «Explora».</p></noscript>
+
+    <!-- Bug real (13/09/2026): aquest modal és específic de "Mapa" i ha
+         d'anar DINS de #main-content — router.js només substitueix
+         #main-content en navegar sense recàrrega ("CANVIA NOMÉS: <main
+         id="main-content">"), i cap altra pàgina porta aquest diàleg al
+         seu chrome. Si es queda fora (com dlg-nav/dlg-fitxa, que SÍ són
+         chrome comú a les 5 pàgines), en arribar a "Mapa" clicant un
+         enllaç des d'una altra pantalla mai s'afegeix al DOM — el clic
+         a un marcador petava amb "Cannot set properties of null
+         (setting 'textContent')" a openVenueModal(). -->
+    <dialog class="ds-modal ds-modal--fit" id="dlg-venue" aria-labelledby="dlg-venue-title">
+      <div class="ds-modal__header">
+        <p class="ds-modal__title" id="dlg-venue-title">Esdeveniments</p>
+        <button class="ds-icon-button" data-ds-modal-close aria-label="Tanca"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+      </div>
+      <div class="ds-modal__body" id="dlg-venue-body"></div>
+    </dialog>
   </main>
 
   <!-- Tabbar amagada temporalment (app.css .ds-tabbar) — substituïda pel
@@ -100,6 +121,30 @@
     <a class="ds-tabbar__item" data-tab="ruta" href="ruta.html"><i class="fa-solid fa-route" aria-hidden="true"></i><span>Ruta<span class="ds-tabbar__badge" id="aiwb-route-badge" hidden>0</span></span></a>
     <a class="ds-tabbar__item" data-tab="mapa" href="mapa.html"><i class="fa-solid fa-map" aria-hidden="true"></i><span>Mapa</span></a>
   </nav>
+
+  <dialog class="ds-modal ds-modal--sm" id="dlg-plan" aria-labelledby="dlg-plan-title">
+    <div class="ds-modal__header">
+      <p class="ds-modal__title" id="dlg-plan-title">Ara o planificar?</p>
+      <button class="ds-icon-button" data-ds-modal-close aria-label="Tanca"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+    </div>
+    <div class="ds-modal__body">
+      <div class="aiwb-plan-toggle" role="group" aria-label="Mode">
+        <button class="ds-button ds-button--sm" id="btn-mode-ara" type="button">Ara</button>
+        <button class="ds-button ds-button--sm ds-button--ghost" id="btn-mode-planificar" type="button">Planificar</button>
+      </div>
+      <div class="aiwb-plan-fields" id="aiwb-plan-fields" hidden>
+        <div>
+          <label class="ds-text ds-text--sm" for="aiwb-plan-date">Data</label>
+          <input class="ds-input" type="date" id="aiwb-plan-date">
+        </div>
+        <div>
+          <label class="ds-text ds-text--sm" for="aiwb-plan-time">Hora</label>
+          <input class="ds-input" type="time" id="aiwb-plan-time">
+        </div>
+      </div>
+      <p class="ds-text ds-text--sm ds-text--muted" style="margin-top:var(--ds-space-3);">Totes les hores són de Boston (America/New_York), independentment del teu dispositiu.</p>
+    </div>
+  </dialog>
 
   <dialog class="ds-modal ds-modal--sm" id="dlg-nav" aria-labelledby="dlg-nav-title">
     <div class="ds-modal__header">
@@ -140,14 +185,6 @@
     </div>
   </dialog>
 
-  <dialog class="ds-modal ds-modal--fit" id="dlg-venue" aria-labelledby="dlg-venue-title">
-    <div class="ds-modal__header">
-      <p class="ds-modal__title" id="dlg-venue-title">Esdeveniments</p>
-      <button class="ds-icon-button" data-ds-modal-close aria-label="Tanca"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
-    </div>
-    <div class="ds-modal__body" id="dlg-venue-body"></div>
-  </dialog>
-
   <dialog class="ds-modal ds-modal--fit" id="dlg-fitxa" aria-labelledby="dlg-fitxa-title">
     <div class="ds-modal__header">
       <p class="ds-modal__title" id="dlg-fitxa-title">Fitxa d'esdeveniment</p>
@@ -160,6 +197,7 @@
   <script src="assets/vendor/leaflet.markercluster-1.5.3/leaflet.markercluster.js"></script>
   <script src="js/fontsize.js"></script>
   <script src="js/navmenu.js"></script>
+  <script src="js/planmode.js"></script>
   <script src="js/mapa.js"></script>
 </body>
 </html>

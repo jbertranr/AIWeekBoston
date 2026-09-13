@@ -16,7 +16,7 @@
 // service worker nou per instal·lar, i la gent es queda amb HTML/CSS/JS
 // vells indefinidament encara que el lloc s'actualitzi (bug real trobat i
 // corregit a visaOffPerpinya el 2026-09-11 — es comença amb v1 aquí).
-const CACHE_NAME = "aiwb-shell-v2";
+const CACHE_NAME = "aiwb-shell-v3";
 
 const SHELL_FILES = [
   "./",
@@ -34,6 +34,7 @@ const SHELL_FILES = [
   "js/fitxa.js",
   "js/navmenu.js",
   "js/fontsize.js",
+  "js/planmode.js",
   "js/modules/storage.js",
   "js/modules/data.js",
   "js/modules/status.js",
