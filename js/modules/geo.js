@@ -76,6 +76,59 @@ export function stopWatchingLocation(watchId) {
   }
 }
 
+/**
+ * Orientació del dispositiu (cap a on apunta, com el con blau de Google
+ * Maps) — NOMÉS mentre dura el seguiment en viu de la ubicació, mai per
+ * separat. Crida onHeading(graus) cada vegada que canvia, en graus des
+ * del nord en sentit horari (0 = nord, 90 = est…). Si el navegador només
+ * dona una orientació RELATIVA (sense referència real al nord — molt
+ * habitual en Android sense magnetòmetre calibrat), no es crida mai
+ * onHeading: ensenyar una fletxa que no apunta enlloc de veritat seria
+ * pitjor que no ensenyar-ne cap.
+ *
+ * A iOS 13+ cal permís explícit de l'usuari (DeviceOrientationEvent.
+ * requestPermission()), que només es pot demanar dins d'un gest real
+ * (el mateix clic que activa el seguiment) — per això aquesta funció
+ * retorna una Promise en lloc d'un valor síncron.
+ *
+ * @returns {Promise<Function|null>} funció per aturar l'escolta, o null
+ *   si no hi ha suport/permís.
+ */
+export function watchHeading(onHeading) {
+  if (typeof window === "undefined" || typeof DeviceOrientationEvent === "undefined") {
+    return Promise.resolve(null);
+  }
+
+  const attach = () => {
+    const eventName = "ondeviceorientationabsolute" in window
+      ? "deviceorientationabsolute"
+      : "deviceorientation";
+    const handler = (e) => {
+      // iOS: webkitCompassHeading ja és absolut (graus des del nord, sentit
+      // horari). Altres navegadors: només si el propi event es marca
+      // "absolute" ens podem refiar d'alpha — si no, és relatiu a
+      // l'orientació que tenia el dispositiu en carregar la pàgina, no al
+      // nord real.
+      let heading = null;
+      if (typeof e.webkitCompassHeading === "number") {
+        heading = e.webkitCompassHeading;
+      } else if (e.absolute === true && typeof e.alpha === "number") {
+        heading = (360 - e.alpha) % 360;
+      }
+      if (heading != null) onHeading(heading);
+    };
+    window.addEventListener(eventName, handler);
+    return () => window.removeEventListener(eventName, handler);
+  };
+
+  if (typeof DeviceOrientationEvent.requestPermission === "function") {
+    return DeviceOrientationEvent.requestPermission()
+      .then((state) => (state === "granted" ? attach() : null))
+      .catch(() => null);
+  }
+  return Promise.resolve(attach());
+}
+
 /** Distància en línia recta (Haversine), en km — MAI metres reals de carrer. */
 export function straightLineKm(a, b) {
   const R = 6371;

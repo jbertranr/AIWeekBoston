@@ -592,12 +592,33 @@ html.aiwb-text-xl { font-size: 125%; }
   padding: var(--ds-space-2) var(--ds-space-3);
   border-radius: var(--ds-radius);
 }
+/* Contenidor del punt "la teva ubicació" + el con d'orientació — mateixes
+   mides que iconSize/iconAnchor del divIcon a mapa.js (46x46, ancorat al
+   centre) perquè el con roti al voltant del punt, no d'una cantonada. */
+.aiwb-map-you-are-here-wrap { position: relative; width: 46px; height: 46px; }
 .aiwb-map-you-are-here {
+  position: absolute; left: 50%; top: 50%;
   width: 16px; height: 16px;
   background: var(--ds-color-primary);
   border: 3px solid #fff;
   border-radius: 50%;
+  transform: translate(-50%, -50%);
   animation: aiwb-live-pulse 2s ease-out infinite;
+  z-index: 2;
+}
+/* Con estil Google Maps: mostra cap a on apunta el dispositiu (0deg =
+   nord). Amagat (width 0) fins que watchHeading() en confirma el suport
+   — mai una fletxa que no apunti enlloc de veritat (vegeu geo.js). */
+.aiwb-map-you-are-here__cone {
+  position: absolute; left: 50%; top: 50%;
+  width: 46px; height: 46px;
+  transform: translate(-50%, -50%) rotate(0deg);
+  transform-origin: center center;
+  clip-path: polygon(50% 50%, 32% 2%, 68% 2%);
+  background: linear-gradient(to top, color-mix(in srgb, var(--ds-color-primary) 75%, transparent), color-mix(in srgb, var(--ds-color-primary) 15%, transparent) 70%, transparent);
+  z-index: 1;
+  pointer-events: none;
+  transition: transform 0.15s linear;
 }
 
 /* ── Utilitats ── */

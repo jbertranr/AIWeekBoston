@@ -258,6 +258,18 @@ publicar. No cal tocar cap fitxer HTML/JS.
   seguiment s'atura explícitament en sortir de la pantalla "Mapa" (a `init()`, quan
   `#aiwb-map` ja no existeix al DOM perquè `router.js` ha canviat de pàgina) — un
   `watchPosition` actiu no sobreviu mai a la navegació.
+- **Con d'orientació (com el de Google Maps)** (`geo.js` → `watchHeading()`, basat en
+  `deviceorientationabsolute`/`deviceorientation`): mentre el seguiment en viu està actiu, un
+  con blau gira al voltant del punt "la teva ubicació" indicant cap on apunta el mòbil.
+  **Només es mostra si el navegador dona una orientació REALMENT absoluta** (`event.absolute
+  === true`, o `webkitCompassHeading` a iOS) — mai una fletxa basada en una orientació
+  relativa a com tenia el mòbil en carregar la pàgina, que seria enganyosa. Alguns
+  navegadors (Safari iOS ≥13, i s'ha detectat que també Chromium recent) exposen
+  `DeviceOrientationEvent.requestPermission()`: cal cridar-lo dins del mateix gest de l'usuari
+  que activa el seguiment (el clic al botó), i si no es concedeix el con simplement no es
+  mostra — la ubicació en viu continua funcionant igual. El marcador "la teva ubicació" ara
+  es crea un sol cop i després només es mou (`setLatLng`) en lloc de refer-se a cada posició,
+  perquè el con pugui rotar moltes vegades per segon sense parpellejar.
 
 ## Normes del projecte
 

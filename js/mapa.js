@@ -13,7 +13,9 @@
   let formatFilter = "tots";
   let youAreHereMarker = null;
   let youAreHereCircle = null;
+  let youAreHereConeEl = null; // node DOM del con d'orientació (rotat directament, sense refer el marcador)
   let watchId = null; // seguiment en viu actiu (null = aturat)
+  let stopHeading = null; // funció per aturar l'escolta de deviceorientation (null = aturat/no suportat)
   let liveFirstFix = true;
 
   function wallClockNow() {
@@ -208,22 +210,44 @@
     });
   }
 
+  // El marcador es crea UN SOP COP i després només es mou (setLatLng), en
+  // lloc de refer-lo a cada posició nova: necessari perquè el con
+  // d'orientació (rotatHeading()) pugui actualitzar-se moltes vegades per
+  // segon sense parpellejar ni perdre la referència DOM.
   function placeYouAreHere(loc) {
-    if (youAreHereMarker) map.removeLayer(youAreHereMarker);
-    if (youAreHereCircle) map.removeLayer(youAreHereCircle);
+    if (youAreHereMarker) {
+      youAreHereMarker.setLatLng([loc.lat, loc.lng]);
+      youAreHereCircle.setLatLng([loc.lat, loc.lng]).setRadius(loc.accuracyM);
+      return;
+    }
     youAreHereMarker = L.marker([loc.lat, loc.lng], {
-      icon: L.divIcon({ className: "aiwb-map-you-are-here", iconSize: [16, 16], iconAnchor: [8, 8] }),
+      icon: L.divIcon({
+        className: "aiwb-map-you-are-here-wrap",
+        html: '<div class="aiwb-map-you-are-here__cone"></div><div class="aiwb-map-you-are-here"></div>',
+        iconSize: [46, 46],
+        iconAnchor: [23, 23]
+      }),
       zIndexOffset: 1000,
       title: "La teva ubicació"
     }).addTo(map);
+    youAreHereConeEl = youAreHereMarker.getElement().querySelector(".aiwb-map-you-are-here__cone");
     youAreHereCircle = L.circle([loc.lat, loc.lng], {
       radius: loc.accuracyM, color: "#1857c4", weight: 1, fillOpacity: 0.08
     }).addTo(map);
   }
 
+  // Gira el con d'orientació (com el con blau de Google Maps) cap a on
+  // apunta el dispositiu. Actualitza directament l'estil del node DOM
+  // (no refà el marcador) — es crida molt sovint, un cop per cada event
+  // deviceorientation.
+  function rotateHeading(deg) {
+    if (youAreHereConeEl) youAreHereConeEl.style.transform = `rotate(${deg}deg)`;
+  }
+
   function clearYouAreHere() {
     if (youAreHereMarker) { map.removeLayer(youAreHereMarker); youAreHereMarker = null; }
     if (youAreHereCircle) { map.removeLayer(youAreHereCircle); youAreHereCircle = null; }
+    youAreHereConeEl = null;
   }
 
   // Aturar el seguiment — cridat en parar manualment (clic al botó) i en
@@ -235,6 +259,7 @@
       mods.geo.stopWatchingLocation(watchId);
     }
     watchId = null;
+    if (stopHeading) { stopHeading(); stopHeading = null; }
     const btn = document.getElementById("btn-map-locate");
     if (btn) {
       btn.classList.remove("is-tracking");
@@ -267,6 +292,12 @@
       const icon = btn.querySelector("i");
       icon.className = "fa-solid fa-spinner fa-spin";
       liveFirstFix = true;
+
+      // Orientació (con estil Google Maps) — millora progressiva: si no hi
+      // ha suport, si l'usuari denega el permís (iOS) o si el navegador
+      // només dona una orientació relativa (no referenciada al nord), la
+      // ubicació en viu segueix funcionant igual, només sense con.
+      mods.geo.watchHeading(rotateHeading).then((stop) => { stopHeading = stop; });
 
       watchId = mods.geo.watchLocation(
         (loc) => {
