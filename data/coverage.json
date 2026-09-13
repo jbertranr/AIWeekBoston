@@ -1,15 +1,57 @@
 {
   "lastUpdated": "2026-09-13",
   "officialSiteTotalApproved": 173,
-  "imported": 0,
+  "imported": 173,
   "byRecordStatus": {
-    "confirmed": 0,
+    "confirmed": 173,
     "tentative": 0,
     "pending": 0
   },
-  "sourcesChecked": [],
+  "byVenueGeocodeStatus": {
+    "approximate": 40,
+    "pending": 63,
+    "notApplicableVirtual": 1,
+    "undisclosedByOrganizer": 12
+  },
+  "sourcesChecked": [
+    {
+      "name": "aiweek.boston/schedule",
+      "status": "imported",
+      "notesCa": "Font oficial única consultada fins ara. Extracció automatitzada (fetch + lectura del contingut renderitzat) el 2026-09-13: 173/173 esdeveniments aprovats llistats a la pàgina en aquell moment (\"New events added weekly\" — el lloc pot afegir-ne més en properes setmanes; caldrà repetir la importació periòdicament)."
+    },
+    {
+      "name": "Luma",
+      "status": "pending",
+      "notesCa": "No consultat encara com a font agregadora independent — pendent de ronda addicional per detectar esdeveniments no llistats a aiweek.boston."
+    },
+    {
+      "name": "Eventbrite",
+      "status": "pending",
+      "notesCa": "No consultat encara."
+    },
+    {
+      "name": "Meetup.com/boston-ai-week",
+      "status": "pending",
+      "notesCa": "No consultat encara com a font pròpia — aiweek.boston ja sembla agregar els meetups principals, però cal contrastar-ho."
+    },
+    {
+      "name": "Partiful",
+      "status": "pending",
+      "notesCa": "No consultat encara."
+    },
+    {
+      "name": "Nominatim (OpenStreetMap)",
+      "status": "in-progress",
+      "notesCa": "103 seus amb nom real intentades; 40 geocodificades (aproximat), 63 sense resoldre — vegeu INFORME_COBERTURA.md."
+    }
+  ],
   "knownGaps": [
-    "Recerca de dades encara no iniciada — aquest fitxer és l'esquelet inicial (vegeu INFORME_COBERTURA.md)."
+    "Cap font agregadora independent (Luma/Eventbrite/Meetup/Partiful) contrastada encara — només s'ha importat aiweek.boston/schedule. Pot haver-hi esdeveniments no llistats allà.",
+    "63 seus amb nom real no s'han pogut geocodificar (no consten a OpenStreetMap amb aquest nom — típicament oficines privades o comerços petits): cal cercar l'adreça postal exacta manualment (web de l'organitzador, LinkedIn, premsa) i tornar a geocodificar.",
+    "12 esdeveniments tenen la seu explícitament no revelada per l'organitzador fins a la inscripció/aprovació — no és una dada que falti, és així per disseny; es manté 'pending' sense forçar cap valor.",
+    "Cap organitzador classificat manualment amb certesa total — la classificació per tipus (startup/universitat/empresa/vc/coworking/comunitat/públic/media/other) s'ha fet per patrons de nom coneguts; 81/128 queden com a 'other' per prudència.",
+    "Topic i audience (tema i públic objectiu) de cada esdeveniment encara no s'han extret — el llistat font no els donava de manera consistent en aquesta primera passada.",
+    "Barri (neighborhood) de cada seu encara no assignat — pendent d'una passada de classificació manual o via reverse-geocoding de les 40 seus ja geocodificades."
   ],
   "conflicts": []
 }

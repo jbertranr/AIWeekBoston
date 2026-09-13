@@ -1,3 +1,900 @@
 {
-  "organizers": []
+  "organizers": [
+    {
+      "id": "boston-ai-week",
+      "name": "Boston AI Week",
+      "type": "community",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "boston-voice-ai-meetup",
+      "name": "Boston Voice AI Meetup",
+      "type": "community",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "the-hope-group",
+      "name": "The Hope Group",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "stage-2-capital-and-harvard-business-school",
+      "name": "Stage 2 Capital and Harvard Business School",
+      "type": "university",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "recess-revival",
+      "name": "Recess Revival",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "mass-technology-leadership-council-masstlc",
+      "name": "Mass Technology Leadership Council (MassTLC)",
+      "type": "public",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "bay-state-it",
+      "name": "Bay State IT",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "the-kendall-project",
+      "name": "The Kendall Project",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "launch-consulting",
+      "name": "Launch Consulting",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "subconscious",
+      "name": "Subconscious",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "hiype-io",
+      "name": "Hiype.io",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "gennari-aronson-llp-charles-river-chamber-of-commerce-workbar-needham",
+      "name": "Gennari Aronson, LLP, Charles River Chamber of Commerce & Workbar Needham",
+      "type": "coworking",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "risk-takers",
+      "name": "Risk Takers",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "gennari-aronson-llp-and-britebound",
+      "name": "Gennari Aronson, LLP and Britebound",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "the-teamshield-group",
+      "name": "The TeamShield Group",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "nuvert",
+      "name": "NuVert",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "clayton-christensen-institute",
+      "name": "Clayton Christensen Institute",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "red-hat",
+      "name": "Red Hat",
+      "type": "enterprise",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "core-coaching-consulting-llc",
+      "name": "Core Coaching & Consulting, LLC.",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "cloud-connect-summit",
+      "name": "Cloud Connect Summit",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "boston-healthcare-cloud-and-ai-community",
+      "name": "Boston Healthcare Cloud and AI Community",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "venture-lane",
+      "name": "Venture Lane",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "bu-questrom-feld-center-ravi-k-mehrotra-institute",
+      "name": "BU Questrom Feld Center & Ravi K. Mehrotra Institute",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "women-applying-ai",
+      "name": "Women Applying AI",
+      "type": "community",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "precognox",
+      "name": "Precognox",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "pmi-mass-bay-chapter",
+      "name": "PMI Mass Bay Chapter",
+      "type": "public",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "massachusetts-health-council",
+      "name": "Massachusetts Health Council",
+      "type": "public",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "aws",
+      "name": "AWS",
+      "type": "enterprise",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "clawbio",
+      "name": "ClawBio",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "ptc-for-startups",
+      "name": "PTC for Startups",
+      "type": "enterprise",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "aortem",
+      "name": "Aortem",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "learn-to-scale",
+      "name": "Learn to Scale",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "bevi",
+      "name": "Bevi",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "emerson-college",
+      "name": "Emerson College",
+      "type": "university",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "google-developer-group-gdg-cloud-boston",
+      "name": "Google Developer Group (GDG) Cloud Boston",
+      "type": "enterprise",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "glasswing-ventures",
+      "name": "Glasswing Ventures",
+      "type": "vc",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "independent",
+      "name": "Independent",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "massrobotics",
+      "name": "MassRobotics",
+      "type": "public",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "code-counsel",
+      "name": "Code & Counsel",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "harvard-innovation-labs-and-sundai",
+      "name": "Harvard Innovation Labs and Sundai",
+      "type": "university",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "imagination-in-action",
+      "name": "Imagination in Action",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "bdmt-global",
+      "name": "BDMT Global",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "community-hosted",
+      "name": "Community-hosted",
+      "type": "community",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "gai-insights",
+      "name": "GAI Insights",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "agilebrain",
+      "name": "AgileBrain",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "ebryx-llc",
+      "name": "Ebryx, LLC",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "secuvy-inc",
+      "name": "Secuvy, Inc.",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "concertai",
+      "name": "ConcertAI",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "launch-by-lunch",
+      "name": "Launch by Lunch",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "imotions",
+      "name": "iMotions",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "boston-ai-week-networking-happy-hour-maven-agi",
+      "name": "Boston AI Week / Networking Happy Hour / Maven AGI",
+      "type": "community",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "greenberg-traurig-llp",
+      "name": "Greenberg Traurig, LLP",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "boston-generative-ai-meetup",
+      "name": "Boston Generative AI Meetup",
+      "type": "community",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "heali-by-curevoz",
+      "name": "Heali by Curevoz",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "nashoba-valley-chamber-of-commerce",
+      "name": "Nashoba Valley Chamber of Commerce",
+      "type": "public",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "langchain",
+      "name": "LangChain",
+      "type": "enterprise",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "support-forge-llc",
+      "name": "Support Forge LLC",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "fidelity-private-shares-hsbc-innovation-banking-and-venture-lane",
+      "name": "Fidelity Private Shares, HSBC Innovation Banking, and Venture Lane",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "unosquare",
+      "name": "Unosquare",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "predien",
+      "name": "Predien",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "renewable-renegades",
+      "name": "Renewable Renegades",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "boston-ai-week-and-questrom-school-of-business-at-boston-university",
+      "name": "Boston AI Week and Questrom School of Business at Boston University",
+      "type": "university",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "wentworth-school-of-computing-and-data-science-wentworth-institute-of-technology",
+      "name": "Wentworth School of Computing and Data Science (Wentworth Institute of Technology)",
+      "type": "university",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "findability-sciences",
+      "name": "Findability Sciences",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "qlab-and-hbs-foundry",
+      "name": "QLab and HBS Foundry",
+      "type": "vc",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "founders-funders",
+      "name": "Founders & Funders",
+      "type": "community",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "code-counsel-reframe-lawyer",
+      "name": "Code & Counsel, Reframe.Lawyer",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "boston-ai-week-vip-dinner-maven-agi",
+      "name": "Boston AI Week / VIP Dinner / Maven AGI",
+      "type": "community",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "bu-questrom-women-in-business-alumni-council-bu-chobanian-avedisian-school-of-me",
+      "name": "BU Questrom Women in Business Alumni Council, BU Chobanian & Avedisian School of Medicine, GMS, and BU CCDS",
+      "type": "public",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "bantor",
+      "name": "Bantor",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "hult-international-business-school",
+      "name": "Hult International Business School",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "dune-irl",
+      "name": "Dune IRL",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "starburst",
+      "name": "Starburst",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "wells-fargo",
+      "name": "Wells Fargo",
+      "type": "enterprise",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "market-growth-consulting",
+      "name": "Market Growth Consulting",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "mit-future-fest-mit-museum-mit-technology-review-mit-morningside-academy-for-des",
+      "name": "MIT Future Fest (MIT Museum, MIT Technology Review & MIT Morningside Academy for Design)",
+      "type": "university",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "mit-sloan-cio-symposium",
+      "name": "MIT Sloan CIO Symposium",
+      "type": "university",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "ai-rocket",
+      "name": "AI Rocket",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "conjure-ai",
+      "name": "Conjure AI",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "livewire-collaborative",
+      "name": "LiveWire Collaborative",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "team-conjure-ai",
+      "name": "Team Conjure AI",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "hbs-foundry-goodwin-and-silicon-valley-bank",
+      "name": "HBS Foundry, Goodwin, and Silicon Valley Bank",
+      "type": "vc",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "starburst-data",
+      "name": "Starburst Data",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "special-olymipcs-massachusetts",
+      "name": "Special Olymipcs Massachusetts",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "pitch-lift",
+      "name": "Pitch Lift",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "pydata-boston",
+      "name": "PyData Boston",
+      "type": "community",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "women-d-in-e-ai",
+      "name": "Women D(in)e AI",
+      "type": "community",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "museum-of-science-boston-with-the-harvard-business-school-association-of-boston-",
+      "name": "Museum of Science, Boston, with the Harvard Business School Association of Boston and AI Blueprint for MA",
+      "type": "university",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "tedxboston",
+      "name": "TEDxBoston",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "dataiq",
+      "name": "DataIQ",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "northeastern-university",
+      "name": "Northeastern University",
+      "type": "university",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "datarobot",
+      "name": "DataRobot",
+      "type": "enterprise",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "glasswing-ventures-and-massopen-ai",
+      "name": "Glasswing Ventures and MassOpen.ai",
+      "type": "vc",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "ai-advisor-guy-focus-technology-solutions",
+      "name": "AI Advisor Guy + Focus Technology Solutions",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "entreprenuer-boston-university-questrom-school-of-business",
+      "name": "Entreprenuer & Boston University Questrom School of Business",
+      "type": "university",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "goodwin",
+      "name": "Goodwin",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "wentworth-institute-of-technology-school-of-architecture-and-design",
+      "name": "Wentworth Institute of Technology — School of Architecture and Design",
+      "type": "university",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "alpfa-boston",
+      "name": "ALPFA Boston",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "venture-cafe-cambridge-cic",
+      "name": "Venture Café Cambridge, CIC",
+      "type": "coworking",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "kearney",
+      "name": "Kearney",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "teamwork-us",
+      "name": "TeamWork US",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "cloudinary",
+      "name": "Cloudinary",
+      "type": "enterprise",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "macpaw",
+      "name": "MacPaw",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "founder-of-theona-and-egbe-managing-partner-at-agentic-builders-and-founder-ceo-",
+      "name": "Founder of Theona and Egbe, Managing Partner at Agentic Builders, and founder & CEO of Hyperskill",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "amazon-web-services",
+      "name": "Amazon Web Services",
+      "type": "enterprise",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "quay-acceleration",
+      "name": "QUAY Acceleration",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "weihs-systems-consultants",
+      "name": "\"Weihs Systems Consultants\"",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "tie-boston",
+      "name": "TiE Boston",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "questrom-school-of-business-ravi-k-mehrotra-institute-and-feld-center-for-career",
+      "name": "Questrom School of Business Ravi K. Mehrotra Institute, and Feld Center for Career and Alumni Engagement",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "sino-biological",
+      "name": "Sino Biological",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "massability",
+      "name": "MassAbility",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "the-ai-runtime",
+      "name": "The AI Runtime",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "work-redesigned",
+      "name": "Work Redesigned",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "cdm-app-clinical-data-workflow-automation",
+      "name": "CDM-App (clinical data workflow automation)",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "babson-college",
+      "name": "Babson College",
+      "type": "university",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "topcontenders-network",
+      "name": "TopContenders Network",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "ai-in-action",
+      "name": "AI in Action",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "northeast-professionals-in-artificial-intelligence",
+      "name": "Northeast Professionals in Artificial Intelligence",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "elastic-path",
+      "name": "Elastic Path",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "massachusetts-permanent-commission-on-the-status-of-persons-with-disabilities",
+      "name": "Massachusetts Permanent Commission on the Status of Persons with Disabilities",
+      "type": "public",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "ai-advisor-guy-kawaf",
+      "name": "AI Advisor Guy + KAWAF",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "city-of-cambridge-with-the-loop-lab",
+      "name": "City of Cambridge with The Loop Lab",
+      "type": "public",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "boston-openclaw",
+      "name": "Boston OpenClaw",
+      "type": "community",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "imara-health-ai",
+      "name": "Imara Health AI",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "deloitte",
+      "name": "Deloitte",
+      "type": "enterprise",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "african-women-building-with-ai",
+      "name": "African Women Building With AI",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "authors-innovators",
+      "name": "Authors & Innovators",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    },
+    {
+      "id": "institutional-ai",
+      "name": "Institutional AI",
+      "type": "other",
+      "url": null,
+      "notesCa": "Nom tal com apareix al llistat oficial (aiweek.boston/schedule) — tipus d'organització (startup/universitat/empresa/etc.) pendent de classificar manualment."
+    }
+  ]
 }

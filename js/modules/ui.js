@@ -48,6 +48,7 @@ export const FORMAT_META = {
   Conference: { key: "conference", label: "Conference", icon: "fa-solid fa-chalkboard-user" },
   Hackathon: { key: "hackathon", label: "Hackathon", icon: "fa-solid fa-laptop-code" },
   DemoNight: { key: "demonight", label: "Demo Night", icon: "fa-solid fa-display" },
+  Community: { key: "community", label: "Community", icon: "fa-solid fa-people-roof" },
   Other: { key: "other", label: "Altres", icon: "fa-solid fa-circle-question" }
 };
 

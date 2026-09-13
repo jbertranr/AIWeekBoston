@@ -1,57 +1,77 @@
-# Informe de cobertura — Boston AI Week 2026
+# Informe de cobertura de dades — Boston AI Week 2026
 
-Preparat: 2026-09-13. **Recerca de dades encara no iniciada en aquesta fase** — aquesta
-tasca s'ha limitat a crear l'esquelet de l'aplicació (estructura, pàgines, lògica,
-design-system). No s'ha consultat cap font real (`aiweek.boston` ni cap altra) i no s'ha
-importat cap esdeveniment, seu ni organitzador. Aquest informe reprodueix l'estructura de
-l'informe equivalent de [[visaOffPerpinya]] perquè quedi fixat el format que caldrà omplir
-quan comenci la recerca real.
+Aquest informe documenta, amb el mateix rigor que el de `visaOffPerpinya`, què s'ha
+verificat, d'on surt cada dada i què queda pendent. Cap xifra d'aquest document s'ha
+arrodonit ni inventat.
 
 ## Resum
 
-| | Anunciats (web oficial) | Importats | Seu assignada | Coordenades | Format assignat |
-|---|---|---|---|---|---|
-| **Esdeveniments** | ~173+ (creixent) | **0** | 0/0 | 0/0 | 0/0 |
+| Font | Esdeveniments trobats | Importats | Seus geocodificades |
+|---|---|---|---|
+| aiweek.boston/schedule (oficial) | 173 | **173/173** | 40/103 amb nom real (aprox.) |
 
-**Emplaçaments:** 0 geocodificats. **Organitzadors:** 0 identificats.
+**Esdeveniments: 173/173 importats** — coincideix exactament amb el total que la pròpia
+web oficial anunciava ("173 events approved") el 13/09/2026. **Cap altra font agregadora
+s'ha contrastat encara** (Luma, Eventbrite, Meetup, Partiful) — vegeu «Pendent» més avall.
 
-## Boston AI Week 2026 — 0/~173+ importats (pendent)
+## Mètode d'importació
 
-Res importat encara. Quan comenci la recerca, aquesta secció ha de documentar, com a
-mínim:
+1. Es va confirmar el nom oficial, organitzador i dates de l'edició (`aiweek.boston/about`):
+   Boston AI Week 2026, produït per Judah Phillips (acte comunitari independent), 16/09–28/10
+   (setmana nucli 24/09–2/10).
+2. Es va extreure el llistat complet d'`aiweek.boston/schedule` (13/09/2026): 173 files amb
+   títol, organitzador, data, hora, seu, format, cost i URL de detall.
+3. Cada fila s'ha parsejat automàticament (títol / organitzador / data / hora / seu / format
+   / cost / URL) — **0 files sense reconèixer** sobre 173.
+4. L'`id` de cada esdeveniment és el segment final de la seva pròpia URL oficial (ja únic
+   per disseny del lloc font) — mai un identificador inventat.
+5. Format normalitzat a un vocabulari comú (`Summit/Panel/Workshop/Talk/Meetup/Conference/
+   Hackathon/DemoNight/Community/Other`); canvis fets: "Demo Night"→"DemoNight",
+   "Keynote"→"Talk" (1 cas), "Career"→"Other" (1 cas), "Competition"→"Other" (1 cas).
 
-- Font(s) consultada(es) per a cada esdeveniment (web oficial `aiweek.boston`, Luma,
-  Eventbrite, Meetup, Partiful, premsa, xarxes socials…) — camp `retrievalMethod` de
-  `data/events.json`.
-- Quins esdeveniments tenen seu confirmada (`venueStatus: "confirmed"`) davant dels que
-  encara són provisionals (`"tentative"`) o pendents (`"pending"`).
-- Qualsevol conflicte de font (mateix esdeveniment amb dades contradictòries entre dues
-  fonts) — anàleg al cas de David Guttenfelder a `visaOffPerpinya`.
-- Bloquejos o limitacions d'accés trobades (paginació, JavaScript no renderitzat sense
-  navegador real, límits de freqüència, autenticació requerida…).
+## Organitzadors — 128 entitats úniques
 
-## Geocodificació de seus (pendent)
+Classificats per tipus (startup/universitat/empresa/vc/coworking/comunitat/públic/media/
+other) per **patrons coneguts del nom** (p. ex. "University"/"Institute of Technology" →
+universitat; "AWS"/"Microsoft"/"Google"/"Deloitte" → empresa; "Ventures"/"Capital" → vc;
+"Workbar"/"CIC"/"Venture Café" → coworking). **81/128 queden com `other`** perquè no hi ha
+prou senyal al nom per classificar-los amb confiança — no s'ha forçat cap categoria dubtosa.
 
-Encara no s'ha geocodificat cap seu. Quan es faci (previsiblement amb Nominatim,
-`nominatim.openstreetmap.org`, respectant el límit d'una petició per segon i identificant
-l'aplicació al `User-Agent`, seguint el mateix procediment que `visaOffPerpinya`), cal
-documentar aquí:
+## Seus — 116 entrades úniques
 
-- Nombre de seus geocodificades amb èxit / amb portal exacte / només a nivell de
-  carrer-illa (`coordinateStatus: "verified"` vs. `"approximate"`).
-- Seus sense resoldre (`"pending"`) i els intents fets.
+- **1 virtual** (esdeveniments en línia, sense seu física — `coordinateStatus:
+  "not-applicable"`, mai coordenades inventades).
+- **12 amb seu explícitament no revelada** per l'organitzador ("TBA", "Location revealed
+  upon registration approval", "Venue location disclosed to confirmed guests"…) — és així
+  per disseny de l'organitzador, no una dada que falti; es manté `pending` sense forçar cap
+  valor.
+- **103 amb nom/adreça real** intentades a Nominatim (`nominatim.openstreetmap.org`, 1
+  petició/segon, `User-Agent` identificat, cercades dins un requadre de Massachusetts i amb
+  comprovació de distància al centre de Boston per descartar falsos positius — mateixa
+  precaució que a Visa+OFF, on una cerca per adreça va confondre carrers homònims de pobles
+  veïns):
+  - **40 geocodificades** (`coordinateStatus: "approximate"` — resultat automàtic d'una
+    sola consulta, **no verificat manualment** portal a portal, per això no es marca
+    `"verified"`).
+  - **63 sense resoldre**, fins i tot després d'una segona passada amb variants de la
+    consulta (sense sufixos legals, sense parèntesis, extraient el tram d'adreça postal si
+    n'hi havia). En la majoria de casos són oficines privades d'empreses o comerços petits
+    que **no consten a OpenStreetMap amb aquest nom** — no és un error del procés de cerca,
+    és un límit real de la font de mapes gratuïta. Cadascuna guarda a `notesCa` les variants
+    de consulta provades, per si una revisió manual amb l'adreça postal exacta (extreta de
+    la web del mateix organitzador) les pot resoldre.
+  - **0 falsos positius detectats** en aquesta ronda (llindar de 70 km respecte al centre de
+    Boston) — a diferència de Visa+OFF, on 6 resultats sí que calia descartar.
 
-## Organitzadors (pendent)
+## Pendent (properes iteracions, no assumit ara)
 
-Encara no s'ha identificat cap organitzador (`data/organizers.json` buit). Quan es
-completi, documentar quants organitzadors tenen web verificada (`url`) i de quin tipus són
-(`startup`/`university`/`enterprise`/`vc`/`coworking`/`community`/`public`/`media`/`other`).
-
-## Limitacions explícites (a mantenir quan comenci la recerca real)
-
-- Cap dada inventada — un camp sense font verificada es queda `null`/`"pending"`, mai
-  s'omple amb un valor plausible.
-- Cap recompte "arrodonit" — el nombre d'esdeveniments importats reflecteix exactament el
-  que hi ha a `data/events.json`, mai una xifra anunciada sense verificar-la.
-- Aquest fitxer s'ha d'actualitzar en cada lot d'importació real, junt amb
-  `data/coverage.json` (comptadors) — mai deixar-los desincronitzats.
+- Contrastar aiweek.boston amb Luma / Eventbrite / Meetup / Partiful per si hi ha
+  esdeveniments no llistats al lloc oficial (l'encàrrec avisa explícitament que aquesta
+  mena de setmanes solen tenir cobertura fragmentada entre múltiples plataformes).
+- Resoldre manualment les 63 seus pendents (adreça postal exacta des de la web de
+  l'organitzador).
+- Assignar barri (`neighborhood`) a les seus ja geocodificades.
+- Classificar `topic`/`audience` de cada esdeveniment (el llistat font no els donava de
+  manera consistent).
+- Repetir la importació periòdicament — el lloc oficial afegeix esdeveniments cada
+  setmana ("New events added weekly").

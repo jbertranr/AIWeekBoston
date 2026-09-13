@@ -25,6 +25,7 @@
   --aiwb-color-conference: #00838f;
   --aiwb-color-hackathon: #b8860b;
   --aiwb-color-demonight: #5d4037;
+  --aiwb-color-community: #3949ab;
 }
 
 /* Amagat a propòsit: substituïda pel menú hamburguesa (.aiwb-nav-menu,
@@ -349,6 +350,7 @@ html.aiwb-text-xl { font-size: 125%; }
 .aiwb-badge--conference { background: color-mix(in srgb, var(--aiwb-color-conference) 16%, var(--ds-color-surface)); color: var(--aiwb-color-conference); }
 .aiwb-badge--hackathon { background: color-mix(in srgb, var(--aiwb-color-hackathon) 18%, var(--ds-color-surface)); color: var(--aiwb-color-hackathon); }
 .aiwb-badge--demonight { background: color-mix(in srgb, var(--aiwb-color-demonight) 16%, var(--ds-color-surface)); color: var(--aiwb-color-demonight); }
+.aiwb-badge--community { background: color-mix(in srgb, var(--aiwb-color-community) 16%, var(--ds-color-surface)); color: var(--aiwb-color-community); }
 .aiwb-badge--other { background: var(--ds-color-surface-alt); color: var(--ds-color-muted); }
 
 /* ── Control de geolocalització ── */
@@ -546,6 +548,7 @@ html.aiwb-text-xl { font-size: 125%; }
 .aiwb-map-marker--conference i { color: var(--aiwb-color-conference); }
 .aiwb-map-marker--hackathon i { color: var(--aiwb-color-hackathon); }
 .aiwb-map-marker--demonight i { color: var(--aiwb-color-demonight); }
+.aiwb-map-marker--community i { color: var(--aiwb-color-community); }
 .aiwb-map-marker--other i { color: var(--ds-color-muted); }
 .aiwb-map-marker--mixed i { color: var(--ds-color-text); }
 

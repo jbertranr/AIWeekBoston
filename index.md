@@ -26,9 +26,13 @@ preferits/assistència i una ruta personal amb ordre suggerit per proximitat a p
 **Anàloga directa de [[visaOffPerpinya]]**, mateix patró arquitectònic, adaptat del domini
 "exposicions" (horari continu) al domini "esdeveniments" (hora puntual).
 
-**La recerca de dades del catàleg encara no ha començat en aquesta fase** — vegeu
-`INFORME_COBERTURA.md`: els fitxers `data/*.json` estan buits (`[]`), amb l'esquema fixat
-i documentat més avall, a l'espera d'una tasca de recerca separada.
+**Primera càrrega real feta (13/09/2026): 173/173 esdeveniments** importats des
+d'`aiweek.boston/schedule` (coincideix amb el total oficial), 128 organitzadors i 116 seus
+úniques. **40/103 seus amb nom real ja geocodificades** (Nominatim, `coordinateStatus:
+"approximate"`); 63 encara pendents (no consten a OpenStreetMap amb aquest nom) i 12 amb
+seu no revelada per l'organitzador. Cap altra font agregadora (Luma/Eventbrite/Meetup/
+Partiful) contrastada encara. Detall complet, mètode i limitacions: `INFORME_COBERTURA.md`
+i `data/coverage.json`.
 
 <!-- DESIGN-SYSTEM:START -->
 Estil: els estils CSS d'aquesta aplicació són una còpia local del `design-system`
@@ -138,11 +142,13 @@ començar la recerca de dades):
   "neighborhood": "string|null",
   "lat": 0.0,
   "lng": 0.0,
-  "coordinateStatus": "verified|approximate|pending",
+  "coordinateStatus": "verified|approximate|pending|not-applicable",
   "retrievalMethod": "nominatim|manual-cross-check|pending",
   "sourceUrl": "string|null",
   "notesCa": "string"
 }
+// "not-applicable" (afegit en la primera càrrega real): esdeveniment virtual,
+// sense seu física — mai coordenades ni com si fossin "pending".
 
 // data/events.json → { "events": [ {...} ] }
 {
@@ -155,7 +161,7 @@ començar la recerca de dades):
   "endTime": "HH:mm|null",
   "venueId": "string|null",
   "venueCandidates": ["string"],
-  "format": "Summit|Panel|Workshop|Talk|Meetup|Conference|Hackathon|DemoNight|Other",
+  "format": "Summit|Panel|Workshop|Talk|Meetup|Conference|Hackathon|DemoNight|Community|Other",
   "topic": "string|null",
   "audience": "string|null",
   "cost": "free|paid|invite-only|unknown",
@@ -245,7 +251,17 @@ publicar. No cal tocar cap fitxer HTML/JS.
 
 ## Cobertura de dades i limitacions conegudes
 
-Vegeu `INFORME_COBERTURA.md` per al detall. **Resum: la recerca de dades del catàleg
-(esdeveniments, seus, organitzadors reals de Boston AI Week 2026) és una tasca separada,
-encara no iniciada en aquesta fase** — aquest projecte és només l'esquelet de
-l'aplicació, amb `data/*.json` buits (`[]`) seguint l'esquema documentat més amunt.
+Vegeu `INFORME_COBERTURA.md` i `data/coverage.json` per al detall complet. Resum:
+
+- **173/173 esdeveniments** importats d'`aiweek.boston/schedule` (13/09/2026) — coincideix
+  exactament amb el total que anunciava la web oficial en aquell moment. **Cap altra font**
+  (Luma/Eventbrite/Meetup/Partiful) contrastada encara — pendent de ronda addicional.
+- **116 seus úniques**: 1 virtual, 12 amb seu no revelada per l'organitzador (per disseny,
+  no una dada que falti), 103 amb nom/adreça real. D'aquestes 103: **40 geocodificades**
+  amb Nominatim (`coordinateStatus: "approximate"`, no verificades manualment) i **63
+  encara sense resoldre** (no consten a OpenStreetMap amb aquest nom — típic d'oficines
+  privades). **1 fals positiu detectat i corregit** ("Goodwin" → Newburyport en lloc del
+  Seaport; mateix tipus d'error que el cas Botanika a `visaOffPerpinya`).
+- **128 organitzadors**, classificats per tipus per patrons de nom (81 queden `other` per
+  prudència, sense forçar cap categoria dubtosa).
+- Cap `topic`/`audience`/`neighborhood` assignat encara.

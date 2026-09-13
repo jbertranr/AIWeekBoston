@@ -4,7 +4,7 @@
   "label": "Boston AI Week 2026",
   "category": "99_test",
   "path": "99_test/prj_ai_week_boston/aplicacions/aiWeekBoston",
-  "description": "Guia de butxaca independent (no oficial) de tots els esdeveniments de Boston AI Week 2026: catàleg d'esdeveniments, rellevància temporal en viu, preferits/assistència i ruta a peu. La recerca de dades del catàleg encara no ha començat — vegeu INFORME_COBERTURA.md.",
+  "description": "Guia de butxaca independent (no oficial) de tots els esdeveniments de Boston AI Week 2026: catàleg d'esdeveniments, rellevància temporal en viu, preferits/assistència i ruta a peu. 173/173 esdeveniments importats, 40/103 seus reals geocodificades — vegeu INFORME_COBERTURA.md.",
   "normatives": [
     "norm-web-vanilla"
   ],
