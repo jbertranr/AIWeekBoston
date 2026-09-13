@@ -270,6 +270,14 @@ publicar. No cal tocar cap fitxer HTML/JS.
   mostra — la ubicació en viu continua funcionant igual. El marcador "la teva ubicació" ara
   es crea un sol cop i després només es mou (`setLatLng`) en lloc de refer-se a cada posició,
   perquè el con pugui rotar moltes vegades per segon sense parpellejar.
+  **Dos bugs reals trobats provant-ho en un dispositiu real (13/09/2026), corregits el
+  mateix dia:** (1) el rumb sortia girat 180° — `(360 - alpha)` calcula el sentit de gir
+  correcte però amb la referència capgirada; corregit a `(360 - alpha + 180) % 360`. (2) el
+  con quedava desplaçat 42px (exactament mig con) cap avall-dreta del punt — `rotateHeading()`
+  feia `style.transform = "rotate(Xdeg)"`, que substitueix TOT el `transform` inline i esborra
+  el `translate(-50%, -50%)` de `app.css` que el centra; corregit repetint el `translate` a
+  cada actualització. Verificat amb `getBoundingClientRect()` via Playwright que els centres
+  del punt i del con coincideixen exactament (dx=dy=0px).
 
 ## Normes del projecte
 

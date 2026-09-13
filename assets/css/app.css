@@ -593,29 +593,36 @@ html.aiwb-text-xl { font-size: 125%; }
   border-radius: var(--ds-radius);
 }
 /* Contenidor del punt "la teva ubicació" + el con d'orientació — mateixes
-   mides que iconSize/iconAnchor del divIcon a mapa.js (46x46, ancorat al
-   centre) perquè el con roti al voltant del punt, no d'una cantonada. */
-.aiwb-map-you-are-here-wrap { position: relative; width: 46px; height: 46px; }
+   mides que iconSize/iconAnchor del divIcon a mapa.js (84x84, ancorat al
+   centre) perquè el con roti al voltant del punt, no d'una cantonada. Con
+   més gran i més opac que la primera versió (13/09/2026): gairebé no es
+   veia sobre un mapa amb color — Google Maps el fa prou vistent com per
+   distingir-lo de seguida, no un detall subtil. */
+.aiwb-map-you-are-here-wrap { position: relative; width: 84px; height: 84px; }
 .aiwb-map-you-are-here {
   position: absolute; left: 50%; top: 50%;
-  width: 16px; height: 16px;
+  width: 18px; height: 18px;
   background: var(--ds-color-primary);
   border: 3px solid #fff;
   border-radius: 50%;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
   transform: translate(-50%, -50%);
   animation: aiwb-live-pulse 2s ease-out infinite;
   z-index: 2;
 }
 /* Con estil Google Maps: mostra cap a on apunta el dispositiu (0deg =
-   nord). Amagat (width 0) fins que watchHeading() en confirma el suport
-   — mai una fletxa que no apunti enlloc de veritat (vegeu geo.js). */
+   nord, sentit horari). Amagat fins que watchHeading() en confirma el
+   suport — mai una fletxa que no apunti enlloc de veritat (vegeu
+   geo.js). Vora amb `filter` (no `border`, que no funciona bé amb
+   `clip-path`) perquè es distingeixi sobre qualsevol color de mapa. */
 .aiwb-map-you-are-here__cone {
   position: absolute; left: 50%; top: 50%;
-  width: 46px; height: 46px;
+  width: 84px; height: 84px;
   transform: translate(-50%, -50%) rotate(0deg);
   transform-origin: center center;
-  clip-path: polygon(50% 50%, 32% 2%, 68% 2%);
-  background: linear-gradient(to top, color-mix(in srgb, var(--ds-color-primary) 75%, transparent), color-mix(in srgb, var(--ds-color-primary) 15%, transparent) 70%, transparent);
+  clip-path: polygon(50% 52%, 24% 6%, 76% 6%);
+  background: linear-gradient(to top, color-mix(in srgb, var(--ds-color-primary) 95%, transparent) 0%, color-mix(in srgb, var(--ds-color-primary) 55%, transparent) 60%, transparent 100%);
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.9));
   z-index: 1;
   pointer-events: none;
   transition: transform 0.15s linear;

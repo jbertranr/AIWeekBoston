@@ -113,7 +113,14 @@ export function watchHeading(onHeading) {
       if (typeof e.webkitCompassHeading === "number") {
         heading = e.webkitCompassHeading;
       } else if (e.absolute === true && typeof e.alpha === "number") {
-        heading = (360 - e.alpha) % 360;
+        // `360 - alpha` sol donar el rumb de la brúixola, però en
+        // `deviceorientationabsolute` real (Android) surt sistemàticament
+        // girat 180° respecte al que apunta de veritat el mòbil — bug
+        // confirmat provant-ho en un dispositiu real (13/09/2026). No és
+        // un cas aïllat: és un desajust conegut entre com defineix l'alpha
+        // "absolut" cada navegador. Es corregeix sumant els 180° que
+        // faltaven.
+        heading = (360 - e.alpha + 180) % 360;
       }
       if (heading != null) onHeading(heading);
     };

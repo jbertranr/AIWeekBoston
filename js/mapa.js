@@ -224,8 +224,8 @@
       icon: L.divIcon({
         className: "aiwb-map-you-are-here-wrap",
         html: '<div class="aiwb-map-you-are-here__cone"></div><div class="aiwb-map-you-are-here"></div>',
-        iconSize: [46, 46],
-        iconAnchor: [23, 23]
+        iconSize: [84, 84],
+        iconAnchor: [42, 42]
       }),
       zIndexOffset: 1000,
       title: "La teva ubicació"
@@ -239,9 +239,13 @@
   // Gira el con d'orientació (com el con blau de Google Maps) cap a on
   // apunta el dispositiu. Actualitza directament l'estil del node DOM
   // (no refà el marcador) — es crida molt sovint, un cop per cada event
-  // deviceorientation.
+  // deviceorientation. Bug real (13/09/2026): posar només `rotate(Xdeg)`
+  // esborra el `translate(-50%, -50%)` de app.css que centra el con sobre
+  // el punt (els estils inline reemplacen TOT `transform`, no el sumen) —
+  // el con quedava desplaçat mig con (42px) cap avall-dreta. Cal repetir
+  // el translate a cada actualització.
   function rotateHeading(deg) {
-    if (youAreHereConeEl) youAreHereConeEl.style.transform = `rotate(${deg}deg)`;
+    if (youAreHereConeEl) youAreHereConeEl.style.transform = `translate(-50%, -50%) rotate(${deg}deg)`;
   }
 
   function clearYouAreHere() {
