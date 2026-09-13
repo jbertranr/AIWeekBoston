@@ -5,7 +5,7 @@
 (function () {
   let mods = null;
   let catalog = null;
-  let filters = { day: "", format: "", neighborhood: "", organizerId: "", preferits: false, pendents: false };
+  let filters = { day: "", format: "", neighborhood: "", organizerId: "", preferits: false, pendents: false, triats: false };
   let sortMode = "chrono";
 
   function wallClockNow() {
@@ -54,6 +54,7 @@
       if (filters.organizerId && item.organizerId !== filters.organizerId) return false;
       if (filters.preferits && !mods.state.isFavorite(item)) return false;
       if (filters.pendents && mods.state.isAttending(item)) return false;
+      if (filters.triats && !mods.state.isAttending(item)) return false;
       return true;
     });
 
@@ -97,12 +98,12 @@
   }
 
   function resetFilters() {
-    filters = { day: "", format: "", neighborhood: "", organizerId: "", preferits: false, pendents: false };
+    filters = { day: "", format: "", neighborhood: "", organizerId: "", preferits: false, pendents: false, triats: false };
     ["aiwb-filter-day", "aiwb-filter-format", "aiwb-filter-neighborhood", "aiwb-filter-organizer"].forEach((id) => {
       const sel = document.getElementById(id);
       if (sel) sel.value = "";
     });
-    ["btn-filter-preferits", "btn-filter-pendents"].forEach((id) => {
+    ["btn-filter-preferits", "btn-filter-pendents", "btn-filter-triats"].forEach((id) => {
       const btn = document.getElementById(id);
       if (btn) btn.classList.add("ds-button--ghost");
     });
@@ -121,6 +122,7 @@
     };
     toggle("btn-filter-preferits", "preferits");
     toggle("btn-filter-pendents", "pendents");
+    toggle("btn-filter-triats", "triats");
 
     const daySelect = document.getElementById("aiwb-filter-day");
     daySelect.addEventListener("change", () => { filters.day = daySelect.value; render(); });
