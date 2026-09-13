@@ -315,6 +315,32 @@ publicar. No cal tocar cap fitxer HTML/JS.
   network-first amb reserva per als JSON del catàleg. **No es cachegen tessel·les de mapa**
   (política dels servidors públics d'OSM).
 
+## Polit visual "professional" (branca `disseny-professional`, 13/09/2026)
+
+A petició de l'usuari, fet en una branca a part (no a `main`) perquè sigui trivial desfer-ho
+si no agrada. Res de nou al design-system — només aprofitar millor components que ja hi
+eren i no s'utilitzaven a fons:
+
+- **Barra lateral de la targeta acolorida per format** (`FORMAT_META.colorVar` a `ui.js`,
+  reutilitzant els mateixos tokens de la insígnia): abans totes les targetes sortien amb la
+  mateixa barra blava (`.ds-card--primary` fix), independentment del format. De pas, **bug
+  trobat al `card.css` compartit**: `.ds-card--status-start::before` porta `background:
+  var(--ds-color-primary)` fix — mai llegeix `--ds-card-color`, tot i que el comentari del
+  mateix fitxer diu que hi hauria de combinar. Sobreescrit localment a `app.css`
+  (`.aiwb-card.ds-card--status-start::before`); pendent de proposar el fix al design-system
+  compartit.
+- **Estats buits amb crida a l'acció** (`ui.js` → `emptyState(msg, icona, action)`, el
+  `.ds-empty__action` del component ja existia a `empty.css` però no es feia servir enlloc):
+  "Ara" sense esdeveniments avui i "Ruta" sense parades enllacen a "Explora"; a "Explora"
+  sense resultats, un botó "Treu els filtres" (`resetFilters()`) neteja els 4 selects i els
+  2 interruptors i torna a renderitzar.
+- **Càrrega amb `.ds-spinner`** (ja importat, no es feia servir) en lloc de només text pla a
+  "Ara", "Explora" i la fitxa.
+- **Filtres d'Explora agrupats visualment** en un panell (`.aiwb-explora-toolbar` amb fons,
+  vora i ombra) — abans 4 `<select>` flotant directament sobre el fons de la pàgina.
+- **Capçalera:** el text "BOSTON AI WEEK 2026" en majúscules fixes al marcatge (no era CSS)
+  canvia a "Boston AI Week 2026".
+
 ## Comandes de verificació
 
 - `node --check js/*.js js/modules/*.js sw.js` — ha de sortir net.

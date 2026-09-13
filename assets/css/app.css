@@ -242,6 +242,18 @@ html.aiwb-text-xl { font-size: 125%; }
   overflow: hidden;
 }
 
+/* Bug del design-system compartit (13/09/2026, no corregit aquí —
+   només sobreescrit localment): .ds-card--status-start::before porta
+   `background: var(--ds-color-primary)` fix, sense llegir mai
+   `--ds-card-color` (encara que el comentari del propi card.css digui
+   que "combina amb --primary/--accent/--success... via var(--ds-color-*)").
+   Sense això, totes les targetes sortien amb la barra blava fixa
+   independentment del format — proposar-ho com a fix al design-system
+   compartit (`components/card.css`). */
+.aiwb-card.ds-card--status-start::before {
+  background: var(--ds-card-color, var(--ds-color-primary));
+}
+
 .aiwb-card__top {
   display: flex;
   align-items: center;
@@ -391,12 +403,28 @@ html.aiwb-text-xl { font-size: 125%; }
 }
 .aiwb-plan-fields > * { flex: 1; }
 
-/* ── Explora: barra de filtres (dia / format / barri / organitzador) ── */
+.aiwb-loading {
+  display: flex;
+  align-items: center;
+  gap: var(--ds-space-2);
+  padding: var(--ds-space-6) 0;
+  justify-content: center;
+}
+
+/* ── Explora: barra de filtres (dia / format / barri / organitzador) ──
+   Agrupats visualment en un panell (abans: 4 <select> flotant
+   directament sobre el fons de la pàgina, sense cap relació visual
+   entre ells). */
 .aiwb-explora-toolbar {
   display: flex;
   flex-wrap: wrap;
   gap: var(--ds-space-2);
   margin-bottom: var(--ds-space-2);
+  padding: var(--ds-space-3);
+  background: var(--ds-color-surface);
+  border: 1px solid var(--ds-color-border);
+  border-radius: var(--ds-radius);
+  box-shadow: var(--ds-shadow-sm);
 }
 .aiwb-explora-toolbar select {
   flex: 1 1 140px;

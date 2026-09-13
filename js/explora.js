@@ -66,7 +66,11 @@
     countEl.textContent = `${results.length} ${results.length === 1 ? "esdeveniment" : "esdeveniments"}`;
 
     if (results.length === 0) {
-      list.append(mods.ui.emptyState("Cap esdeveniment coincideix amb els filtres.", "fa-solid fa-magnifying-glass"));
+      list.append(mods.ui.emptyState(
+        "Cap esdeveniment coincideix amb els filtres.",
+        "fa-solid fa-magnifying-glass",
+        { label: "Treu els filtres", icon: "fa-solid fa-filter-circle-xmark", onClick: resetFilters }
+      ));
       return;
     }
 
@@ -78,6 +82,19 @@
         onToggleFavorite: () => { if (filters.preferits) render(); }
       }));
     }
+  }
+
+  function resetFilters() {
+    filters = { day: "", format: "", neighborhood: "", organizerId: "", preferits: false, pendents: false };
+    ["aiwb-filter-day", "aiwb-filter-format", "aiwb-filter-neighborhood", "aiwb-filter-organizer"].forEach((id) => {
+      const sel = document.getElementById(id);
+      if (sel) sel.value = "";
+    });
+    ["btn-filter-preferits", "btn-filter-pendents"].forEach((id) => {
+      const btn = document.getElementById(id);
+      if (btn) btn.classList.add("ds-button--ghost");
+    });
+    render();
   }
 
   function wireFilters() {

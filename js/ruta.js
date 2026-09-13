@@ -74,7 +74,11 @@
 
     const routeIds = mods.state.getRoute();
     if (routeIds.length === 0) {
-      container.append(mods.ui.emptyState("Encara no has afegit cap esdeveniment a la ruta. Fes-ho des de la seva fitxa.", "fa-solid fa-route"));
+      container.append(mods.ui.emptyState(
+        "Encara no has afegit cap esdeveniment a la ruta. Fes-ho des de la seva fitxa.",
+        "fa-solid fa-route",
+        { label: "Explora els esdeveniments", href: "index.html", icon: "fa-solid fa-magnifying-glass" }
+      ));
       summaryBox.hidden = true;
       return;
     }

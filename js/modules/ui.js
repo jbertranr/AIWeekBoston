@@ -39,17 +39,21 @@ export function formatEventDateTime(item) {
 // local, definides a app.css — no són components nous del design-system
 // compartit, només una paleta pròpia d'aquesta app per distingir 9
 // formats al mapa i als distintius de les targetes).
+// colorVar: mateix token que fa servir la insígnia de format (app.css
+// .aiwb-badge--<key>) — reutilitzat per acolorir la barra lateral de la
+// targeta (--ds-card-color, components/card.css) perquè cada format es
+// distingeixi d'un cop d'ull sense haver de llegir la insígnia.
 export const FORMAT_META = {
-  Summit: { key: "summit", label: "Summit", icon: "fa-solid fa-mountain" },
-  Panel: { key: "panel", label: "Panel", icon: "fa-solid fa-comments" },
-  Workshop: { key: "workshop", label: "Workshop", icon: "fa-solid fa-screwdriver-wrench" },
-  Talk: { key: "talk", label: "Talk", icon: "fa-solid fa-microphone" },
-  Meetup: { key: "meetup", label: "Meetup", icon: "fa-solid fa-people-group" },
-  Conference: { key: "conference", label: "Conference", icon: "fa-solid fa-chalkboard-user" },
-  Hackathon: { key: "hackathon", label: "Hackathon", icon: "fa-solid fa-laptop-code" },
-  DemoNight: { key: "demonight", label: "Demo Night", icon: "fa-solid fa-display" },
-  Community: { key: "community", label: "Community", icon: "fa-solid fa-people-roof" },
-  Other: { key: "other", label: "Altres", icon: "fa-solid fa-circle-question" }
+  Summit: { key: "summit", label: "Summit", icon: "fa-solid fa-mountain", colorVar: "--ds-color-primary" },
+  Panel: { key: "panel", label: "Panel", icon: "fa-solid fa-comments", colorVar: "--ds-color-accent" },
+  Workshop: { key: "workshop", label: "Workshop", icon: "fa-solid fa-screwdriver-wrench", colorVar: "--ds-color-success" },
+  Talk: { key: "talk", label: "Talk", icon: "fa-solid fa-microphone", colorVar: "--aiwb-color-talk" },
+  Meetup: { key: "meetup", label: "Meetup", icon: "fa-solid fa-people-group", colorVar: "--aiwb-color-meetup" },
+  Conference: { key: "conference", label: "Conference", icon: "fa-solid fa-chalkboard-user", colorVar: "--aiwb-color-conference" },
+  Hackathon: { key: "hackathon", label: "Hackathon", icon: "fa-solid fa-laptop-code", colorVar: "--aiwb-color-hackathon" },
+  DemoNight: { key: "demonight", label: "Demo Night", icon: "fa-solid fa-display", colorVar: "--aiwb-color-demonight" },
+  Community: { key: "community", label: "Community", icon: "fa-solid fa-people-roof", colorVar: "--aiwb-color-community" },
+  Other: { key: "other", label: "Altres", icon: "fa-solid fa-circle-question", colorVar: "--ds-color-muted" }
 };
 
 export function formatMeta(format) {
@@ -121,8 +125,12 @@ function wireCardNavigate(a, item, onOpen) {
  * resultats d'"Explora"). onOpen(item) es crida en fer clic.
  */
 export function renderEventCard(item, { wallClock, startingSoonMinutes, onOpen, onToggleFavorite }) {
-  const card = el("div", "ds-card ds-card--status-start ds-card--primary aiwb-card");
+  const card = el("div", "ds-card ds-card--status-start aiwb-card");
   card.setAttribute("data-event-id", item.id);
+  // Barra lateral acolorida segons el format (vegeu FORMAT_META.colorVar) —
+  // en lloc del blau fix de .ds-card--primary, perquè les targetes es
+  // distingeixin d'un cop d'ull en una llista llarga.
+  card.style.setProperty("--ds-card-color", `var(${formatMeta(item.format).colorVar})`);
 
   const top = el("div", "aiwb-card__top");
   top.append(formatBadge(item.format));
@@ -423,12 +431,23 @@ export function buildFitxaCard(item, mods, { onRouteChange } = {}) {
   return card;
 }
 
-export function emptyState(message, icon = "fa-solid fa-inbox") {
+export function emptyState(message, icon = "fa-solid fa-inbox", action = null) {
   const wrap = el("div", "ds-empty");
   const i = document.createElement("i");
   i.className = `ds-empty__icon ${icon}`;
   i.setAttribute("aria-hidden", "true");
   wrap.append(i);
   wrap.append(el("p", "ds-empty__desc", message));
+  if (action) {
+    const link = document.createElement(action.onClick ? "button" : "a");
+    link.className = "ds-button ds-button--primary ds-empty__action";
+    if (action.onClick) { link.type = "button"; link.addEventListener("click", action.onClick); }
+    else link.href = action.href;
+    const actionIcon = document.createElement("i");
+    actionIcon.className = action.icon || "fa-solid fa-arrow-right";
+    actionIcon.setAttribute("aria-hidden", "true");
+    link.append(actionIcon, document.createTextNode(" " + action.label));
+    wrap.append(link);
+  }
   return wrap;
 }

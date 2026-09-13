@@ -78,7 +78,8 @@
     if (events.length === 0) {
       container.append(mods.ui.emptyState(
         `No hi ha cap esdeveniment per al ${wc.dateStr} amb aquest filtre.`,
-        "fa-solid fa-calendar-xmark"
+        "fa-solid fa-calendar-xmark",
+        { label: "Explora tot el catàleg", href: "index.html", icon: "fa-solid fa-magnifying-glass" }
       ));
       return;
     }
