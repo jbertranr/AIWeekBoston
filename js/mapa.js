@@ -17,7 +17,7 @@
   let watchId = null; // seguiment en viu actiu (null = aturat)
   let stopHeading = null; // funció per aturar l'escolta de deviceorientation (null = aturat/no suportat)
   let liveFirstFix = true;
-  let lastCompassHeading = null; // últim rumb rebut (graus des del nord real) — cal per recalcular el con quan el mapa mateix gira (leaflet-rotate)
+  let lastCompassHeading = null; // últim rumb rebut (graus des del nord real)
 
   function wallClockNow() {
     const mode = mods.state.getPlanMode();
@@ -251,20 +251,12 @@
   // esborra el `translate(-50%, -50%)` de app.css que centra el con sobre
   // el punt (els estils inline reemplacen TOT `transform`, no el sumen) —
   // el con quedava desplaçat mig con (42px) cap avall-dreta. Cal repetir
-  // el translate a cada actualització.
-  //
-  // El rumb del dispositiu és sempre respecte al nord real, però amb
-  // leaflet-rotate el mapa mateix es pot girar amb dos dits — si no es
-  // descompta la rotació pròpia del mapa (map.getBearing()), el con
-  // apuntaria a una direcció incorrecta EN PANTALLA en quant algú giri el
-  // mapa (encara que el mòbil no s'hagi mogut). applyConeRotation() és
-  // qui aplica aquesta resta; es crida tant en rebre un rumb nou com quan
-  // el mapa gira (esdeveniment "rotate" de leaflet-rotate).
+  // el translate a cada actualització. El mapa sempre queda orientat al
+  // nord (sense rotació pròpia), així que el rumb del dispositiu i la
+  // rotació en pantalla del con coincideixen directament.
   function applyConeRotation() {
     if (!youAreHereConeEl || lastCompassHeading == null) return;
-    const bearing = map && map.getBearing ? map.getBearing() : 0;
-    const screenDeg = (lastCompassHeading - bearing + 360) % 360;
-    youAreHereConeEl.style.transform = `translate(-50%, -50%) rotate(${screenDeg}deg)`;
+    youAreHereConeEl.style.transform = `translate(-50%, -50%) rotate(${lastCompassHeading}deg)`;
   }
 
   function rotateHeading(deg) {
@@ -391,14 +383,8 @@
     updateRouteBadge();
     wireLocate();
 
-    // rotate/touchRotate (leaflet-rotate, GPL-3.0 — vegeu index.md): gest
-    // de dos dits per girar el mapa, com Google Maps. rotateControl amb
-    // closeOnZeroBearing (per defecte del plugin) mostra una brúixola
-    // petita NOMÉS quan el mapa està girat, que en tocar-la torna al nord
-    // — s'amaga sola a 0°, no afegeix soroll visual quan no es fa servir.
-    map = L.map(mapEl, { zoomControl: true, rotate: true, touchRotate: true, rotateControl: { position: "topleft" } });
+    map = L.map(mapEl, { zoomControl: true });
     map.setView([window.APP.bostonSeaportRef.lat, window.APP.bostonSeaportRef.lng], 13);
-    map.on("rotate", applyConeRotation);
 
     L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
       maxZoom: 19,
