@@ -22,6 +22,19 @@ function el(tag, className, text) {
   return node;
 }
 
+// Capçalera de secció amb icona (blocs "Quan i on" / "Inscripció" / "Font
+// i verificació" de la fitxa) — text sempre fix de la interfície, mai
+// dades del catàleg, per això és segur construir-la amb createElement en
+// lloc de haver de passar-hi per el()/textContent element a element.
+function sectionHeading(icon, text) {
+  const h2 = document.createElement("h2");
+  const i = document.createElement("i");
+  i.className = icon;
+  i.setAttribute("aria-hidden", "true");
+  h2.append(i, document.createTextNode(" " + text));
+  return h2;
+}
+
 const MONTHS_CA = ["gener", "febrer", "març", "abril", "maig", "juny", "juliol", "agost", "setembre", "octubre", "novembre", "desembre"];
 
 export function formatEventDate(dateStr) {
@@ -254,7 +267,7 @@ function fitxaOrganizerBlock(item) {
 
 function fitxaLocationBlock(item) {
   const wrap = el("div", "aiwb-fitxa__block");
-  wrap.append(el("h2", null, "Quan i on"));
+  wrap.append(sectionHeading("fa-solid fa-calendar-days", "Quan i on"));
 
   wrap.append(el("p", "ds-text", formatEventDateTime(item)));
 
@@ -280,7 +293,7 @@ function fitxaLocationBlock(item) {
 
 function fitxaRegistrationBlock(item) {
   const wrap = el("div", "aiwb-fitxa__block");
-  wrap.append(el("h2", null, "Inscripció"));
+  wrap.append(sectionHeading("fa-solid fa-ticket", "Inscripció"));
   if (item.registrationUrl) {
     const a = document.createElement("a");
     a.className = "ds-button ds-button--sm";
@@ -300,7 +313,7 @@ function fitxaRegistrationBlock(item) {
 
 function fitxaSourcesBlock(item) {
   const wrap = el("div", "aiwb-fitxa__block");
-  wrap.append(el("h2", null, "Font i verificació"));
+  wrap.append(sectionHeading("fa-solid fa-shield-check", "Font i verificació"));
   if (item.sourceUrl) {
     const a = document.createElement("a");
     a.href = item.sourceUrl;

@@ -426,9 +426,36 @@ html.aiwb-text-xl { font-size: 125%; }
   border-radius: var(--ds-radius);
   box-shadow: var(--ds-shadow-sm);
 }
-.aiwb-explora-toolbar select {
-  flex: 1 1 140px;
+/* Icona dins de cada select de filtre (dia/format/barri/organitzador) —
+   mateix truc que un input amb icona: el select porta padding-left extra
+   i la icona es posiciona a sobre, absoluta i sense interceptar el clic.
+   Bug real (13/09/2026): el flex-basis:140px es va posar pensant només
+   en la graella d'Explora (fila) — reutilitzat tal qual al panell del
+   mapa (columna, .aiwb-map-filters), on el mateix flex-basis es
+   converteix en ALÇADA (140px) en lloc d'amplada, estirant el
+   contenidor i desplaçant la icona ben avall del select. Ara el
+   flex-basis només s'aplica dins del context de fila (Explora). */
+.aiwb-select-icon {
+  position: relative;
   min-width: 0;
+}
+.aiwb-explora-toolbar .aiwb-select-icon {
+  flex: 1 1 140px;
+}
+.aiwb-select-icon > i {
+  position: absolute;
+  left: var(--ds-space-2);
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--ds-color-primary);
+  font-size: 0.75rem;
+  pointer-events: none;
+}
+.aiwb-select-icon > select {
+  width: 100%;
+  padding-left: var(--ds-space-6);
+  padding-right: var(--ds-space-2);
+  font-size: 0.8rem;
 }
 .aiwb-explora-results {
   display: flex;
@@ -550,11 +577,32 @@ html.aiwb-text-xl { font-size: 125%; }
 }
 
 .aiwb-fitxa__block h2 {
+  display: flex;
+  align-items: center;
+  gap: var(--ds-space-2);
   font-size: 0.78rem;
   text-transform: uppercase;
   letter-spacing: 0.04em;
   color: var(--ds-color-muted);
   margin: 0 0 var(--ds-space-2);
+}
+.aiwb-fitxa__block h2 i {
+  color: var(--ds-color-primary);
+  font-size: 0.85rem;
+}
+
+/* Icona davant de les etiquetes de camp (Ruta) — mateix llenguatge
+   visual que la resta de labels amb icona de l'app. */
+.ds-text.aiwb-label-icon {
+  display: flex;
+  align-items: center;
+  gap: var(--ds-space-1);
+  margin-bottom: var(--ds-space-1);
+}
+.aiwb-label-icon i {
+  color: var(--ds-color-primary);
+  width: 1em;
+  text-align: center;
 }
 
 .aiwb-fitxa__venue-name {
