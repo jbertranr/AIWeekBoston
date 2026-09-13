@@ -101,7 +101,8 @@
         wallClock: wc,
         startingSoonMinutes: prefs.startingSoonMinutes,
         onOpen: openFitxa,
-        onToggleFavorite: () => { if (state.onlyFavorites) render(); }
+        onToggleFavorite: () => { if (state.onlyFavorites) render(); },
+        onToggleAttending: () => { if (state.onlyPending) render(); }
       }));
     }
   }

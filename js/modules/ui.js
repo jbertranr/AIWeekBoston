@@ -13,7 +13,7 @@
    ============================================================ */
 
 import { computeStatus, statusVariant } from "./status.js";
-import { isFavorite, isAttending, toggleFavorite } from "./state.js";
+import { isFavorite, isAttending, toggleFavorite, toggleAttending } from "./state.js";
 
 function el(tag, className, text) {
   const node = document.createElement(tag);
@@ -137,7 +137,7 @@ function wireCardNavigate(a, item, onOpen) {
  * Targeta compacta d'esdeveniment (llista "Ara" dins d'un grup, o
  * resultats d'"Explora"). onOpen(item) es crida en fer clic.
  */
-export function renderEventCard(item, { wallClock, startingSoonMinutes, onOpen, onToggleFavorite }) {
+export function renderEventCard(item, { wallClock, startingSoonMinutes, onOpen, onToggleFavorite, onToggleAttending }) {
   const card = el("div", "ds-card ds-card--status-start aiwb-card");
   card.setAttribute("data-event-id", item.id);
   // Barra lateral acolorida segons el format (vegeu FORMAT_META.colorVar) —
@@ -165,18 +165,16 @@ export function renderEventCard(item, { wallClock, startingSoonMinutes, onOpen, 
   top.append(formatBadge(item.format));
   const recordLabel = recordStatusLabel(item.recordStatus);
   if (recordLabel) top.append(el("span", "ds-badge ds-badge--sm ds-badge--warn", recordLabel));
-  if (isAttending(item)) {
-    const att = document.createElement("i");
-    att.className = "fa-solid fa-circle-check aiwb-card__attending";
-    att.setAttribute("aria-hidden", "true");
-    att.title = "Hi vaig";
-    top.append(att);
-  }
 
-  // Preferit: tocable directament des de la targeta, sense obrir la fitxa.
+  // Preferit i "Hi vaig": tocables directament des de la targeta, sense
+  // obrir la fitxa — requadrats i un al costat de l'altre (a petició de
+  // l'usuari, 13/09/2026), sempre en aquest ordre: primer preferit,
+  // després "Hi vaig".
+  const actionBtns = el("div", "aiwb-card__action-btns");
+
   const favBtn = document.createElement("button");
   favBtn.type = "button";
-  favBtn.className = "aiwb-card__fav-btn";
+  favBtn.className = "aiwb-card__action-btn aiwb-card__action-btn--fav";
   function reflectFav() {
     const fav = isFavorite(item);
     favBtn.innerHTML = `<i class="fa-${fav ? "solid" : "regular"} fa-star" aria-hidden="true"></i>`;
@@ -191,7 +189,28 @@ export function renderEventCard(item, { wallClock, startingSoonMinutes, onOpen, 
     reflectFav();
     if (onToggleFavorite) onToggleFavorite(item);
   });
-  top.append(favBtn);
+  actionBtns.append(favBtn);
+
+  const attendBtn = document.createElement("button");
+  attendBtn.type = "button";
+  attendBtn.className = "aiwb-card__action-btn aiwb-card__action-btn--attend";
+  function reflectAttend() {
+    const att = isAttending(item);
+    attendBtn.innerHTML = `<i class="fa-${att ? "solid" : "regular"} fa-circle-check" aria-hidden="true"></i>`;
+    attendBtn.classList.toggle("is-active", att);
+    attendBtn.setAttribute("aria-pressed", String(att));
+    attendBtn.setAttribute("aria-label", att ? `Marcar ${item.title} com a no confirmat` : `Marcar ${item.title} com a "hi vaig"`);
+  }
+  reflectAttend();
+  attendBtn.addEventListener("click", (domEvent) => {
+    domEvent.stopPropagation();
+    toggleAttending(item);
+    reflectAttend();
+    if (onToggleAttending) onToggleAttending(item);
+  });
+  actionBtns.append(attendBtn);
+
+  top.append(actionBtns);
 
   const body = document.createElement("a");
   body.className = "aiwb-card__body";
@@ -248,7 +267,7 @@ export function renderEventCard(item, { wallClock, startingSoonMinutes, onOpen, 
  * Grup d'esdeveniments per seu — capçalera amb nom, distància i
  * comptador, sense repetir l'adreça a cada targeta filla.
  */
-export function renderVenueGroup(group, { wallClock, startingSoonMinutes, onOpen, onToggleFavorite, distanceLabel }) {
+export function renderVenueGroup(group, { wallClock, startingSoonMinutes, onOpen, onToggleFavorite, onToggleAttending, distanceLabel }) {
   const wrap = el("section", "aiwb-venue-group");
   const header = el("div", "aiwb-venue-group__header");
 
@@ -269,7 +288,7 @@ export function renderVenueGroup(group, { wallClock, startingSoonMinutes, onOpen
 
   const list = el("div", "aiwb-venue-group__list");
   for (const item of group.events) {
-    list.append(renderEventCard(item, { wallClock, startingSoonMinutes, onOpen, onToggleFavorite }));
+    list.append(renderEventCard(item, { wallClock, startingSoonMinutes, onOpen, onToggleFavorite, onToggleAttending }));
   }
   wrap.append(list);
   return wrap;

@@ -268,25 +268,37 @@ html.aiwb-text-xl { font-size: 125%; }
   min-height: 0;
 }
 
-.aiwb-card__attending { color: var(--ds-color-success); margin-left: auto; }
-
-.aiwb-card__fav-btn {
+/* Preferit + "Hi vaig": requadrats, un al costat de l'altre, en aquest
+   ordre (a petició de l'usuari, 13/09/2026) — abans "Hi vaig" només es
+   podia marcar des de la fitxa; ara també des de la targeta petita. */
+.aiwb-card__action-btns {
   margin-left: auto;
+  display: flex;
+  gap: var(--ds-space-1);
+  flex-shrink: 0;
+}
+.aiwb-card__action-btn {
   width: 32px;
   height: 32px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
-  border: none;
-  background: transparent;
+  border-radius: var(--ds-radius-sm);
+  border: 1px solid var(--ds-color-border);
+  background: var(--ds-color-surface);
   color: var(--ds-color-muted);
-  font-size: 1.05rem;
+  font-size: 1rem;
   cursor: pointer;
 }
-.aiwb-card__attending ~ .aiwb-card__fav-btn { margin-left: var(--ds-space-1); }
-.aiwb-card__fav-btn:hover { background: var(--ds-color-surface-alt); }
-.aiwb-card__fav-btn.is-active { color: var(--ds-color-warning); }
+.aiwb-card__action-btn:hover { background: var(--ds-color-surface-alt); }
+.aiwb-card__action-btn--fav.is-active {
+  color: var(--ds-color-warning);
+  border-color: var(--ds-color-warning);
+}
+.aiwb-card__action-btn--attend.is-active {
+  color: var(--ds-color-success);
+  border-color: var(--ds-color-success);
+}
 
 .aiwb-card__body {
   display: block;
@@ -626,6 +638,16 @@ html.aiwb-text-xl { font-size: 125%; }
 
 .aiwb-fitxa__description p + p {
   margin-top: var(--ds-space-3);
+}
+/* Bug real (13/09/2026): alguns textos raspats porten un URL llarg sense
+   espais enmig d'una frase (p. ex. "Press release: https://www.einpress
+   wire.com/article/..."). Sense overflow-wrap, aquest únic "mot" llarg
+   fa que el paràgraf (i la targeta sencera, per l'scrollWidth en cascada)
+   sobreïxi de l'amplada disponible i es desquadri. overflow-wrap és una
+   propietat heretada — n'hi ha prou de fixar-la aquí, no cal repetir-la a
+   cada <p> fill. */
+.aiwb-fitxa__description {
+  overflow-wrap: anywhere;
 }
 
 .aiwb-fitxa__actions {

@@ -92,7 +92,8 @@
         wallClock,
         startingSoonMinutes: prefs.startingSoonMinutes,
         onOpen: openFitxa,
-        onToggleFavorite: () => { if (filters.preferits) render(); }
+        onToggleFavorite: () => { if (filters.preferits) render(); },
+        onToggleAttending: () => { if (filters.pendents || filters.triats) render(); }
       }));
     }
   }
