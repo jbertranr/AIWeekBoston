@@ -17,6 +17,7 @@
   let watchId = null; // seguiment en viu actiu (null = aturat)
   let stopHeading = null; // funció per aturar l'escolta de deviceorientation (null = aturat/no suportat)
   let liveFirstFix = true;
+  let lastCompassHeading = null; // últim rumb rebut (graus des del nord real) — cal per recalcular el con quan el mapa mateix gira (leaflet-rotate)
 
   function wallClockNow() {
     const mode = mods.state.getPlanMode();
@@ -228,7 +229,14 @@
         iconAnchor: [42, 42]
       }),
       zIndexOffset: 1000,
-      title: "La teva ubicació"
+      title: "La teva ubicació",
+      // Bug real (13/09/2026): la caixa de 84x84 és sobretot transparent
+      // (només s'hi veuen el punt i el con), però Leaflet la fa clicable
+      // sencera per defecte — quan la ubicació cau sobre (o a prop de) un
+      // clúster o una altra seu, bloquejava els seus clics encara que
+      // visualment no s'hi veiés res al damunt. No cal que el propi punt
+      // sigui clicable.
+      interactive: false
     }).addTo(map);
     youAreHereConeEl = youAreHereMarker.getElement().querySelector(".aiwb-map-you-are-here__cone");
     youAreHereCircle = L.circle([loc.lat, loc.lng], {
@@ -244,14 +252,31 @@
   // el punt (els estils inline reemplacen TOT `transform`, no el sumen) —
   // el con quedava desplaçat mig con (42px) cap avall-dreta. Cal repetir
   // el translate a cada actualització.
+  //
+  // El rumb del dispositiu és sempre respecte al nord real, però amb
+  // leaflet-rotate el mapa mateix es pot girar amb dos dits — si no es
+  // descompta la rotació pròpia del mapa (map.getBearing()), el con
+  // apuntaria a una direcció incorrecta EN PANTALLA en quant algú giri el
+  // mapa (encara que el mòbil no s'hagi mogut). applyConeRotation() és
+  // qui aplica aquesta resta; es crida tant en rebre un rumb nou com quan
+  // el mapa gira (esdeveniment "rotate" de leaflet-rotate).
+  function applyConeRotation() {
+    if (!youAreHereConeEl || lastCompassHeading == null) return;
+    const bearing = map && map.getBearing ? map.getBearing() : 0;
+    const screenDeg = (lastCompassHeading - bearing + 360) % 360;
+    youAreHereConeEl.style.transform = `translate(-50%, -50%) rotate(${screenDeg}deg)`;
+  }
+
   function rotateHeading(deg) {
-    if (youAreHereConeEl) youAreHereConeEl.style.transform = `translate(-50%, -50%) rotate(${deg}deg)`;
+    lastCompassHeading = deg;
+    applyConeRotation();
   }
 
   function clearYouAreHere() {
     if (youAreHereMarker) { map.removeLayer(youAreHereMarker); youAreHereMarker = null; }
     if (youAreHereCircle) { map.removeLayer(youAreHereCircle); youAreHereCircle = null; }
     youAreHereConeEl = null;
+    lastCompassHeading = null;
   }
 
   // Aturar el seguiment — cridat en parar manualment (clic al botó) i en
@@ -366,8 +391,14 @@
     updateRouteBadge();
     wireLocate();
 
-    map = L.map(mapEl, { zoomControl: true });
+    // rotate/touchRotate (leaflet-rotate, GPL-3.0 — vegeu index.md): gest
+    // de dos dits per girar el mapa, com Google Maps. rotateControl amb
+    // closeOnZeroBearing (per defecte del plugin) mostra una brúixola
+    // petita NOMÉS quan el mapa està girat, que en tocar-la torna al nord
+    // — s'amaga sola a 0°, no afegeix soroll visual quan no es fa servir.
+    map = L.map(mapEl, { zoomControl: true, rotate: true, touchRotate: true, rotateControl: { position: "topleft" } });
     map.setView([window.APP.bostonSeaportRef.lat, window.APP.bostonSeaportRef.lng], 13);
+    map.on("rotate", applyConeRotation);
 
     L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
       maxZoom: 19,

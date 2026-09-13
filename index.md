@@ -278,8 +278,19 @@ publicar. No cal tocar cap fitxer HTML/JS.
   el `translate(-50%, -50%)` de `app.css` que el centra; corregit repetint el `translate` a
   cada actualització. Verificat amb `getBoundingClientRect()` via Playwright que els centres
   del punt i del con coincideixen exactament (dx=dy=0px).
-
-## Normes del projecte
+- **Rotació del mapa amb dos dits** (`assets/vendor/leaflet-rotate-0.2.7/`, plugin de Raruto
+  — **única excepció de llicència del projecte: GPL-3.0**, la resta de dependències són
+  BSD/MIT; decisió explícita de l'usuari en comptes de fer-ho a mida, ja que no hi ha cap
+  alternativa mantinguda amb llicència permissiva). `L.map(mapEl, { rotate: true,
+  touchRotate: true, rotateControl: {...} })` — gest de dos dits com Google Maps, més una
+  brúixola petita (`rotateControl`) que només apareix quan el mapa està girat i que en
+  tocar-la torna al nord (`closeOnZeroBearing`, per defecte del plugin). El con d'orientació
+  ha de descomptar la rotació pròpia del mapa perquè segueixi apuntant a la direcció
+  correcta EN PANTALLA (`applyConeRotation()`: `rumb_real - map.getBearing()`, recalculat
+  tant en rebre un rumb nou com en l'esdeveniment `rotate` del mapa). **Bug real trobat
+  provant-ho** (no relacionat amb la rotació en si): la caixa de 84×84 del marcador "la teva
+  ubicació" —majoritàriament transparent— bloquejava els clics dels marcadors que hi havia a
+  sota seu; corregit amb `interactive: false` (el punt no necessita ser clicable).
 
 - Aplicació personal, sense multiusuari ni backend (norma web-vanilla). Cap credencial ni
   servei de pagament.
@@ -290,6 +301,11 @@ publicar. No cal tocar cap fitxer HTML/JS.
 - Res d'`innerHTML` amb dades del catàleg — DOM via `createElement`/`textContent`
   (`js/modules/ui.js`).
 - No s'ha afegit cap framework (React, jQuery…) ni servei de tercers de pagament.
+- **Llicències de tercers:** totes les llibreries vendoritzades són BSD/MIT (Leaflet,
+  Leaflet.markercluster, Font Awesome Pro comprada), **excepte
+  `leaflet-rotate` (GPL-3.0)** — decisió explícita de l'usuari per tenir rotació tàctil de
+  dos dits, sense alternativa mantinguda amb llicència permissiva. Vegeu «Desviació de
+  normativa».
 - **PWA (millora progressiva):** `manifest.json` + `sw.js` — cache-first per al shell,
   network-first amb reserva per als JSON del catàleg. **No es cachegen tessel·les de mapa**
   (política dels servidors públics d'OSM).
