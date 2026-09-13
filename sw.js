@@ -16,12 +16,12 @@
 // service worker nou per instal·lar, i la gent es queda amb HTML/CSS/JS
 // vells indefinidament encara que el lloc s'actualitzi (bug real trobat i
 // corregit a visaOffPerpinya el 2026-09-11 — es comença amb v1 aquí).
-const CACHE_NAME = "aiwb-shell-v1";
+const CACHE_NAME = "aiwb-shell-v2";
 
 const SHELL_FILES = [
   "./",
   "index.html",
-  "explora.html",
+  "ara.html",
   "ruta.html",
   "mapa.html",
   "fitxa.html",

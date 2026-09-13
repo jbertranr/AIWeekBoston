@@ -34,7 +34,7 @@ La geolocalització real (a «Ruta» i «Mapa») només funciona amb **HTTPS** o
 ## Estructura
 
 ```
-index.html / explora.html / ruta.html / mapa.html / fitxa.html   → les 5 pantalles
+index.html / ara.html / ruta.html / mapa.html / fitxa.html   → les 5 pantalles (index.html = "Explora", pàgina d'entrada)
 js/config.js                → configuració (window.APP)
 js/modules/                 → mòduls ES reals (dades, estat temporal, geo, estat, UI)
 js/{ara,explora,ruta,mapa,fitxa}.js  → un script per pantalla (import() dinàmic)

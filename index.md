@@ -82,14 +82,22 @@ Multi-pàgina amb `router.js` del design-system (navegació sense recàrrega, `#
 menú hamburguesa— no es toca mai):
 
 ```
-index.html    → "Ara" (vista inicial): esdeveniments del dia, ordenats per rellevància temporal
-explora.html  → "Explora": cerca + filtres (dia, format, barri, organitzador) sobre tot el catàleg
+index.html    → "Explora" (vista inicial): cerca + filtres (dia, format, barri, organitzador)
+ara.html      → "Ara": esdeveniments del dia, ordenats per rellevància temporal
 ruta.html     → "Ruta": selecció agrupada per seu, ordre suggerit, estimació editorial
 mapa.html     → "Mapa" (secundària): un marcador per seu, Leaflet + OSM, color per format
 fitxa.html    → Fitxa d'un esdeveniment (?id=…), accessible per URL directa
 ```
 
-- **"Ara" (`index.html`/`js/ara.js`) és el canvi de concepte principal respecte a
+- **Pàgina d'entrada: "Explora" (`index.html`), no "Ara".** Fins al 13/09/2026 la vista
+  inicial era "Ara" a `index.html`; l'usuari va demanar explícitament que "Explora" fos el
+  primer que es veiés en entrar — sobretot perquè "Ara" queda buida cada dia que no hi ha
+  cap esdeveniment en curs (com passa fins que comença la setmana nucli el 24/09). S'han
+  intercanviat els continguts dels fitxers (`index.html` ara serveix "Explora"/`js/
+  explora.js`, i l'antic `index.html` viu a `ara.html`/`js/ara.js`), i s'ha actualitzat la
+  navegació (tabbar + menú hamburguesa) de totes les pantalles en conseqüència — `data-tab`/
+  `data-nav-page` de "Explora" és ara `"index"` i el d'"Ara" és `"ara"`.
+- **"Ara" (`ara.html`/`js/ara.js`) és el canvi de concepte principal respecte a
   `visaOffPerpinya`.** Allà la pantalla inicial ("A prop") ordenava per proximitat
   espacial, perquè una exposició té horari continu (obert/tancat). Aquí els esdeveniments
   són puntuals (hora d'inici i, sovint, de fi fixes), així que "Ara" **no agrupa per seu ni
