@@ -5,24 +5,24 @@
       "name": "Asylum Colab",
       "address": "Asylum Colab",
       "neighborhood": null,
-      "lat": null,
-      "lng": null,
-      "coordinateStatus": "pending",
-      "retrievalMethod": "pending",
+      "lat": 42.3666272,
+      "lng": -71.0589918,
+      "coordinateStatus": "approximate",
+      "retrievalMethod": "nominatim",
       "sourceUrl": null,
-      "notesCa": "Sense resoldre després de 0 variants de consulta (2a passada): . Probablement no consta a OpenStreetMap amb aquest nom (adreça d'oficina privada / nom comercial no mapat) — cal buscar l'adreça postal exacta manualment."
+      "notesCa": "Geocodificat amb Nominatim (2026-09-13, 3a passada, consulta netejada de soroll — pis/sala/nom propi): \"Causeway Street, West End, Boston, Suffolk County, Massachusetts, 02113, United States\" — 0.7 km del centre de Boston. Consulta neta: \"Causeway Street, Boston, MA\" (adreça original de la fitxa: \"Asylum Colab, Causeway Street, Boston, MA (North Station)\"). No verificat manualment portal a portal (marcat \"approximate\", no \"verified\")."
     },
     {
       "id": "build617",
       "name": "Build617",
       "address": "Build617",
       "neighborhood": null,
-      "lat": null,
-      "lng": null,
-      "coordinateStatus": "pending",
-      "retrievalMethod": "pending",
+      "lat": 42.3522112,
+      "lng": -71.0612034,
+      "coordinateStatus": "approximate",
+      "retrievalMethod": "nominatim",
       "sourceUrl": null,
-      "notesCa": "Sense resoldre després de 0 variants de consulta (2a passada): . Probablement no consta a OpenStreetMap amb aquest nom (adreça d'oficina privada / nom comercial no mapat) — cal buscar l'adreça postal exacta manualment."
+      "notesCa": "Geocodificat amb Nominatim (2026-09-13, 3a passada, consulta netejada de soroll — pis/sala/nom propi): \"Chauncey Street, Chinatown, Boston, Suffolk County, Massachusetts, 02111, United States\" — 0.9 km del centre de Boston. Consulta neta: \"38 Chauncey Street, Boston, MA\" (adreça original de la fitxa: \"Build617, 38 Chauncey Street, Boston, MA (Downtown Crossing)\"). No verificat manualment portal a portal (marcat \"approximate\", no \"verified\")."
     },
     {
       "id": "virtual",
@@ -77,24 +77,24 @@
       "name": "Foley Hoag LLP",
       "address": "Foley Hoag LLP",
       "neighborhood": null,
-      "lat": null,
-      "lng": null,
-      "coordinateStatus": "pending",
-      "retrievalMethod": "pending",
+      "lat": 42.3500423,
+      "lng": -71.0426929,
+      "coordinateStatus": "approximate",
+      "retrievalMethod": "nominatim",
       "sourceUrl": null,
-      "notesCa": "Sense resoldre després de 1 variants de consulta (2a passada): \"Foley Hoag\". Probablement no consta a OpenStreetMap amb aquest nom (adreça d'oficina privada / nom comercial no mapat) — cal buscar l'adreça postal exacta manualment."
+      "notesCa": "Geocodificat amb Nominatim (2026-09-13, 3a passada, consulta netejada de soroll — pis/sala/nom propi): \"Rosa Mexicano, 155, Seaport Boulevard, Seaport, Boston, Suffolk County, Massachusetts, 02210, United States\" — 1.7 km del centre de Boston. Consulta neta: \"155 Seaport Blvd, Boston, MA 02210\" (adreça original de la fitxa: \"Foley Hoag LLP, 155 Seaport Blvd, Boston, MA 02210\"). No verificat manualment portal a portal (marcat \"approximate\", no \"verified\")."
     },
     {
       "id": "microsoft-new-england-research-and-development-center",
       "name": "Microsoft New England Research and Development Center",
       "address": "Microsoft New England Research and Development Center",
       "neighborhood": null,
-      "lat": null,
-      "lng": null,
-      "coordinateStatus": "pending",
-      "retrievalMethod": "pending",
+      "lat": 42.3616283,
+      "lng": -71.081069,
+      "coordinateStatus": "approximate",
+      "retrievalMethod": "nominatim",
       "sourceUrl": null,
-      "notesCa": "Sense resoldre després de 0 variants de consulta (2a passada): . Probablement no consta a OpenStreetMap amb aquest nom (adreça d'oficina privada / nom comercial no mapat) — cal buscar l'adreça postal exacta manualment."
+      "notesCa": "Geocodificat amb Nominatim (2026-09-13, 3a passada, consulta netejada de soroll — pis/sala/nom propi): \"Microsoft New England Research & Development, 1, Memorial Drive, MIT, Cambridge, Middlesex County, Massachusetts, 02142, United States\" — 1.8 km del centre de Boston. Consulta neta: \"1 Memorial Drive Cambridge, MA 02142\" (adreça original de la fitxa: \"Microsoft New England Research and Development Center, 1 Memorial Drive Cambridge, MA 02142\"). No verificat manualment portal a portal (marcat \"approximate\", no \"verified\")."
     },
     {
       "id": "microsoft-new-england",
@@ -125,24 +125,24 @@
       "name": "Workbar Back Bay",
       "address": "Workbar Back Bay",
       "neighborhood": null,
-      "lat": null,
-      "lng": null,
-      "coordinateStatus": "pending",
-      "retrievalMethod": "pending",
+      "lat": 42.3518103,
+      "lng": -71.0720961,
+      "coordinateStatus": "approximate",
+      "retrievalMethod": "nominatim",
       "sourceUrl": null,
-      "notesCa": "Sense resoldre després de 0 variants de consulta (2a passada): . Probablement no consta a OpenStreetMap amb aquest nom (adreça d'oficina privada / nom comercial no mapat) — cal buscar l'adreça postal exacta manualment."
+      "notesCa": "Geocodificat amb Nominatim (2026-09-13, 3a passada, consulta netejada de soroll — pis/sala/nom propi): \"399, Boylston Street, Block A, Back Bay, Boston, Suffolk County, Massachusetts, 02116, United States\" — 1.4 km del centre de Boston. Consulta neta: \"399 Boylston St, Boston, MA 02116\" (adreça original de la fitxa: \"Workbar Back Bay, 399 Boylston St 6th Floor, Boston, MA 02116\"). No verificat manualment portal a portal (marcat \"approximate\", no \"verified\")."
     },
     {
       "id": "workbar-needham",
       "name": "Workbar Needham",
       "address": "Workbar Needham",
       "neighborhood": null,
-      "lat": null,
-      "lng": null,
-      "coordinateStatus": "pending",
-      "retrievalMethod": "pending",
+      "lat": 42.295867,
+      "lng": -71.2141876,
+      "coordinateStatus": "approximate",
+      "retrievalMethod": "nominatim",
       "sourceUrl": null,
-      "notesCa": "Sense resoldre després de 1 variants de consulta (2a passada): \"Workbar Needham, Needham, MA\". Probablement no consta a OpenStreetMap amb aquest nom (adreça d'oficina privada / nom comercial no mapat) — cal buscar l'adreça postal exacta manualment."
+      "notesCa": "Geocodificat amb Nominatim (2026-09-13, 3a passada, consulta netejada de soroll — pis/sala/nom propi): \"117, Kendrick Street, Needham Heights, Needham, Norfolk County, Massachusetts, 02494, United States\" — 14.6 km del centre de Boston. Consulta neta: \"117 Kendrick Street, Needham, MA 02494\" (adreça original de la fitxa: \"Workbar Needham, 117 Kendrick Street, Suite 300, Needham, MA 02494\"). No verificat manualment portal a portal (marcat \"approximate\", no \"verified\")."
     },
     {
       "id": "pendent-greater-boston-venue-tba",
@@ -154,55 +154,55 @@
       "coordinateStatus": "pending",
       "retrievalMethod": "pending",
       "sourceUrl": null,
-      "notesCa": "Seu no revelada per l'organitzador al llistat públic, o text d'extracció ambigu (per revisar manualment)."
+      "notesCa": "Geocodificat inicialment amb Nominatim (2026-09-13) però revertit manualment: és una seu placeholder (nom indica que la ubicació és deliberadament desconeguda / només per a convidats confirmats). La consulta neta va acabar sent només \"Boston, MA\" i el resultat és el centre geomètric de la ciutat — mostrar-ho com a \"approximate\" suggeriria una precisió que no existeix. Es manté \"pending\"."
     },
     {
       "id": "britebound",
       "name": "Britebound",
       "address": "Britebound",
       "neighborhood": null,
-      "lat": null,
-      "lng": null,
-      "coordinateStatus": "pending",
-      "retrievalMethod": "pending",
+      "lat": 42.3561471,
+      "lng": -71.0582667,
+      "coordinateStatus": "approximate",
+      "retrievalMethod": "nominatim",
       "sourceUrl": null,
-      "notesCa": "Sense resoldre després de 0 variants de consulta (2a passada): . Probablement no consta a OpenStreetMap amb aquest nom (adreça d'oficina privada / nom comercial no mapat) — cal buscar l'adreça postal exacta manualment."
+      "notesCa": "Geocodificat amb Nominatim (2026-09-13, 3a passada, consulta netejada de soroll — pis/sala/nom propi): \"33 Arch Street, 33, Arch Street, Church Green, Downtown, Boston, Suffolk County, Massachusetts, 02110, United States\" — 0.4 km del centre de Boston. Consulta neta: \"33 Arch St., Boston, MA\" (adreça original de la fitxa: \"Britebound, 33 Arch St., 21st Floor, Boston, MA\"). No verificat manualment portal a portal (marcat \"approximate\", no \"verified\")."
     },
     {
       "id": "the-legacy-club",
       "name": "The Legacy Club",
       "address": "The Legacy Club",
       "neighborhood": null,
-      "lat": null,
-      "lng": null,
-      "coordinateStatus": "pending",
-      "retrievalMethod": "pending",
+      "lat": 42.3651279,
+      "lng": -71.0610307,
+      "coordinateStatus": "approximate",
+      "retrievalMethod": "nominatim",
       "sourceUrl": null,
-      "notesCa": "Sense resoldre després de 0 variants de consulta (2a passada): . Probablement no consta a OpenStreetMap amb aquest nom (adreça d'oficina privada / nom comercial no mapat) — cal buscar l'adreça postal exacta manualment."
+      "notesCa": "Geocodificat amb Nominatim (2026-09-13, 3a passada, consulta netejada de soroll — pis/sala/nom propi): \"Dunkin', 180, Canal Street, Bulfinch Triangle, West End, Boston, Suffolk County, Massachusetts, 02114, United States\" — 0.6 km del centre de Boston. Consulta neta: \"180 Canal St, Boston, MA 02114\" (adreça original de la fitxa: \"The Legacy Club, 180 Canal St, 5th floor,  Boston, MA 02114\"). No verificat manualment portal a portal (marcat \"approximate\", no \"verified\")."
     },
     {
       "id": "microsoft-new-england-research-and-development-center-nerd-building",
       "name": "Microsoft New England Research and Development Center (NERD) building",
       "address": "Microsoft New England Research and Development Center (NERD) building",
       "neighborhood": null,
-      "lat": null,
-      "lng": null,
-      "coordinateStatus": "pending",
-      "retrievalMethod": "pending",
+      "lat": 42.3616283,
+      "lng": -71.081069,
+      "coordinateStatus": "approximate",
+      "retrievalMethod": "nominatim",
       "sourceUrl": null,
-      "notesCa": "Sense resoldre després de 1 variants de consulta (2a passada): \"Microsoft New England Research and Development Center building\". Probablement no consta a OpenStreetMap amb aquest nom (adreça d'oficina privada / nom comercial no mapat) — cal buscar l'adreça postal exacta manualment."
+      "notesCa": "Geocodificat amb Nominatim (2026-09-13, 3a passada, consulta netejada de soroll — pis/sala/nom propi): \"Microsoft New England Research & Development, 1, Memorial Drive, MIT, Cambridge, Middlesex County, Massachusetts, 02142, United States\" — 1.8 km del centre de Boston. Consulta neta: \"1 Memorial Dr, Cambridge, MA 02142\" (adreça original de la fitxa: \"Microsoft New England Research and Development Center (NERD) building, 1 Memorial DrCambridge, MA 02142\"). No verificat manualment portal a portal (marcat \"approximate\", no \"verified\")."
     },
     {
       "id": "david-rubenstein-treehouse-harvard-university",
       "name": "David Rubenstein Treehouse, Harvard University",
       "address": "David Rubenstein Treehouse, Harvard University",
       "neighborhood": null,
-      "lat": null,
-      "lng": null,
-      "coordinateStatus": "pending",
-      "retrievalMethod": "pending",
+      "lat": 42.3639153,
+      "lng": -71.1257022,
+      "coordinateStatus": "approximate",
+      "retrievalMethod": "nominatim",
       "sourceUrl": null,
-      "notesCa": "Sense resoldre després de 1 variants de consulta (2a passada): \"David Rubenstein Treehouse, Boston, MA\". Probablement no consta a OpenStreetMap amb aquest nom (adreça d'oficina privada / nom comercial no mapat) — cal buscar l'adreça postal exacta manualment."
+      "notesCa": "Geocodificat amb Nominatim (2026-09-13, 3a passada, consulta netejada de soroll — pis/sala/nom propi): \"Media Archives And Preservation Center, 135, Western Avenue, Barry's Corner, Allston, Boston, Suffolk County, Massachusetts, 02163, United States\" — 5.5 km del centre de Boston. Consulta neta: \"135 Western Ave, Allston, MA 02134\" (adreça original de la fitxa: \"David Rubenstein Treehouse, Harvard University, 135 Western Ave, Allston, MA 02134\"). No verificat manualment portal a portal (marcat \"approximate\", no \"verified\")."
     },
     {
       "id": "boston-university-wheelock-college-of-education-human-development-brookline-camp",
@@ -245,48 +245,48 @@
       "name": "WGBH Studio's Yawkey Theater",
       "address": "WGBH Studio's Yawkey Theater",
       "neighborhood": null,
-      "lat": null,
-      "lng": null,
-      "coordinateStatus": "pending",
-      "retrievalMethod": "pending",
+      "lat": 42.35687,
+      "lng": -71.1479096,
+      "coordinateStatus": "approximate",
+      "retrievalMethod": "nominatim",
       "sourceUrl": null,
-      "notesCa": "Sense resoldre després de 0 variants de consulta (2a passada): . Probablement no consta a OpenStreetMap amb aquest nom (adreça d'oficina privada / nom comercial no mapat) — cal buscar l'adreça postal exacta manualment."
+      "notesCa": "Geocodificat amb Nominatim (2026-09-13, 3a passada, consulta netejada de soroll — pis/sala/nom propi): \"Carl and Ruth Shapiro Family National Center for Accessible Media, 1, Guest Street, Brighton, Boston, Suffolk County, Massachusetts, 02135, United States\" — 7.3 km del centre de Boston. Consulta neta: \"1 Guest Street, Boston, MA\" (adreça original de la fitxa: \"WGBH Studio&#x27;s Yawkey Theater, 1 Guest Street, Boston, MA\"). No verificat manualment portal a portal (marcat \"approximate\", no \"verified\")."
     },
     {
       "id": "wheelhouse-cowork-harborside",
       "name": "Wheelhouse Cowork Harborside",
       "address": "Wheelhouse Cowork Harborside",
       "neighborhood": null,
-      "lat": null,
-      "lng": null,
-      "coordinateStatus": "pending",
-      "retrievalMethod": "pending",
+      "lat": 42.6099801,
+      "lng": -70.666138,
+      "coordinateStatus": "approximate",
+      "retrievalMethod": "nominatim",
       "sourceUrl": null,
-      "notesCa": "Sense resoldre després de 0 variants de consulta (2a passada): . Probablement no consta a OpenStreetMap amb aquest nom (adreça d'oficina privada / nom comercial no mapat) — cal buscar l'adreça postal exacta manualment."
+      "notesCa": "Geocodificat amb Nominatim (2026-09-13, 3a passada, consulta netejada de soroll — pis/sala/nom propi): \"33, Commercial Street, Central Gloucester Historic District, Rocky Neck, Gloucester, Essex County, Massachusetts, 01930, United States\" — 42.5 km del centre de Boston. Consulta neta: \"33 Commercial St, Gloucester, MA 01930\" (adreça original de la fitxa: \"Wheelhouse Cowork Harborside, 33 Commercial St, Gloucester, MA 01930\"). No verificat manualment portal a portal (marcat \"approximate\", no \"verified\")."
     },
     {
       "id": "venture-lane",
       "name": "Venture Lane",
       "address": "Venture Lane",
       "neighborhood": null,
-      "lat": null,
-      "lng": null,
-      "coordinateStatus": "pending",
-      "retrievalMethod": "pending",
+      "lat": 42.3592815,
+      "lng": -71.0591062,
+      "coordinateStatus": "approximate",
+      "retrievalMethod": "nominatim",
       "sourceUrl": null,
-      "notesCa": "Sense resoldre després de 0 variants de consulta (2a passada): . Probablement no consta a OpenStreetMap amb aquest nom (adreça d'oficina privada / nom comercial no mapat) — cal buscar l'adreça postal exacta manualment."
+      "notesCa": "Geocodificat amb Nominatim (2026-09-13, 3a passada, consulta netejada de soroll — pis/sala/nom propi): \"55, Court Street, Government Center/Faneuil Hall, Downtown, Boston, Suffolk County, Massachusetts, 02108, United States\" — 0.1 km del centre de Boston. Consulta neta: \"55 Court St, Boston, MA 02108\" (adreça original de la fitxa: \"Venture Lane, 55 Court St Floor 2, Boston, MA 02108\"). No verificat manualment portal a portal (marcat \"approximate\", no \"verified\")."
     },
     {
       "id": "venture-lane-startup-hub",
       "name": "Venture Lane | Startup Hub",
       "address": "Venture Lane | Startup Hub",
       "neighborhood": null,
-      "lat": null,
-      "lng": null,
-      "coordinateStatus": "pending",
-      "retrievalMethod": "pending",
+      "lat": 42.3592815,
+      "lng": -71.0591062,
+      "coordinateStatus": "approximate",
+      "retrievalMethod": "nominatim",
       "sourceUrl": null,
-      "notesCa": "Sense resoldre després de 1 variants de consulta (2a passada): \"Venture Lane, Boston, MA\". Probablement no consta a OpenStreetMap amb aquest nom (adreça d'oficina privada / nom comercial no mapat) — cal buscar l'adreça postal exacta manualment."
+      "notesCa": "Geocodificat amb Nominatim (2026-09-13, 3a passada, consulta netejada de soroll — pis/sala/nom propi): \"55, Court Street, Government Center/Faneuil Hall, Downtown, Boston, Suffolk County, Massachusetts, 02108, United States\" — 0.1 km del centre de Boston. Consulta neta: \"55 Court Street, Boston, MA 02108\" (adreça original de la fitxa: \"Venture Lane | Startup Hub, 55 Court Street, Floor 2, Boston, MA 02108\"). No verificat manualment portal a portal (marcat \"approximate\", no \"verified\")."
     },
     {
       "id": "pendent-tbd",
@@ -305,72 +305,72 @@
       "name": "Hariri Auditorium, BU Questrom School of Business",
       "address": "Hariri Auditorium, BU Questrom School of Business",
       "neighborhood": null,
-      "lat": null,
-      "lng": null,
-      "coordinateStatus": "pending",
-      "retrievalMethod": "pending",
+      "lat": 42.3496397,
+      "lng": -71.0997323,
+      "coordinateStatus": "approximate",
+      "retrievalMethod": "nominatim",
       "sourceUrl": null,
-      "notesCa": "Sense resoldre després de 1 variants de consulta (2a passada): \"Hariri Auditorium, Boston, MA\". Probablement no consta a OpenStreetMap amb aquest nom (adreça d'oficina privada / nom comercial no mapat) — cal buscar l'adreça postal exacta manualment."
+      "notesCa": "Geocodificat amb Nominatim (2026-09-13, 3a passada, consulta netejada de soroll — pis/sala/nom propi): \"Questrom School of Business, 595, Commonwealth Avenue, Audubon Circle, Fenway-Kenmore, Boston, Suffolk County, Massachusetts, 02215, United States\" — 3.6 km del centre de Boston. Consulta neta: \"595 Commonwealth Ave, Boston, MA 02215\" (adreça original de la fitxa: \"Hariri Auditorium, BU Questrom School of Business, 595 Commonwealth Ave, Boston, MA 02215\"). No verificat manualment portal a portal (marcat \"approximate\", no \"verified\")."
     },
     {
       "id": "mass-challenge",
       "name": "Mass Challenge",
       "address": "Mass Challenge",
       "neighborhood": null,
-      "lat": null,
-      "lng": null,
-      "coordinateStatus": "pending",
-      "retrievalMethod": "pending",
+      "lat": 42.3537964,
+      "lng": -71.0448931,
+      "coordinateStatus": "approximate",
+      "retrievalMethod": "nominatim",
       "sourceUrl": null,
-      "notesCa": "Sense resoldre després de 0 variants de consulta (2a passada): . Probablement no consta a OpenStreetMap amb aquest nom (adreça d'oficina privada / nom comercial no mapat) — cal buscar l'adreça postal exacta manualment."
+      "notesCa": "Geocodificat amb Nominatim (2026-09-13, 3a passada, consulta netejada de soroll — pis/sala/nom propi): \"MassMutual, 10, Fan Pier Boulevard, Seaport, Boston, Suffolk County, Massachusetts, 02210, United States\" — 1.3 km del centre de Boston. Consulta neta: \"10 Fan Pier Blvd, Boston, MA 02210\" (adreça original de la fitxa: \"Mass Challenge, 10 Fan Pier Blvd, Third Floor, Boston, MA 02210\"). No verificat manualment portal a portal (marcat \"approximate\", no \"verified\")."
     },
     {
       "id": "basistech",
       "name": "BasisTech",
       "address": "BasisTech",
       "neighborhood": null,
-      "lat": null,
-      "lng": null,
-      "coordinateStatus": "pending",
-      "retrievalMethod": "pending",
+      "lat": 42.402142,
+      "lng": -71.1248194,
+      "coordinateStatus": "approximate",
+      "retrievalMethod": "nominatim",
       "sourceUrl": null,
-      "notesCa": "Sense resoldre després de 0 variants de consulta (2a passada): . Probablement no consta a OpenStreetMap amb aquest nom (adreça d'oficina privada / nom comercial no mapat) — cal buscar l'adreça postal exacta manualment."
+      "notesCa": "Geocodificat amb Nominatim (2026-09-13, 3a passada, consulta netejada de soroll — pis/sala/nom propi): \"1070, Broadway, Ball Square, Somerville, Middlesex County, Massachusetts, 02144, United States\" — 7.2 km del centre de Boston. Consulta neta: \"1070 Broadway, Somerville, MA 02144\" (adreça original de la fitxa: \"BasisTech is a community of entrepreneurs, founders, and investors who work on small teams but appreciate the benefits of a vibrant office culture. Proximity to other innovators creates opportunities for cross-disciplinary learning and unexpected collaboration., 1070 Broadway, Somerville MA 02144-2078\"). No verificat manualment portal a portal (marcat \"approximate\", no \"verified\")."
     },
     {
       "id": "aloft-by-marriott-boston-seaport-district",
       "name": "Aloft by Marriott Boston Seaport District",
       "address": "Aloft by Marriott Boston Seaport District",
       "neighborhood": null,
-      "lat": null,
-      "lng": null,
-      "coordinateStatus": "pending",
-      "retrievalMethod": "pending",
+      "lat": 42.343647,
+      "lng": -71.0446391,
+      "coordinateStatus": "approximate",
+      "retrievalMethod": "nominatim",
       "sourceUrl": null,
-      "notesCa": "Sense resoldre després de 0 variants de consulta (2a passada): . Probablement no consta a OpenStreetMap amb aquest nom (adreça d'oficina privada / nom comercial no mapat) — cal buscar l'adreça postal exacta manualment."
+      "notesCa": "Geocodificat amb Nominatim (2026-09-13, 3a passada, consulta netejada de soroll — pis/sala/nom propi): \"Aloft Boston Seaport District, 401-403, D Street, Seaport, Boston, Suffolk County, Massachusetts, 02210, United States\" — 2.2 km del centre de Boston. Consulta neta: \"401-403 D St, Boston, MA 02210\" (adreça original de la fitxa: \"Aloft by Marriott Boston Seaport District, 401-403 D St, Boston, MA 02210\"). No verificat manualment portal a portal (marcat \"approximate\", no \"verified\")."
     },
     {
       "id": "mit-media-lab",
       "name": "MIT Media Lab",
       "address": "MIT Media Lab",
       "neighborhood": null,
-      "lat": null,
-      "lng": null,
-      "coordinateStatus": "pending",
-      "retrievalMethod": "pending",
+      "lat": 42.3604253,
+      "lng": -71.0873044,
+      "coordinateStatus": "approximate",
+      "retrievalMethod": "nominatim",
       "sourceUrl": null,
-      "notesCa": "Sense resoldre després de 0 variants de consulta (2a passada): . Probablement no consta a OpenStreetMap amb aquest nom (adreça d'oficina privada / nom comercial no mapat) — cal buscar l'adreça postal exacta manualment."
+      "notesCa": "Geocodificat amb Nominatim (2026-09-13, 3a passada, consulta netejada de soroll — pis/sala/nom propi): \"E14 Media Lab, 75, Amherst Street, MIT, Cambridge, Middlesex County, Massachusetts, 02139, United States\" — 2.3 km del centre de Boston. Consulta neta: \"75 Amherst St, Cambridge, MA 02142\" (adreça original de la fitxa: \"MIT Media Lab, 75 Amherst St, Cambridge, MA 02142\"). No verificat manualment portal a portal (marcat \"approximate\", no \"verified\")."
     },
     {
       "id": "amazon-bos17-office-building",
       "name": "Amazon BOS17 office building",
       "address": "Amazon BOS17 office building",
       "neighborhood": null,
-      "lat": null,
-      "lng": null,
-      "coordinateStatus": "pending",
-      "retrievalMethod": "pending",
+      "lat": 42.3498363,
+      "lng": -71.0508339,
+      "coordinateStatus": "approximate",
+      "retrievalMethod": "nominatim",
       "sourceUrl": null,
-      "notesCa": "Sense resoldre després de 0 variants de consulta (2a passada): . Probablement no consta a OpenStreetMap amb aquest nom (adreça d'oficina privada / nom comercial no mapat) — cal buscar l'adreça postal exacta manualment."
+      "notesCa": "Geocodificat amb Nominatim (2026-09-13, 3a passada, consulta netejada de soroll — pis/sala/nom propi): \"27, Melcher Street, Seaport, Boston, Suffolk County, Massachusetts, 02210, United States\" — 1.3 km del centre de Boston. Consulta neta: \"27 Melcher St, Boston, MA 02210\" (adreça original de la fitxa: \"Amazon BOS17 office building., 27 Melcher St, Boston, MA 02210\"). No verificat manualment portal a portal (marcat \"approximate\", no \"verified\")."
     },
     {
       "id": "broad-institute",
@@ -401,60 +401,60 @@
       "name": "Bevi Headquarters at the historic Schrafft's building",
       "address": "Bevi Headquarters at the historic Schrafft's building",
       "neighborhood": null,
-      "lat": null,
-      "lng": null,
-      "coordinateStatus": "pending",
-      "retrievalMethod": "pending",
+      "lat": 42.3850203,
+      "lng": -71.0711322,
+      "coordinateStatus": "approximate",
+      "retrievalMethod": "nominatim",
       "sourceUrl": null,
-      "notesCa": "Sense resoldre després de 0 variants de consulta (2a passada): . Probablement no consta a OpenStreetMap amb aquest nom (adreça d'oficina privada / nom comercial no mapat) — cal buscar l'adreça postal exacta manualment."
+      "notesCa": "Geocodificat amb Nominatim (2026-09-13, 3a passada, consulta netejada de soroll — pis/sala/nom propi): \"529, Main Street, Charlestown, Boston, Suffolk County, Massachusetts, 02129, United States\" — 2.9 km del centre de Boston. Consulta neta: \"529 Main Street, Charlestown, MA\" (adreça original de la fitxa: \"Bevi Headquarters at the historic Schrafft&#x27;s building, 529 Main Street, Charlestown, MA\"). No verificat manualment portal a portal (marcat \"approximate\", no \"verified\")."
     },
     {
       "id": "island-creek-oyster-raw-bar",
       "name": "Island Creek Oyster Raw Bar",
       "address": "Island Creek Oyster Raw Bar",
       "neighborhood": null,
-      "lat": null,
-      "lng": null,
-      "coordinateStatus": "pending",
-      "retrievalMethod": "pending",
+      "lat": 42.3506658,
+      "lng": -71.0452953,
+      "coordinateStatus": "approximate",
+      "retrievalMethod": "nominatim",
       "sourceUrl": null,
-      "notesCa": "Sense resoldre després de 0 variants de consulta (2a passada): . Probablement no consta a OpenStreetMap amb aquest nom (adreça d'oficina privada / nom comercial no mapat) — cal buscar l'adreça postal exacta manualment."
+      "notesCa": "Geocodificat amb Nominatim (2026-09-13, 3a passada, consulta netejada de soroll — pis/sala/nom propi): \"Autumn Lane, Seaport, Boston, Suffolk County, Massachusetts, 02210, United States\" — 1.5 km del centre de Boston. Consulta neta: \"99 Autumn Lane, Boston, MA 02210\" (adreça original de la fitxa: \"Island Creek Oyster Raw Bar, 99 Autumn Lane, Boston, MA 02210\"). No verificat manualment portal a portal (marcat \"approximate\", no \"verified\")."
     },
     {
       "id": "emerson-college-bill-bordy-theatre",
       "name": "Emerson College Bill Bordy Theatre",
       "address": "Emerson College Bill Bordy Theatre",
       "neighborhood": null,
-      "lat": null,
-      "lng": null,
-      "coordinateStatus": "pending",
-      "retrievalMethod": "pending",
+      "lat": 42.3515985,
+      "lng": -71.0645631,
+      "coordinateStatus": "approximate",
+      "retrievalMethod": "nominatim",
       "sourceUrl": null,
-      "notesCa": "Sense resoldre després de 0 variants de consulta (2a passada): . Probablement no consta a OpenStreetMap amb aquest nom (adreça d'oficina privada / nom comercial no mapat) — cal buscar l'adreça postal exacta manualment."
+      "notesCa": "Geocodificat amb Nominatim (2026-09-13, 3a passada, consulta netejada de soroll — pis/sala/nom propi): \"Bill Bordy Auditorium and Theater, 216,218, Tremont Street, Downtown Crossing, Downtown, Boston, Suffolk County, Massachusetts, 02116, United States\" — 1.1 km del centre de Boston. Consulta neta: \"Bill Bordy Theatre\" (adreça original de la fitxa: \"Emerson College\nBill Bordy Theatre, Bill Bordy Theatre\"). No verificat manualment portal a portal (marcat \"approximate\", no \"verified\")."
     },
     {
       "id": "hult-international-business-school",
       "name": "Hult International Business School",
       "address": "Hult International Business School",
       "neighborhood": null,
-      "lat": null,
-      "lng": null,
-      "coordinateStatus": "pending",
-      "retrievalMethod": "pending",
+      "lat": 42.3699854,
+      "lng": -71.07064,
+      "coordinateStatus": "approximate",
+      "retrievalMethod": "nominatim",
       "sourceUrl": null,
-      "notesCa": "Sense resoldre després de 0 variants de consulta (2a passada): . Probablement no consta a OpenStreetMap amb aquest nom (adreça d'oficina privada / nom comercial no mapat) — cal buscar l'adreça postal exacta manualment."
+      "notesCa": "Geocodificat amb Nominatim (2026-09-13, 3a passada, consulta netejada de soroll — pis/sala/nom propi): \"1, Education Street, East Cambridge, Cambridge, Middlesex County, Massachusetts, 02141, United States\" — 1.5 km del centre de Boston. Consulta neta: \"1 Education Street, Cambridge, MA 02141\" (adreça original de la fitxa: \"Hult International Business School, 1 Education Street, Cambridge, MA 02141\"). No verificat manualment portal a portal (marcat \"approximate\", no \"verified\")."
     },
     {
       "id": "glasswing-ventures",
       "name": "Glasswing Ventures",
       "address": "Glasswing Ventures",
       "neighborhood": null,
-      "lat": null,
-      "lng": null,
-      "coordinateStatus": "pending",
-      "retrievalMethod": "pending",
+      "lat": 42.3494903,
+      "lng": -71.0838217,
+      "coordinateStatus": "approximate",
+      "retrievalMethod": "nominatim",
       "sourceUrl": null,
-      "notesCa": "Sense resoldre després de 0 variants de consulta (2a passada): . Probablement no consta a OpenStreetMap amb aquest nom (adreça d'oficina privada / nom comercial no mapat) — cal buscar l'adreça postal exacta manualment."
+      "notesCa": "Geocodificat amb Nominatim (2026-09-13, 2a passada amb adreça de la fitxa individual): \"275, Newbury Street, Back Bay, Boston, Suffolk County, Massachusetts, 02116, United States\" — 2.4 km del centre de Boston. Consulta: \"275+Newbury+Street,+Boston,+MA\" (extreta de l'enllaç de Google Maps de la fitxa pròpia de l'esdeveniment a aiweek.boston, no de la pàgina llistat). No verificat manualment portal a portal (marcat \"approximate\", no \"verified\")."
     },
     {
       "id": "pendent-location-tba",
@@ -473,12 +473,12 @@
       "name": "MassRobotics (Large Tents on parking lot)",
       "address": "MassRobotics (Large Tents on parking lot)",
       "neighborhood": null,
-      "lat": null,
-      "lng": null,
-      "coordinateStatus": "pending",
-      "retrievalMethod": "pending",
+      "lat": 42.3516589,
+      "lng": -71.0439706,
+      "coordinateStatus": "approximate",
+      "retrievalMethod": "nominatim",
       "sourceUrl": null,
-      "notesCa": "Sense resoldre després de 1 variants de consulta (2a passada): \"MassRobotics\". Probablement no consta a OpenStreetMap amb aquest nom (adreça d'oficina privada / nom comercial no mapat) — cal buscar l'adreça postal exacta manualment."
+      "notesCa": "Geocodificat amb Nominatim (2026-09-13, 3a passada, consulta netejada de soroll — pis/sala/nom propi): \"Cisco Brewers Seaport Beer Garden, 85, Northern Avenue, Seaport, Boston, Suffolk County, Massachusetts, 02210, United States\" — 1.5 km del centre de Boston. Consulta neta: \"85 Northern Ave, Boston, MA\" (adreça original de la fitxa: \"MassRobotics (Large Tents on parking lot), 85 Northern Ave, Boston, MA\"). No verificat manualment portal a portal (marcat \"approximate\", no \"verified\")."
     },
     {
       "id": "pendent-to-be-determined",
@@ -509,12 +509,12 @@
       "name": "Harvard Innovation Labs",
       "address": "Harvard Innovation Labs",
       "neighborhood": null,
-      "lat": null,
-      "lng": null,
-      "coordinateStatus": "pending",
-      "retrievalMethod": "pending",
+      "lat": 42.3636711,
+      "lng": -71.1250043,
+      "coordinateStatus": "approximate",
+      "retrievalMethod": "nominatim",
       "sourceUrl": null,
-      "notesCa": "Sense resoldre després de 0 variants de consulta (2a passada): . Probablement no consta a OpenStreetMap amb aquest nom (adreça d'oficina privada / nom comercial no mapat) — cal buscar l'adreça postal exacta manualment."
+      "notesCa": "Geocodificat amb Nominatim (2026-09-13, 3a passada, consulta netejada de soroll — pis/sala/nom propi): \"125 Western Ave, Western Avenue, Barry's Corner, Allston, Boston, Suffolk County, Massachusetts, 02163, United States\" — 5.4 km del centre de Boston. Consulta neta: \"125 Western Ave, Allston, MA\" (adreça original de la fitxa: \"Harvard Innovation Labs, 125 Western Ave, Allston, MA\"). No verificat manualment portal a portal (marcat \"approximate\", no \"verified\")."
     },
     {
       "id": "the-foundry",
@@ -569,12 +569,12 @@
       "name": "Alexander Technology Group",
       "address": "Alexander Technology Group",
       "neighborhood": null,
-      "lat": null,
-      "lng": null,
-      "coordinateStatus": "pending",
-      "retrievalMethod": "pending",
+      "lat": 42.3567772,
+      "lng": -71.053804,
+      "coordinateStatus": "approximate",
+      "retrievalMethod": "nominatim",
       "sourceUrl": null,
-      "notesCa": "Sense resoldre després de 0 variants de consulta (2a passada): . Probablement no consta a OpenStreetMap amb aquest nom (adreça d'oficina privada / nom comercial no mapat) — cal buscar l'adreça postal exacta manualment."
+      "notesCa": "Geocodificat amb Nominatim (2026-09-13, 3a passada, consulta netejada de soroll — pis/sala/nom propi): \"Boston News Cafe, 260, Franklin Street, Waterfront, Downtown, Boston, Suffolk County, Massachusetts, 02110, United States\" — 0.6 km del centre de Boston. Consulta neta: \"260 Franklin St, Boston, MA 02110\" (adreça original de la fitxa: \"Alexander Technology Group, 260 Franklin St Ste 410, Boston, MA 02110\"). No verificat manualment portal a portal (marcat \"approximate\", no \"verified\")."
     },
     {
       "id": "pendent-venue-tba",
@@ -605,24 +605,24 @@
       "name": "Boston Chamber of Commerce",
       "address": "Boston Chamber of Commerce",
       "neighborhood": null,
-      "lat": null,
-      "lng": null,
-      "coordinateStatus": "pending",
-      "retrievalMethod": "pending",
+      "lat": 42.3565617,
+      "lng": -71.0534199,
+      "coordinateStatus": "approximate",
+      "retrievalMethod": "nominatim",
       "sourceUrl": null,
-      "notesCa": "Sense resoldre després de 0 variants de consulta (2a passada): . Probablement no consta a OpenStreetMap amb aquest nom (adreça d'oficina privada / nom comercial no mapat) — cal buscar l'adreça postal exacta manualment."
+      "notesCa": "Geocodificat amb Nominatim (2026-09-13, 3a passada, consulta netejada de soroll — pis/sala/nom propi): \"Hannaford Immigration Law, 265, Franklin Street, Waterfront, Downtown, Boston, Suffolk County, Massachusetts, 02110, United States\" — 0.6 km del centre de Boston. Consulta neta: \"265 Franklin Street, Boston, MA 02110\" (adreça original de la fitxa: \"Boston Chamber of Commerce, 265 Franklin Street, Suite 1701, Boston, MA 02110\"). No verificat manualment portal a portal (marcat \"approximate\", no \"verified\")."
     },
     {
       "id": "imotions-north-american-headquarter",
       "name": "iMotions - North American Headquarter",
       "address": "iMotions - North American Headquarter",
       "neighborhood": null,
-      "lat": null,
-      "lng": null,
-      "coordinateStatus": "pending",
-      "retrievalMethod": "pending",
+      "lat": 42.3553922,
+      "lng": -71.0627356,
+      "coordinateStatus": "approximate",
+      "retrievalMethod": "nominatim",
       "sourceUrl": null,
-      "notesCa": "Sense resoldre després de 0 variants de consulta (2a passada): . Probablement no consta a OpenStreetMap amb aquest nom (adreça d'oficina privada / nom comercial no mapat) — cal buscar l'adreça postal exacta manualment."
+      "notesCa": "Geocodificat amb Nominatim (2026-09-13, 3a passada, consulta netejada de soroll — pis/sala/nom propi): \"141, Tremont Street, Downtown, Boston, Suffolk County, Massachusetts, 02111, United States\" — 0.6 km del centre de Boston. Consulta neta: \"141 Tremont St. Boston\" (adreça original de la fitxa: \"iMotions - North American Headquarter, 141 Tremont St. 8th Floor Boston\"). No verificat manualment portal a portal (marcat \"approximate\", no \"verified\")."
     },
     {
       "id": "pendent-venue-location-disclosed-to-confirmed-gu",
@@ -634,19 +634,19 @@
       "coordinateStatus": "pending",
       "retrievalMethod": "pending",
       "sourceUrl": null,
-      "notesCa": "Seu no revelada per l'organitzador al llistat públic, o text d'extracció ambigu (per revisar manualment)."
+      "notesCa": "Geocodificat inicialment amb Nominatim (2026-09-13) però revertit manualment: és una seu placeholder (nom indica que la ubicació és deliberadament desconeguda / només per a convidats confirmats). La consulta neta va acabar sent només \"Boston, MA\" i el resultat és el centre geomètric de la ciutat — mostrar-ho com a \"approximate\" suggeriria una precisió que no existeix. Es manté \"pending\"."
     },
     {
       "id": "matria-at-the-intercontinental",
       "name": "Matria at the InterContinental",
       "address": "Matria at the InterContinental",
       "neighborhood": null,
-      "lat": null,
-      "lng": null,
-      "coordinateStatus": "pending",
-      "retrievalMethod": "pending",
+      "lat": 42.353792,
+      "lng": -71.0520065,
+      "coordinateStatus": "approximate",
+      "retrievalMethod": "nominatim",
       "sourceUrl": null,
-      "notesCa": "Sense resoldre després de 0 variants de consulta (2a passada): . Probablement no consta a OpenStreetMap amb aquest nom (adreça d'oficina privada / nom comercial no mapat) — cal buscar l'adreça postal exacta manualment."
+      "notesCa": "Geocodificat amb Nominatim (2026-09-13, 3a passada, consulta netejada de soroll — pis/sala/nom propi): \"InterContinental Boston, 510, Atlantic Avenue, Waterfront, Downtown, Boston, Suffolk County, Massachusetts, 02210, United States\" — 0.9 km del centre de Boston. Consulta neta: \"510 Atlantic Ave, Boston, MA 02210\" (adreça original de la fitxa: \"Matria at the InterContinental, 510 Atlantic Ave Boston, MA 02210\"). No verificat manualment portal a portal (marcat \"approximate\", no \"verified\")."
     },
     {
       "id": "laugh-boston-in-the-westin-boston-seaport",
@@ -689,60 +689,60 @@
       "name": "Convene One Boston Place",
       "address": "Convene One Boston Place",
       "neighborhood": null,
-      "lat": null,
-      "lng": null,
-      "coordinateStatus": "pending",
-      "retrievalMethod": "pending",
+      "lat": 42.3585284,
+      "lng": -71.0583757,
+      "coordinateStatus": "approximate",
+      "retrievalMethod": "nominatim",
       "sourceUrl": null,
-      "notesCa": "Sense resoldre després de 0 variants de consulta (2a passada): . Probablement no consta a OpenStreetMap amb aquest nom (adreça d'oficina privada / nom comercial no mapat) — cal buscar l'adreça postal exacta manualment."
+      "notesCa": "Geocodificat amb Nominatim (2026-09-13, 3a passada, consulta netejada de soroll — pis/sala/nom propi): \"One Boston Place, 201, Washington Street, Downtown Crossing, Downtown, Boston, Suffolk County, Massachusetts, 02108, United States\" — 0.2 km del centre de Boston. Consulta neta: \"201 Washington St, Boston, MA 02108\" (adreça original de la fitxa: \"Convene One Boston Place, 201 Washington St, Boston, MA 02108\"). No verificat manualment portal a portal (marcat \"approximate\", no \"verified\")."
     },
     {
       "id": "metcalf-hall-grand-ballroom-george-sherman-union-boston-university",
       "name": "Metcalf Hall Grand Ballroom, George Sherman Union, Boston University",
       "address": "Metcalf Hall Grand Ballroom, George Sherman Union, Boston University",
       "neighborhood": null,
-      "lat": null,
-      "lng": null,
-      "coordinateStatus": "pending",
-      "retrievalMethod": "pending",
+      "lat": 42.3509672,
+      "lng": -71.1089756,
+      "coordinateStatus": "approximate",
+      "retrievalMethod": "nominatim",
       "sourceUrl": null,
-      "notesCa": "Sense resoldre després de 1 variants de consulta (2a passada): \"Metcalf Hall Grand Ballroom, Boston, MA\". Probablement no consta a OpenStreetMap amb aquest nom (adreça d'oficina privada / nom comercial no mapat) — cal buscar l'adreça postal exacta manualment."
+      "notesCa": "Geocodificat amb Nominatim (2026-09-13, 3a passada, consulta netejada de soroll — pis/sala/nom propi): \"George Sherman Union, 775, Commonwealth Avenue, Audubon Circle, Fenway-Kenmore, Boston, Suffolk County, Massachusetts, 02215, United States\" — 4.2 km del centre de Boston. Consulta neta: \"775 Commonwealth Avenue, Boston, MA 02215\" (adreça original de la fitxa: \"Metcalf Hall Grand Ballroom, George Sherman Union, Boston University, 775 Commonwealth Avenue, Boston, MA 02215\"). No verificat manualment portal a portal (marcat \"approximate\", no \"verified\")."
     },
     {
       "id": "ceis-foyer-wentworth-institute-of-technology",
       "name": "CEIS Foyer, Wentworth Institute of Technology",
       "address": "CEIS Foyer, Wentworth Institute of Technology",
       "neighborhood": null,
-      "lat": null,
-      "lng": null,
-      "coordinateStatus": "pending",
-      "retrievalMethod": "pending",
+      "lat": 42.3356047,
+      "lng": -71.0955638,
+      "coordinateStatus": "approximate",
+      "retrievalMethod": "nominatim",
       "sourceUrl": null,
-      "notesCa": "Sense resoldre després de 1 variants de consulta (2a passada): \"CEIS Foyer, Boston, MA\". Probablement no consta a OpenStreetMap amb aquest nom (adreça d'oficina privada / nom comercial no mapat) — cal buscar l'adreça postal exacta manualment."
+      "notesCa": "Geocodificat amb Nominatim (2026-09-13, 3a passada, consulta netejada de soroll — pis/sala/nom propi): \"Alumni Library, 550, Huntington Avenue, Mission Hill, Boston, Suffolk County, Massachusetts, 02115, United States\" — 4.1 km del centre de Boston. Consulta neta: \"550 Huntington Ave, Boston, MA 02115\" (adreça original de la fitxa: \"CEIS Foyer, Wentworth Institute of Technology, 550 Huntington Ave, Boston, MA 02115\"). No verificat manualment portal a portal (marcat \"approximate\", no \"verified\")."
     },
     {
       "id": "findability-sciences-office-at-workbar-burlington-100-summit-dr-ste-917-burlingt",
       "name": "Findability Sciences Office at Workbar Burlington 100 Summit Dr, Ste 917, Burlington, MA 01880",
       "address": "Findability Sciences Office at Workbar Burlington 100 Summit Dr, Ste 917, Burlington, MA 01880",
       "neighborhood": null,
-      "lat": null,
-      "lng": null,
-      "coordinateStatus": "pending",
-      "retrievalMethod": "pending",
+      "lat": 42.4761413,
+      "lng": -71.2154008,
+      "coordinateStatus": "approximate",
+      "retrievalMethod": "nominatim",
       "sourceUrl": null,
-      "notesCa": "Sense resoldre després de 2 variants de consulta (2a passada): \"Findability Sciences Office at Workbar Burlington 100 Summit Dr, Boston, MA\", \"Findability Sciences Office at Workbar Burlington 100 Summit Dr, Burlington, MA\". Probablement no consta a OpenStreetMap amb aquest nom (adreça d'oficina privada / nom comercial no mapat) — cal buscar l'adreça postal exacta manualment."
+      "notesCa": "Geocodificat amb Nominatim (2026-09-13, 3a passada, consulta netejada de soroll — pis/sala/nom propi): \"100 Summit Drive, 100, Summit Drive, Summit Office Park, Burlington, Middlesex County, Massachusetts, 01805, United States\" — 18.2 km del centre de Boston. Consulta neta: \"100 Summit Dr, Burlington, MA 01880\" (adreça original de la fitxa: \"Findability Sciences Office at Workbar Burlington\n100 Summit Dr, Ste 917, Burlington, MA 01880\n3rd floor in the building, 100 Summit Dr, Ste 917, Burlington, MA 01880\"). No verificat manualment portal a portal (marcat \"approximate\", no \"verified\")."
     },
     {
       "id": "klarman-auditorium-harvard-business-school",
       "name": "Klarman Auditorium, Harvard Business School",
       "address": "Klarman Auditorium, Harvard Business School",
       "neighborhood": null,
-      "lat": null,
-      "lng": null,
-      "coordinateStatus": "pending",
-      "retrievalMethod": "pending",
+      "lat": 42.3662333,
+      "lng": -71.1254629,
+      "coordinateStatus": "approximate",
+      "retrievalMethod": "nominatim",
       "sourceUrl": null,
-      "notesCa": "Sense resoldre després de 1 variants de consulta (2a passada): \"Klarman Auditorium, Boston, MA\". Probablement no consta a OpenStreetMap amb aquest nom (adreça d'oficina privada / nom comercial no mapat) — cal buscar l'adreça postal exacta manualment."
+      "notesCa": "Geocodificat amb Nominatim (2026-09-13, 3a passada, consulta netejada de soroll — pis/sala/nom propi): \"25, Harvard Way, Barry's Corner, Allston, Boston, Suffolk County, Massachusetts, 02163, United States\" — 5.5 km del centre de Boston. Consulta neta: \"25 Harvard Way, Boston, MA 02163\" (adreça original de la fitxa: \"Klarman Auditorium, Harvard Business School, Klarman Auditorium, Harvard Business School, 25 Harvard Way, Boston, MA 02163\"). No verificat manualment portal a portal (marcat \"approximate\", no \"verified\")."
     },
     {
       "id": "pendent-location-disclosed-to-confirmed-guests",
@@ -754,7 +754,7 @@
       "coordinateStatus": "pending",
       "retrievalMethod": "pending",
       "sourceUrl": null,
-      "notesCa": "Seu no revelada per l'organitzador al llistat públic, o text d'extracció ambigu (per revisar manualment)."
+      "notesCa": "Geocodificat inicialment amb Nominatim (2026-09-13) però revertit manualment: és una seu placeholder (nom indica que la ubicació és deliberadament desconeguda / només per a convidats confirmats). La consulta neta va acabar sent només \"Boston, MA\" i el resultat és el centre geomètric de la ciutat — mostrar-ho com a \"approximate\" suggeriria una precisió que no existeix. Es manté \"pending\"."
     },
     {
       "id": "questrom-school-of-business",
@@ -785,12 +785,12 @@
       "name": "Hult International Business School Hult Center (main building), 7th floor",
       "address": "Hult International Business School Hult Center (main building), 7th floor",
       "neighborhood": null,
-      "lat": null,
-      "lng": null,
-      "coordinateStatus": "pending",
-      "retrievalMethod": "pending",
+      "lat": 42.3699854,
+      "lng": -71.07064,
+      "coordinateStatus": "approximate",
+      "retrievalMethod": "nominatim",
       "sourceUrl": null,
-      "notesCa": "Sense resoldre després de 2 variants de consulta (2a passada): \"Hult International Business School Hult Center , 7th floor\", \"Hult International Business School Hult Center (main building), Boston, MA\". Probablement no consta a OpenStreetMap amb aquest nom (adreça d'oficina privada / nom comercial no mapat) — cal buscar l'adreça postal exacta manualment."
+      "notesCa": "Geocodificat amb Nominatim (2026-09-13, 3a passada, consulta netejada de soroll — pis/sala/nom propi): \"1, Education Street, East Cambridge, Cambridge, Middlesex County, Massachusetts, 02141, United States\" — 1.5 km del centre de Boston. Consulta neta: \"1 Education St, Cambridge, MA 02141\" (adreça original de la fitxa: \"Hult International Business School\nHult Center (main building), 7th floor, 1 Education St, Cambridge MA 02141\"). No verificat manualment portal a portal (marcat \"approximate\", no \"verified\")."
     },
     {
       "id": "pendent-venue-revealed-upon-registration-approva",
@@ -809,36 +809,36 @@
       "name": "Starburst HQ",
       "address": "Starburst HQ",
       "neighborhood": null,
-      "lat": null,
-      "lng": null,
-      "coordinateStatus": "pending",
-      "retrievalMethod": "pending",
+      "lat": 42.354929,
+      "lng": -71.0567125,
+      "coordinateStatus": "approximate",
+      "retrievalMethod": "nominatim",
       "sourceUrl": null,
-      "notesCa": "Sense resoldre després de 0 variants de consulta (2a passada): . Probablement no consta a OpenStreetMap amb aquest nom (adreça d'oficina privada / nom comercial no mapat) — cal buscar l'adreça postal exacta manualment."
+      "notesCa": "Geocodificat amb Nominatim (2026-09-13, 3a passada, consulta netejada de soroll — pis/sala/nom propi): \"101, Federal Street, Church Green, Downtown, Boston, Suffolk County, Massachusetts, 02110, United States\" — 0.6 km del centre de Boston. Consulta neta: \"101 Federal Street, Boston, MA 02210\" (adreça original de la fitxa: \"Starburst HQ, 101 Federal Street, Boston, MA 02210\"). No verificat manualment portal a portal (marcat \"approximate\", no \"verified\")."
     },
     {
       "id": "pendent-https-davios-com-bos",
       "name": "https://davios.com/bos",
       "address": null,
       "neighborhood": null,
-      "lat": null,
-      "lng": null,
-      "coordinateStatus": "pending",
-      "retrievalMethod": "pending",
+      "lat": 42.3504901,
+      "lng": -71.0703617,
+      "coordinateStatus": "approximate",
+      "retrievalMethod": "nominatim",
       "sourceUrl": null,
-      "notesCa": "Seu no revelada per l'organitzador al llistat públic, o text d'extracció ambigu (per revisar manualment)."
+      "notesCa": "Geocodificat amb Nominatim (2026-09-13, 3a passada, consulta netejada de soroll — pis/sala/nom propi): \"Paine Furniture Building, 75, Arlington Street, Back Bay, Boston, Suffolk County, Massachusetts, 02117, United States\" — 1.4 km del centre de Boston. Consulta neta: \"75 Arlington St, Boston, MA 02116\" (adreça original de la fitxa: \"https://davios.com/bos, 75 Arlington St, Boston, MA 02116\"). No verificat manualment portal a portal (marcat \"approximate\", no \"verified\")."
     },
     {
       "id": "rocket-software-office",
       "name": "Rocket Software Office",
       "address": "Rocket Software Office",
       "neighborhood": null,
-      "lat": null,
-      "lng": null,
-      "coordinateStatus": "pending",
-      "retrievalMethod": "pending",
+      "lat": 42.3924612,
+      "lng": -71.2595565,
+      "coordinateStatus": "approximate",
+      "retrievalMethod": "nominatim",
       "sourceUrl": null,
-      "notesCa": "Sense resoldre després de 0 variants de consulta (2a passada): . Probablement no consta a OpenStreetMap amb aquest nom (adreça d'oficina privada / nom comercial no mapat) — cal buscar l'adreça postal exacta manualment."
+      "notesCa": "Geocodificat amb Nominatim (2026-09-13, 3a passada, consulta netejada de soroll — pis/sala/nom propi): \"77 CityPoint, 77, Fourth Avenue, Waltham, Middlesex County, Massachusetts, 02451, United States\" — 16.9 km del centre de Boston. Consulta neta: \"77 Fourth Avenue, Waltham, MA 02451\" (adreça original de la fitxa: \"Rocket Software Office, 77 Fourth Avenue, Waltham, MA 02451\"). No verificat manualment portal a portal (marcat \"approximate\", no \"verified\")."
     },
     {
       "id": "mit-campus",
@@ -857,12 +857,12 @@
       "name": "MIT Sloan School of Management, Building E62-233",
       "address": "MIT Sloan School of Management, Building E62-233",
       "neighborhood": null,
-      "lat": null,
-      "lng": null,
-      "coordinateStatus": "pending",
-      "retrievalMethod": "pending",
+      "lat": 42.3614524,
+      "lng": -71.0826296,
+      "coordinateStatus": "approximate",
+      "retrievalMethod": "nominatim",
       "sourceUrl": null,
-      "notesCa": "Sense resoldre després de 1 variants de consulta (2a passada): \"MIT Sloan School of Management, Boston, MA\". Probablement no consta a OpenStreetMap amb aquest nom (adreça d'oficina privada / nom comercial no mapat) — cal buscar l'adreça postal exacta manualment."
+      "notesCa": "Geocodificat amb Nominatim (2026-09-13, 3a passada, consulta netejada de soroll — pis/sala/nom propi): \"Sloan School of Management, 100, Main Street, MIT, Cambridge, Middlesex County, Massachusetts, 02142, United States\" — 2.0 km del centre de Boston. Consulta neta: \"100 Main Street, Cambridge, MA 02142\" (adreça original de la fitxa: \"MIT Sloan School of Management, Building E62-233, 100 Main Street, Cambridge, MA 02142\"). No verificat manualment portal a portal (marcat \"approximate\", no \"verified\")."
     },
     {
       "id": "boston-public-library",
@@ -905,24 +905,24 @@
       "name": "Venture Lane | Startup Hub 55 Court St Floor 2, Boston, MA 02108",
       "address": "Venture Lane | Startup Hub 55 Court St Floor 2, Boston, MA 02108",
       "neighborhood": null,
-      "lat": null,
-      "lng": null,
-      "coordinateStatus": "pending",
-      "retrievalMethod": "pending",
+      "lat": 42.3592815,
+      "lng": -71.0591062,
+      "coordinateStatus": "approximate",
+      "retrievalMethod": "nominatim",
       "sourceUrl": null,
-      "notesCa": "Sense resoldre després de 2 variants de consulta (2a passada): \"55 Court St Floor 2, Boston, MA 02108\", \"Venture Lane, Boston, MA\". Probablement no consta a OpenStreetMap amb aquest nom (adreça d'oficina privada / nom comercial no mapat) — cal buscar l'adreça postal exacta manualment."
+      "notesCa": "Geocodificat amb Nominatim (2026-09-13, 3a passada, consulta netejada de soroll — pis/sala/nom propi): \"55, Court Street, Government Center/Faneuil Hall, Downtown, Boston, Suffolk County, Massachusetts, 02108, United States\" — 0.1 km del centre de Boston. Consulta neta: \"55 Court St, Boston, MA 02108\" (adreça original de la fitxa: \"Venture Lane | Startup Hub\n55 Court St Floor 2, Boston, MA 02108, USA\nTake the elevator to the 2nd floor, 55 Court St Floor 2, Boston, MA 02108\"). No verificat manualment portal a portal (marcat \"approximate\", no \"verified\")."
     },
     {
       "id": "cicso-brewers-in-the-seaport",
       "name": "Cicso Brewers in the Seaport",
       "address": "Cicso Brewers in the Seaport",
       "neighborhood": null,
-      "lat": null,
-      "lng": null,
-      "coordinateStatus": "pending",
-      "retrievalMethod": "pending",
+      "lat": 42.3516589,
+      "lng": -71.0439706,
+      "coordinateStatus": "approximate",
+      "retrievalMethod": "nominatim",
       "sourceUrl": null,
-      "notesCa": "Sense resoldre després de 0 variants de consulta (2a passada): . Probablement no consta a OpenStreetMap amb aquest nom (adreça d'oficina privada / nom comercial no mapat) — cal buscar l'adreça postal exacta manualment."
+      "notesCa": "Geocodificat amb Nominatim (2026-09-13, 3a passada, consulta netejada de soroll — pis/sala/nom propi): \"Cisco Brewers Seaport Beer Garden, 85, Northern Avenue, Seaport, Boston, Suffolk County, Massachusetts, 02210, United States\" — 1.5 km del centre de Boston. Consulta neta: \"85 Northern Avenue, Boston, MA\" (adreça original de la fitxa: \"Cicso Brewers in the Seaport, 85 Northern Avenue, Boston, MA\"). No verificat manualment portal a portal (marcat \"approximate\", no \"verified\")."
     },
     {
       "id": "pendent-venue-tbd",
@@ -982,7 +982,7 @@
       "coordinateStatus": "pending",
       "retrievalMethod": "pending",
       "sourceUrl": null,
-      "notesCa": "Sense resoldre després de 0 variants de consulta (2a passada): . Probablement no consta a OpenStreetMap amb aquest nom (adreça d'oficina privada / nom comercial no mapat) — cal buscar l'adreça postal exacta manualment."
+      "notesCa": "Geocodificat inicialment amb Nominatim (2026-09-13) però revertit manualment: la fitxa de l'esdeveniment no dona adreça pròpia (només repeteix el nom de la seu), així que la consulta neta va acabar sent només \"Boston, MA\" — el resultat és el centre geomètric de la ciutat, no la ubicació real d'aquest club privat. Es prefereix deixar-ho \"pending\" (honest) abans que mostrar un pin fals."
     },
     {
       "id": "exp-at-northeastern-university",
@@ -1025,24 +1025,24 @@
       "name": "Focus Technology Solutions – Conference Room / Mezzanine",
       "address": "Focus Technology Solutions – Conference Room / Mezzanine",
       "neighborhood": null,
-      "lat": null,
-      "lng": null,
-      "coordinateStatus": "pending",
-      "retrievalMethod": "pending",
+      "lat": 42.3575198,
+      "lng": -71.0559309,
+      "coordinateStatus": "approximate",
+      "retrievalMethod": "nominatim",
       "sourceUrl": null,
-      "notesCa": "Sense resoldre després de 0 variants de consulta (2a passada): . Probablement no consta a OpenStreetMap amb aquest nom (adreça d'oficina privada / nom comercial no mapat) — cal buscar l'adreça postal exacta manualment."
+      "notesCa": "Geocodificat amb Nominatim (2026-09-13, 3a passada, consulta netejada de soroll — pis/sala/nom propi): \"Ten Post Office Square North, 10, Post Office Square, Dock Square, Downtown, Boston, Suffolk County, Massachusetts, 02109, United States\" — 0.4 km del centre de Boston. Consulta neta: \"10 Post, Office Square. Boston, MA 02109\" (adreça original de la fitxa: \"Focus Technology Solutions – Conference Room / Mezzanine, 10 Post Office Square. Boston, MA 02109. It is on the 2nd floor “Floor M” can be accessed through the north elevator Office hours 7AM-5PM\"). No verificat manualment portal a portal (marcat \"approximate\", no \"verified\")."
     },
     {
       "id": "boston-university-duan-family-center-for-computing-data-sciences",
       "name": "Boston University Duan Family Center for Computing & Data Sciences",
       "address": "Boston University Duan Family Center for Computing & Data Sciences",
       "neighborhood": null,
-      "lat": null,
-      "lng": null,
-      "coordinateStatus": "pending",
-      "retrievalMethod": "pending",
+      "lat": 42.3500229,
+      "lng": -71.1031113,
+      "coordinateStatus": "approximate",
+      "retrievalMethod": "nominatim",
       "sourceUrl": null,
-      "notesCa": "Sense resoldre després de 0 variants de consulta (2a passada): . Probablement no consta a OpenStreetMap amb aquest nom (adreça d'oficina privada / nom comercial no mapat) — cal buscar l'adreça postal exacta manualment."
+      "notesCa": "Geocodificat amb Nominatim (2026-09-13, 3a passada, consulta netejada de soroll — pis/sala/nom propi): \"Center for Computing & Data Sciences Building, 665, Commonwealth Avenue, Audubon Circle, Fenway-Kenmore, Boston, Suffolk County, Massachusetts, 02215, United States\" — 3.8 km del centre de Boston. Consulta neta: \"665 Commonwealth Avenue, Boston, MA 02215\" (adreça original de la fitxa: \"Boston University\nDuan Family Center for Computing & Data Sciences, 665 Commonwealth Avenue, Boston, MA 02215\"). No verificat manualment portal a portal (marcat \"approximate\", no \"verified\")."
     },
     {
       "id": "goodwin",
@@ -1085,12 +1085,12 @@
       "name": "Seaport Area",
       "address": "Seaport Area",
       "neighborhood": null,
-      "lat": null,
-      "lng": null,
-      "coordinateStatus": "pending",
-      "retrievalMethod": "pending",
+      "lat": 42.3512252,
+      "lng": -71.0453952,
+      "coordinateStatus": "approximate",
+      "retrievalMethod": "nominatim",
       "sourceUrl": null,
-      "notesCa": "Sense resoldre després de 0 variants de consulta (2a passada): . Probablement no consta a OpenStreetMap amb aquest nom (adreça d'oficina privada / nom comercial no mapat) — cal buscar l'adreça postal exacta manualment."
+      "notesCa": "Geocodificat amb Nominatim (2026-09-13, 3a passada, consulta netejada de soroll — pis/sala/nom propi): \"101, Seaport Boulevard, Seaport, Boston, Suffolk County, Massachusetts, 02210, United States\" — 1.5 km del centre de Boston. Consulta neta: \"101 Seaport Blvd, Boston, MA 02210\" (adreça original de la fitxa: \"Seaport Area, 101 Seaport Blvd, Boston, MA 02210\"). No verificat manualment portal a portal (marcat \"approximate\", no \"verified\")."
     },
     {
       "id": "venture-cafe-cambridge-5th-floor-cic-one-broadway",
@@ -1109,12 +1109,12 @@
       "name": "Kearney Boston Offices",
       "address": "Kearney Boston Offices",
       "neighborhood": null,
-      "lat": null,
-      "lng": null,
-      "coordinateStatus": "pending",
-      "retrievalMethod": "pending",
+      "lat": 42.3500423,
+      "lng": -71.0426929,
+      "coordinateStatus": "approximate",
+      "retrievalMethod": "nominatim",
       "sourceUrl": null,
-      "notesCa": "Sense resoldre després de 0 variants de consulta (2a passada): . Probablement no consta a OpenStreetMap amb aquest nom (adreça d'oficina privada / nom comercial no mapat) — cal buscar l'adreça postal exacta manualment."
+      "notesCa": "Geocodificat amb Nominatim (2026-09-13, 3a passada, consulta netejada de soroll — pis/sala/nom propi): \"Rosa Mexicano, 155, Seaport Boulevard, Seaport, Boston, Suffolk County, Massachusetts, 02210, United States\" — 1.7 km del centre de Boston. Consulta neta: \"155 Seaport Blvd, Boston, MA\" (adreça original de la fitxa: \"Kearney Boston Offices, 155 Seaport Blvd, 2nd floor, Boston, MA\"). No verificat manualment portal a portal (marcat \"approximate\", no \"verified\")."
     },
     {
       "id": "the-foundry-cambridge",
@@ -1157,12 +1157,12 @@
       "name": "Capri Boston",
       "address": "Capri Boston",
       "neighborhood": null,
-      "lat": null,
-      "lng": null,
-      "coordinateStatus": "pending",
-      "retrievalMethod": "pending",
+      "lat": 42.3420609,
+      "lng": -71.0658501,
+      "coordinateStatus": "approximate",
+      "retrievalMethod": "nominatim",
       "sourceUrl": null,
-      "notesCa": "Sense resoldre després de 0 variants de consulta (2a passada): . Probablement no consta a OpenStreetMap amb aquest nom (adreça d'oficina privada / nom comercial no mapat) — cal buscar l'adreça postal exacta manualment."
+      "notesCa": "Geocodificat amb Nominatim (2026-09-13, 3a passada, consulta netejada de soroll — pis/sala/nom propi): \"Tech Superpowers, 500, Harrison Avenue, South End, Boston, Suffolk County, Massachusetts, 02118, United States\" — 2.1 km del centre de Boston. Consulta neta: \"500 Harrison Ave, Boston, MA 02118\" (adreça original de la fitxa: \"Capri Boston, 500 Harrison Ave, Boston, MA 02118\"). No verificat manualment portal a portal (marcat \"approximate\", no \"verified\")."
     },
     {
       "id": "boston-ma",
@@ -1205,12 +1205,12 @@
       "name": "WBUR City Space",
       "address": "WBUR City Space",
       "neighborhood": null,
-      "lat": null,
-      "lng": null,
-      "coordinateStatus": "pending",
-      "retrievalMethod": "pending",
+      "lat": 42.3512435,
+      "lng": -71.1153673,
+      "coordinateStatus": "approximate",
+      "retrievalMethod": "nominatim",
       "sourceUrl": null,
-      "notesCa": "Sense resoldre després de 0 variants de consulta (2a passada): . Probablement no consta a OpenStreetMap amb aquest nom (adreça d'oficina privada / nom comercial no mapat) — cal buscar l'adreça postal exacta manualment."
+      "notesCa": "Geocodificat amb Nominatim (2026-09-13, 3a passada, consulta netejada de soroll — pis/sala/nom propi): \"890, Commonwealth Avenue, Allston, Boston, Suffolk County, Massachusetts, 02215, United States\" — 4.7 km del centre de Boston. Consulta neta: \"890 Commonwealth Ave, Boston, MA 02215\" (adreça original de la fitxa: \"WBUR City Space, 890 Commonwealth Ave, Boston, MA 02215\"). No verificat manualment portal a portal (marcat \"approximate\", no \"verified\")."
     },
     {
       "id": "le-meridien-cambridge",
@@ -1253,12 +1253,12 @@
       "name": "AWS Office BOS17 Level 1, Room 1.101 27 Melcher St, Boston, MA 02210",
       "address": "AWS Office BOS17 Level 1, Room 1.101 27 Melcher St, Boston, MA 02210",
       "neighborhood": null,
-      "lat": null,
-      "lng": null,
-      "coordinateStatus": "pending",
-      "retrievalMethod": "pending",
+      "lat": 42.3498363,
+      "lng": -71.0508339,
+      "coordinateStatus": "approximate",
+      "retrievalMethod": "nominatim",
       "sourceUrl": null,
-      "notesCa": "Sense resoldre després de 2 variants de consulta (2a passada): \"1.101 27 Melcher St, Boston, MA 02210\", \"AWS Office BOS17 Level 1, Boston, MA\". Probablement no consta a OpenStreetMap amb aquest nom (adreça d'oficina privada / nom comercial no mapat) — cal buscar l'adreça postal exacta manualment."
+      "notesCa": "Geocodificat amb Nominatim (2026-09-13, 3a passada, consulta netejada de soroll — pis/sala/nom propi): \"27, Melcher Street, Seaport, Boston, Suffolk County, Massachusetts, 02210, United States\" — 1.3 km del centre de Boston. Consulta neta: \"27 Melcher St, Boston, MA 02210\" (adreça original de la fitxa: \"AWS Office BOS17 Level 1, Room 1.101\n27 Melcher St, Boston, MA 02210\nBoston, MA 02210, 27 Melcher St, Boston, MA 02210\"). No verificat manualment portal a portal (marcat \"approximate\", no \"verified\")."
     },
     {
       "id": "babson-boston",
@@ -1313,12 +1313,12 @@
       "name": "Cambridge Innovation Center Mosaic Room",
       "address": "Cambridge Innovation Center Mosaic Room",
       "neighborhood": null,
-      "lat": null,
-      "lng": null,
-      "coordinateStatus": "pending",
-      "retrievalMethod": "pending",
+      "lat": 42.3624681,
+      "lng": -71.0847446,
+      "coordinateStatus": "approximate",
+      "retrievalMethod": "nominatim",
       "sourceUrl": null,
-      "notesCa": "Sense resoldre després de 1 variants de consulta (2a passada): \"Cambridge Innovation Center Mosaic Room, Cambridge, MA\". Probablement no consta a OpenStreetMap amb aquest nom (adreça d'oficina privada / nom comercial no mapat) — cal buscar l'adreça postal exacta manualment."
+      "notesCa": "Geocodificat amb Nominatim (2026-09-13, 3a passada, consulta netejada de soroll — pis/sala/nom propi): \"CIC - 245 Main Street, 245, Main Street, MIT, Cambridge, Middlesex County, Massachusetts, 02142, United States\" — 2.1 km del centre de Boston. Consulta neta: \"245 Main St, Cambridge, MA\" (adreça original de la fitxa: \"Cambridge Innovation Center\n Mosaic Room, 245 Main St, Cambridge MA,\"). No verificat manualment portal a portal (marcat \"approximate\", no \"verified\")."
     },
     {
       "id": "massachusetts-state-house-room-428",
@@ -1337,24 +1337,24 @@
       "name": "Sullivan Chamber, Cambridge City Hall",
       "address": "Sullivan Chamber, Cambridge City Hall",
       "neighborhood": null,
-      "lat": null,
-      "lng": null,
-      "coordinateStatus": "pending",
-      "retrievalMethod": "pending",
+      "lat": 42.3671148,
+      "lng": -71.1056283,
+      "coordinateStatus": "approximate",
+      "retrievalMethod": "nominatim",
       "sourceUrl": null,
-      "notesCa": "Sense resoldre després de 2 variants de consulta (2a passada): \"Sullivan Chamber, Boston, MA\", \"Sullivan Chamber, Cambridge, MA\". Probablement no consta a OpenStreetMap amb aquest nom (adreça d'oficina privada / nom comercial no mapat) — cal buscar l'adreça postal exacta manualment."
+      "notesCa": "Geocodificat amb Nominatim (2026-09-13, 3a passada, consulta netejada de soroll — pis/sala/nom propi): \"Cambridge City Hall, 795, Massachusetts Avenue, Mid-Cambridge, Cambridge, Middlesex County, Massachusetts, 02139, United States\" — 3.9 km del centre de Boston. Consulta neta: \"795 Massachusetts Ave, Cambridge, MA\" (adreça original de la fitxa: \"Sullivan Chamber, Cambridge City Hall, 795 Massachusetts Ave, Cambridge, MA\"). No verificat manualment portal a portal (marcat \"approximate\", no \"verified\")."
     },
     {
       "id": "microsoft-nerd",
       "name": "Microsoft NERD",
       "address": "Microsoft NERD",
       "neighborhood": null,
-      "lat": null,
-      "lng": null,
-      "coordinateStatus": "pending",
-      "retrievalMethod": "pending",
+      "lat": 42.3616283,
+      "lng": -71.081069,
+      "coordinateStatus": "approximate",
+      "retrievalMethod": "nominatim",
       "sourceUrl": null,
-      "notesCa": "Sense resoldre després de 0 variants de consulta (2a passada): . Probablement no consta a OpenStreetMap amb aquest nom (adreça d'oficina privada / nom comercial no mapat) — cal buscar l'adreça postal exacta manualment."
+      "notesCa": "Geocodificat amb Nominatim (2026-09-13, 3a passada, consulta netejada de soroll — pis/sala/nom propi): \"Microsoft New England Research & Development, 1, Memorial Drive, MIT, Cambridge, Middlesex County, Massachusetts, 02142, United States\" — 1.8 km del centre de Boston. Consulta neta: \"1 Memorial Drive, Cambridge, MA\" (adreça original de la fitxa: \"Microsoft NERD, 1 Memorial Drive, Cambridge, MA, 02142\"). No verificat manualment portal a portal (marcat \"approximate\", no \"verified\")."
     },
     {
       "id": "deloitte-boston",

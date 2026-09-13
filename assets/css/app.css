@@ -570,6 +570,10 @@ html.aiwb-text-xl { font-size: 125%; }
   color: var(--ds-color-muted);
 }
 
+.aiwb-fitxa__description p + p {
+  margin-top: var(--ds-space-3);
+}
+
 .aiwb-fitxa__actions {
   display: flex;
   gap: var(--ds-space-2);

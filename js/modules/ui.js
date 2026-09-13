@@ -331,6 +331,24 @@ function fitxaSourcesBlock(item) {
   return wrap;
 }
 
+// Text de la secció "About" raspat de la fitxa pròpia de l'esdeveniment a
+// aiweek.boston (camp `description`, no confondre amb `topic`, que la web
+// font mai va donar de manera consistent — vegeu INFORME_COBERTURA.md).
+// Es respecten els salts de paràgraf originals (separats per línia en blanc).
+function fitxaDescriptionBlock(item) {
+  const wrap = el("div", "aiwb-fitxa__description");
+  const text = item.description || item.topic;
+  if (!text) {
+    wrap.append(el("p", "ds-text ds-text--sm ds-text--muted", "Encara no hi ha una descripció d'aquest esdeveniment."));
+    return wrap;
+  }
+  text.split(/\n{2,}/).forEach((para) => {
+    const trimmed = para.trim();
+    if (trimmed) wrap.append(el("p", "ds-text", trimmed));
+  });
+  return wrap;
+}
+
 /**
  * Construeix el contingut complet de la fitxa d'un esdeveniment (bullets +
  * títol + organitzador + tema + accions + quan/on + inscripció + fonts),
@@ -403,11 +421,7 @@ export function buildFitxaCard(item, mods, { onRouteChange } = {}) {
 
   card.append(el("h1", "aiwb-fitxa__title", item.title));
   card.append(fitxaOrganizerBlock(item));
-  if (item.topic) {
-    card.append(el("p", "ds-text", item.topic));
-  } else {
-    card.append(el("p", "ds-text ds-text--sm ds-text--muted", "Encara no hi ha una descripció d'aquest esdeveniment."));
-  }
+  card.append(fitxaDescriptionBlock(item));
 
   card.append(el("hr", "aiwb-fitxa__divider"));
 

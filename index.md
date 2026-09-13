@@ -171,6 +171,9 @@ començar la recerca de dades):
   "venueCandidates": ["string"],
   "format": "Summit|Panel|Workshop|Talk|Meetup|Conference|Hackathon|DemoNight|Community|Other",
   "topic": "string|null",
+  "description": "string|null", // afegit 13/09/2026: text de la secció "About" de la
+  // fitxa individual de l'esdeveniment (no de la pàgina llistat, que no el dona) —
+  // vegeu INFORME_COBERTURA.md § Actualització 13/09/2026. Preferit a `topic` a la UI.
   "audience": "string|null",
   "cost": "free|paid|invite-only|unknown",
   "registrationRequired": true,
